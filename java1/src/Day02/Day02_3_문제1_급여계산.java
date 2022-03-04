@@ -2,7 +2,7 @@ package Day02;
 
 import java.util.Scanner;
 
-public class Day02_3{
+public class Day02_3_문제1_급여계산{
 	
 	public static void main(String[] args) {
 		

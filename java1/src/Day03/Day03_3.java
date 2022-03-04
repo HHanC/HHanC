@@ -12,20 +12,20 @@ public class Day03_3 {
 		Scanner scanner = new Scanner(System.in);
 		//문제6
 		// 점수를 입력받아 점수가 90점 이상이면 합격 아니면 불합격 출력 
-//		System.out.print(" 점수 : "); int 점수 = scanner.nextInt();
-//		if( 점수 >= 90 ) System.out.println(" 합격. ");
-//		else System.out.println(" 불합격. ");
+		System.out.print(" 점수 : "); int 점수 = scanner.nextInt();
+		if( 점수 >= 90 ) System.out.println(" 합격. ");
+		else System.out.println(" 불합격. ");
 		
 		//문제7
 		// 점수를 입력받아 점수가 90점 이상이면 A등급
 		//				점수가 80점 이상이면 B등급
 		//				점수가 70점 이상이면 C등급
 		//				그외 재시험
-//		System.out.print(" 점수 : "); int 점수2 = scanner.nextInt();
-//		if( 점수2 >= 90 )System.out.println("A등급");
-//		else if( 점수2 >=80 )System.out.println("B등급");
-//		else if( 점수2 >=70 )System.out.println("C등급");
-//		else System.out.println("재시험");
+		System.out.print(" 점수 : "); int 점수2 = scanner.nextInt();
+		if( 점수2 >= 90 )System.out.println("A등급");
+		else if( 점수2 >=80 )System.out.println("B등급");
+		else if( 점수2 >=70 )System.out.println("C등급");
+		else System.out.println("재시험");
 		
 		//문제8 로그인페이지
 		// [ 입력 ] : 아이디와 비밀번호를 입력받기

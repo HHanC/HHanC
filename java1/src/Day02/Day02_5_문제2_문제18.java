@@ -2,7 +2,7 @@ package Day02;
 
 import java.util.Scanner;
 
-public class Day02_5{
+public class Day02_5_문제2_문제18{
 	
 	public static void main(String[] args) {
 		
