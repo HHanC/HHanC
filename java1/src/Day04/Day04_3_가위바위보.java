@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Day04_3_가위바위보 { // c s
-	
+	//순서 : 입출력 -> 변수 -> 반복문 -> 제어문
 	/*
 	 * 가위바위보게임
 		1. 사용자에게 가위[0]바위[1]보[2] 종료[3] 중에  입력받기
