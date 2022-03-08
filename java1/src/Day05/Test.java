@@ -30,10 +30,10 @@ public class Test { // c s
 
 	public static void main(String[] args) { // m s
 		
-		Scanner scanner = new Scanner(System.in);
-		String[][] member = new String[100][2];
-		String[][] book = new String[100][3];
-		
+		Scanner scanner = new Scanner(System.in); // 입 출력 객체 생성
+		String[][] member = new String[100][2]; // 맴버라는 배열 행 100 열 2
+		String[][] book = new String[100][3]; // 북이라는 배열  행 100 열3 
+		// 참(=실행한다)
 		
 		while(true) { // while s
 			System.out.println("-----------------------");
@@ -47,12 +47,12 @@ public class Test { // c s
 				System.out.println(" 가입) 비밀번호 : ");
 				String pw = scanner.next();
 				
-				boolean 테클 = true;
 				
-				for(int i = 0; i < member.length; i++) {	 // 중복체크			
+				boolean 테클 = true;
+				for(int i = 0; i < member.length; i++) {  // 중복체크			
 					if( member[i][0] != null && member[i][0].equals(id)) {
 						System.out.println(" 동일한 아이디가 존재합니다. ");						
-						테클 = false;
+						테클 = false; // 거짓(=데이터를 저장하지 않는다)
 						break;
 					}
 				}
@@ -72,7 +72,19 @@ public class Test { // c s
 				String id = scanner.next();
 				System.out.println(" 비밀번호 : ");
 				String pw = scanner.next();
-			}
+				
+			
+				boolean 테클2 = false; // 
+				for(int i = 0; i < member.length; i++) {
+					if( member[i][0] != null && member[i][0].equals(id) && member[i][1].equals(pw)) {
+						System.out.println(" 로그인 성공");
+						테클2 = true;
+						break;
+					}else {
+						System.out.println(" 로그인 실패 ");
+					}
+				}
+			} 
 			
 		
 		} // while end
