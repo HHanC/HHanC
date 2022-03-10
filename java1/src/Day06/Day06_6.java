@@ -22,7 +22,7 @@ public class Day06_6 { // c s
 		
 		// 준비 [ 모든 {} 안에서 사용되는 변수 선언 ]
 		Scanner scanner = new Scanner(System.in); // 1. 입력객체
-		Board[] boardlist = new Board[100]; // * Board 객체를 100개를 저장할수 있는 1차원 배열 선언 
+		Board[] boardlist = new Board[100]; // * Board 객체 100개를 저장할수 있는 1차원 배열 선언 
 		
 		while(true) { // 프로그램 실행 무한루프 [ 종료조건 : x ]
 			System.out.println("--------- 커뮤니티 ----------");
@@ -30,7 +30,7 @@ public class Day06_6 { // c s
 			System.out.println("번호\t작성자\t제목");
 			int index = 0; // 인덱스 변수 [ 배열내 객체 수 체크 ]
 			for( Board board : boardlist ) { // 배열내 모든 객체(게시물) 출력 반복문 
-				if( board != null ) { // 만약에 해당 board 객체가 내용물이 있으면 출력
+				if( board != null ) { // 만약에 해당 board 객체가 내용물이 있으면 출력 ??  0(인덱스번호)!= null[이해]
 					System.out.printf("%d\t%s\t%s \n" , index , board.writer , board.title);
 				}
 				index++; // 인덱스 증가
@@ -76,7 +76,7 @@ public class Day06_6 { // c s
 ////////////////////////////////////////////////////////////////////////////////
 				
 				int ch2 = scanner.nextInt();
-				if( ch2 == 1 ) {}
+				if( ch2 == 1 ) {} // 위에 반복문이 없기 때문에 아무것도 작성하지 않아도 뒤로 가게 됨
 				else if( ch2 == 2 ) {
 ////////////////////////////////////////////글 삭제 ////////////////////////////////
 					System.out.println(" 알림)) 현 게시물 비밀번호 : " );  String password = scanner.next();
