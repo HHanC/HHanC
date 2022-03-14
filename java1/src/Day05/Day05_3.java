@@ -97,7 +97,7 @@ public class Day05_3 {
 				}
 				
 				// 평균점수 구하기 
-				평균점수 =  (double)총합계 / scores.length;
+				평균점수 = (double)총합계 / scores.length;
 				
 				System.out.println("최고 점수 : " + 최고점수 );
 				System.out.println("평균 점수 : " + 평균점수 );

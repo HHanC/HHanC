@@ -97,8 +97,8 @@ public class Count {
 		System.out.println(" 계좌의 비밀번호를 입력해 주세요 :");
 		String 비번 = scanner.next();
 		for(Count temp : banker) {
-			if(temp != null && temp.pw.equals(pw) ) {
-				banker[i].money = money;
+			if(temp != null && temp.pw.equals(비번) ) {
+//				banker[i].money = money;
 				System.out.println(" 접속 ");
 			}else {
 				System.out.println(" 비밀번호를 다시 입력해 주세요.");
@@ -106,6 +106,8 @@ public class Count {
 			}
 		}
 	}
+	
+
 	// 1. 이체 버튼을 클릭한다.
 	// 2. 상대방 계좌번호를 입력한다.
 	// 3. 비밀번호를 입력한다.
