@@ -1,8 +1,8 @@
-package 과제;
+package 과제.키오스크;
 
 import java.util.Scanner;
 
-public class 키오스크4 {
+public class 키오스크1 {
 
 				// 자판기 프로그램
 				// 1. 메뉴판 [ 1.콜라(300) 2.환타(200) 3.사이다(100) 4.결제 ] 
