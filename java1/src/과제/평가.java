@@ -24,11 +24,16 @@ public class 평가 {
 				// 학생 점수 출력 [모든 배열 출력]
 				
 				System.out.println("1. 학생점수 등록 2. 학생점수 삭제");
-				int 번호 = scanner.nextInt();
+				int ch = scanner.nextInt();
 				
-				if(번호 == 1) { // 학생 목록
-					System.out.println("");
-				}else if(번호 == 2) { // 학생 삭제
+				if(ch == 1) { // 학생 목록
+					System.out.println("번호 : ");
+					int 번호 = scanner.nextInt();
+					System.out.println("이름 : ");
+					String 이름 = scanner.next();
+					System.out.println("국어 : ");
+					int 
+				}else if(ch == 2) { // 학생 삭제
 					
 				}else {
 				
