@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Day04_5_로또판별기 {// cs
-	
+	// 배열 -> 출력 -> 조건 -> 입력값 -> 출력
 	/* 로또 판별기 
 		1. 사용자 6개 수 입력받기 -> 배열 저장 
 			1. 1~45 사이 수 만 입력받기 아니면 재입력

@@ -1,7 +1,6 @@
 package Day11;
 
 public class Reply {
-
 	// 1. 필드
 	private String content;
 	private String password;
@@ -11,19 +10,19 @@ public class Reply {
 		// 1. 빈생성자
 	public Reply() {}
 		// 2. 풀생성자
-	public Reply(String content, String password, String writer, String date) {super();
+	public Reply(String content, String password, String writer, String date) {
 		this.content = content;
 		this.password = password;
 		this.writer = writer;
 		this.date = date;
 	}
-		// 3. 댓글 동록시 사용되는 생성자
+		// 3. 댓글등록시 사용되는 생성자
 	public Reply(String content, String password, String writer) {
 		this.content = content;
 		this.password = password;
 		this.writer = writer;
 	}
-	// 3. 메소드
+	// 3. 메소드 
 	public String getContent() {
 		return content;
 	}
