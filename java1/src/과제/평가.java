@@ -1,8 +1,9 @@
 package 과제;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-import Day11.학생;
+import Day09.Student;
 
 public class 평가 {
 
@@ -21,7 +22,12 @@ public class 평가 {
 				System.out.println("--------------------------------------------------------------------");
 				System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균\t석차");
 				System.out.println("--------------------------------------------------------------------");
-				// 학생 점수 출력 [모든 배열 출력]
+				
+				for(int i=0; i<학생배열.length; i++) {
+					if(학생배열[i] != null) {
+						학생배열[i] = 학생;
+					}
+				}
 				
 				System.out.println("1. 학생점수 등록 2. 학생점수 삭제");
 				int ch = scanner.nextInt();
@@ -32,15 +38,26 @@ public class 평가 {
 					System.out.println("이름 : ");
 					String 이름 = scanner.next();
 					System.out.println("국어 : ");
-					int 
+					int 국어 = scanner.nextInt();
+					System.out.println("영어 : ");
+					int 영어 = scanner.nextInt();
+					System.out.println("수학 : ");
+					int 수학 = scanner.nextInt();
+					
+					학생 학생 = new 학생(번호, 이름, 국어, 영어, 수학);
+					for(int i=0; i<학생배열.length; i++) {
+						if(학생배열[i]== null) {
+							학생배열[i] = 학생;
+							break;
+						}
+					}
+					
 				}else if(ch == 2) { // 학생 삭제
 					
 				}else {
-				
+					System.out.println("알 수 없는 행동입니다.");
 				}
-			}catch(Exception e) {
-				
-			}
+			}catch(Exception e) {}
 		}
 	}
 	
