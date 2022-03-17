@@ -1,4 +1,4 @@
-package 과제;
+package 프로그램언어활용;
 
 public class 학생 {
 

@@ -8,6 +8,7 @@ public class Test {
 	public static void main(String[] args) {
 		
 		학생[] 학생배열 = new 학생[100];
+		int[] 석차 = new int[학생배열.length];
 		Scanner scanner = new Scanner(System.in);
 		while(true) {
 			try {
@@ -48,7 +49,8 @@ public class Test {
 							학생배열[i] = 학생;
 							break;
 						}						
-					}															
+					}
+					for(int j=석차; j<학생배열[i].)
 				}else if(ch == 2) {
 					
 				}else {
@@ -57,5 +59,5 @@ public class Test {
 			}catch(Exception e) {}
 		}
 	}
-	
+	=대입 ==
 }

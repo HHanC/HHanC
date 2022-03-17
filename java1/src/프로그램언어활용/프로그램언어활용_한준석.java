@@ -1,8 +1,8 @@
-package 과제;
+package 프로그램언어활용;
 
 import java.util.Scanner;
 
-public class 평가 {
+public class 프로그램언어활용_한준석 {
 
 	public static void main(String[] args) {
 		
