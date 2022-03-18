@@ -2,7 +2,7 @@ package Day05;
 
 import java.util.Scanner;
 
-public class Day05_2 {
+public class Day05_2_회원제방문록 {
 	
 	// 회원제 방문록 프로그램 [ 2차원배열 ] 
 		// 1. 초기메뉴 [ 1. 회원가입 2.로그인 ] 
@@ -85,9 +85,9 @@ public class Day05_2 {
 									if( boardlist[j][0] != null ) { // 게시물이 없는 인덱스는 제외 
 										System.out.printf("%d\t%s\t%s\t%s \n" , 
 												j , 
-												boardlist[j][2] , 
-												boardlist[j][0] , 
-												boardlist[j][1] );
+												boardlist[j][2] , // id
+												boardlist[j][0] ,  // 제목
+												boardlist[j][1] ); // 내용
 									}
 								}
 							System.out.print("1.방문록남기기 2.로그아웃 선택 : "); int ch2 = scanner.nextInt();

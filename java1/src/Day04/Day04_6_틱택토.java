@@ -33,6 +33,9 @@ public class Day04_6_∆Ω≈√≈‰ {
 				048 246
 	 */
 	
+	
+	//1 2  
+	
 	public static void main(String[] args) {
 		
 		// ¡ÿ∫Ò
