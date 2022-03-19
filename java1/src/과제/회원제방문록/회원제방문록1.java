@@ -65,22 +65,9 @@ public class 회원제방문록1 {
 						System.out.println("로그인 성공");
 						logincheck = true;
 						break;
-						
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////						
 						while(true) {
-							System.out.println("------------------------");
-							System.out.println("--------- 방문록 ---------");
-							System.out.println("번호\t작성자\t제목\t내용");
-								// 모든 방문록 출력 
-								for( int j = 0 ; j<boardlist.length ; j++  ) {
-									if( boardlist[j][0] != null ) { // 게시물이 없는 인덱스는 제외 
-										System.out.printf("%d\t%s\t%s\t%s \n" , 
-												j , 
-												boardlist[j][2] , // id
-												boardlist[j][0] ,  // 제목
-												boardlist[j][1] ); // 내용
-									}
-								}
-								
+							
 							System.out.print("1. 방문록남기기 2. 로그아웃 선택 : "); int ch2 = scanner.nextInt();
 							
 							if(ch2 == 1) {
@@ -103,7 +90,8 @@ public class 회원제방문록1 {
 								break;
 							}else {
 								System.out.println("알 수 없는 행동입니다.");
-							}							
+							}			
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 						}						
 					}
 				}
