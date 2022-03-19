@@ -95,7 +95,7 @@ public class Day05_2_회원제방문록 {
 							if( ch2 == 1 ) {
 								System.out.println("-------------- 글쓰기 -------------");
 								System.out.print(" title : ");		String title = scanner.next(); // 제목 
-								System.out.print(" content : ");	String content = scanner.next(); // 네용 
+								System.out.print(" content : ");	String content = scanner.next(); // 내용 
 								// 저장 
 								for( int j = 0 ; j<boardlist.length ; j++ ) {
 									if( boardlist[j][0] == null  ) { // 배열내 j번째 인덱스 게시물이 공백이면
