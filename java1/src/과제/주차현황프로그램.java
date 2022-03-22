@@ -37,6 +37,7 @@ public class 주차현황프로그램 {
 		
 		while(true) {
 			SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			SimpleDateFormat format2 = new SimpleDateFormat("HH:mm");
 			Date time = new Date();			
 			String time1 = format1.format(time);
 			Scanner scanner = new Scanner(System.in);
