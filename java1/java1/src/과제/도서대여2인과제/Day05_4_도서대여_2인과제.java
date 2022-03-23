@@ -1,4 +1,4 @@
-package Day05;
+package 과제.도서대여2인과제;
 
 import java.util.Scanner;
 import java.util.stream.DoubleStream.DoubleMapMultiConsumer;
