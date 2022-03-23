@@ -59,7 +59,7 @@ public class Day07_5_BookApplication {
 				else 
 					System.err.println(" 알림]] 회원가입 실패");
 				
-			} 
+			}
 			else if( ch ==2 ) {
 				String result = member.로그인(); // 로그인 메소드 호출 
 				
