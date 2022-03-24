@@ -37,8 +37,10 @@ public class Day05_4_도서대여_2인과제 { // c s
 	// 6. 도서목록시 모든 도서명 출력 v..?
 	// 7. 도서삭제시 삭제할 도서명을 입력받아 동일한 도서명 삭제[ null ] v
 	// 8. 로그인시 회원의 메뉴 출력 v
-	// 9. 도서검색시 도서명이 일치하면 도서명과 도서대여여부 출력, 일단 여기까지
-
+	// 9. 도서검색시 도서명이 일치하면 도서명과 도서대여여부 출력, 일단 여기까지 v
+	// 10. 도서목록시 모든 도서명 출력  ?
+	// 11. 도서대여시 도서대여여부가 가능할때 도서대여 처리 ?
+	// 12. 도서반납시 본인이 대여한 도서만 반납 처리
 	public static void main(String[] args) { // m s
 		Scanner scanner = new Scanner(System.in); // 스캐너 객체 생성
 		String[][] member = new String[100][2]; // member 2차원 배열 생성
@@ -97,6 +99,7 @@ public class Day05_4_도서대여_2인과제 { // c s
 						int ch2 = scanner.nextInt(); // 스캐너 객체 생성
 
 						if (ch2 == 1) { // 1번 도서등록
+							System.out.println("----------------------도서등록----------------------");
 							System.out.println("도서명 : "); // 도서명 입력
 							String 도서명 = scanner.next(); // 스캐너 객체 생성
 							for (int j = 0; j < book.length; j++) { // 배열을 돌려서
@@ -106,13 +109,14 @@ public class Day05_4_도서대여_2인과제 { // c s
 								}
 							}
 						} else if (ch2 == 2) { // 2번 도서목록
+							System.out.println("----------------------도서목록----------------------");
 							for (int j = 0; j < book.length; j++) { // 배열을 돌려서
 								if (book[j][0] != null) { // book의 j번째 인덱스가 null이 아니라면
 									System.out.println(book[j][0]); // j번째 인덱스안에 저장된 데이터 출력
 								}
 							}
 						} else if (ch2 == 3) { // 3번 도서삭제
-
+							System.out.println("----------------------도서삭제----------------------");
 							System.out.println("삭제할 도서명 : "); // 삭제할 도서명 출력
 							String 도서삭제 = scanner.next(); // 객체 생성
 
@@ -122,7 +126,9 @@ public class Day05_4_도서대여_2인과제 { // c s
 									break; // break를 통해서 반복문 탈출
 								}
 							}
-						} else if (ch2 == 4) { // 4번 로그아웃
+						}
+						
+						else if (ch2 == 4) { // 4번 로그아웃
 							System.out.println("로그아웃 되었습니다."); // 로그아웃 출력
 							break; // break를 통생서 else if탈출
 						} else { // 1~4번 외에 다른 번호 선택했을시
@@ -130,45 +136,98 @@ public class Day05_4_도서대여_2인과제 { // c s
 						}
 					} // w e
 				} // if e
-				for (int i = 0; i < member.length; i++) { // f s // 배열을 돌려서
-					if (member[i][0] != null && member[i][0].equals(id) && member[i][1].equals(pw)) { // member의 i번째 인덱스 값이 null이 아니고 id와 pw가 동일하다면
-						System.out.println("로그인 성공"); // 로그인 성공
+				
+				
+				
+				if (!id.equals("admin")) { // i s // 입력값을 준 id가 admin과 같다면
+					logincheck = true;
+					for (int i = 0; i < member.length; i++) { // f s // 배열을 돌려서
+						if (member[i][0] != null && member[i][0].equals(id) && member[i][1].equals(pw)) { // member의 i번째 인덱스 값이 null이 아니고 id와 pw가 동일하다면
+							System.out.println("로그인 성공"); // 로그인 성공
 
-						while(true) { // w s // 반복문 생성
-							
-							System.out.print("1. 도서검색 2. 도서목록 3. 도서대여 4. 도서반납 5. 로그아웃 선택 : "); int ch3 = scanner.nextInt();
-							
-							if(ch3 == 1) {
+							while(true) { // w s // 반복문 생성
 								
-								System.out.println("도서명 : "); String 도서검색 = scanner.next();
-															
-							}else if(ch3 == 2) {
+								System.out.print("1. 도서검색 2. 도서목록 3. 도서대여 4. 도서반납 5. 로그아웃 선택 : "); int ch3 = scanner.nextInt();
 								
-							}else if(ch3 == 3) {
+								if(ch3 == 1) {
+									System.out.println("----------------------도서검색----------------------");
+									System.out.println("도서명 : "); String 도서검색 = scanner.next();
+									System.out.println("번호\t도서명\t도서대여여부\t대여인");
+									for(int j=0; j<book.length; j++) {								
+										if(book[j][0] != null && book[j][0].equals(도서검색)) {												
+											book[j][2] = id;
+											System.out.println(j +"\t"+book[j][0] +"\t"+ book[j][1] +"\t\t"+ book[j][2]);
+										}									
+									}								
+								}else if(ch3 == 2) {							
+									System.out.println("----------------------도서목록----------------------");
+									System.out.println("번호\t도서명\t도서대여여부\t대여인");
+									for(int j=0; j<book.length; j++) {
+										if(book[j][0] != null) {
+											book[j][2] = id;
+											System.out.println(j +"\t"+book[j][0] +"\t"+ book[j][1] +"\t\t"+ book[j][2]);
+										}
+									}																
+								}else if(ch3 == 3) {
+									System.out.println("----------------------도서대여----------------------");
+									System.out.println("대여할 도서명 : "); String 도서대여 = scanner.next();
+									System.out.println("번호\t도서명\t도서대여여부\t대여인");
+									for(int j=0; j<book.length; j++) {
+										if(book[j][0] != null && book[j][0].equals(도서대여)) {
+											if(book[j][1] == null) {
+												System.out.println("도서를 대여하시겠습니까? yes , no"); String 선택 = scanner.next();
+												if(선택.equals("yes")) {
+													book[j][1] = "대여중";
+													book[j][2] = id;
+												}else {
+													if(선택.equals("no")) {
+														System.out.println("대여 취소");
+													}
+												}
+											}
+										}																																																						
+									}
+										
+								}else if(ch3 == 4) { // 도서반납시 본인이 대여한 도서만 반납 처리 
+									System.out.println("----------------------도서반납----------------------");
+									Boolean 통과 = false;
+									System.out.println("반납할 도서명 : "); String 반납도서 = scanner.next();
+									for(int j=0; j<book.length; j++) {
+										if(book[j][0] != null && book[j][0].equals(반납도서)) {
+											System.out.println("도서를 반납하였습니다.");
+											통과 = true;
+											break;
+										}
+										if(통과) {
+											System.out.println("관리자에게 문의해주세요");
+										}
+									}
+									
+								}else if(ch3 == 5) {
+									System.out.println("로그아웃 되었습니다.");
+									break;
+								}else {
+									System.out.println("알 수 없는 번호입니다. [재입력]");
+								}
 								
-							}else if(ch3 == 4) {
-								
-							}else if(ch3 == 5) {
-								System.out.println("로그아웃 되었습니다.");
-								break;
-							}else {
-								System.out.println("알 수 없는 번호입니다. [재입력]");
-							}
-							
-						} // w e
+							} // w e
+				}
+				
+				
 						
 						
-					} else {
+					} if(!logincheck) {
 						System.out.println("로그인 실패");
 						break;
 					}
 				} // f e
+
 			} else {
 				System.out.println("알 수 없는 번호입니다. [재입력]");
 			}
-
+			
 		} // w e
-
+		
 	} // m e
 
 } // c e
