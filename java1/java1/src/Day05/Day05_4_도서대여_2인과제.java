@@ -147,7 +147,7 @@ public class Day05_4_도서대여_2인과제 { // c s
 
 							while(true) { // w s // 반복문 생성
 								
-								System.out.print("1. 도서검색 2. 도서목록 3. 도서대여 4. 도서반납 5. 로그아웃 선택 : "); int ch3 = scanner.nextInt();
+								System.out.print("1. 도서검색 2. 도서목록 3. 도서대여 4. 도서반납 5. 로그아웃 선택 : "); int ch3 = scanner.nextInt(); // 스캐너 객체 생성
 								
 								if(ch3 == 1) {
 									System.out.println("----------------------도서검색----------------------");
@@ -190,17 +190,18 @@ public class Day05_4_도서대여_2인과제 { // c s
 										
 								}else if(ch3 == 4) { // 도서반납시 본인이 대여한 도서만 반납 처리 
 									System.out.println("----------------------도서반납----------------------");
-									Boolean 통과 = false;
 									System.out.println("반납할 도서명 : "); String 반납도서 = scanner.next();
 									for(int j=0; j<book.length; j++) {
 										if(book[j][0] != null && book[j][0].equals(반납도서)) {
+											book[j][1] = null;
+											book[j][2] = null;
 											System.out.println("도서를 반납하였습니다.");
-											통과 = true;
+											break;
+										}else if(book[j][1] == null){
+											System.out.println("대여하지 않았습니다.");
 											break;
 										}
-										if(통과) {
-											System.out.println("관리자에게 문의해주세요");
-										}
+										
 									}
 									
 								}else if(ch3 == 5) {
