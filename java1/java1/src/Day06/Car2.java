@@ -5,7 +5,8 @@ public class Car2 {
 		// * 클래스 이름은 중복x
 	
 	// 1. 필드 [ 데이터가 저장되는 곳 ]
-	
+	String color;
+	int cc;
 	// 2. 생성자 [ 객체 생성시 초기화 ]
 		// 조건1 : 클래스이름 == 생성자이름
 		// 조건2 : 외부로 들어오는 매개값[ =인수 ]
@@ -18,6 +19,8 @@ public class Car2 {
 	Car2( String color, int cc ){
 		
 	}
+	
+	
 	
 	// 3. 메소드
 	

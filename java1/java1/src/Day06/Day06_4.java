@@ -12,6 +12,8 @@ public class Day06_4 {
 				// new 생성자명 ( 인수1, 인수2 )
 					// 검정 -> color 변수 저장
 					// 3000 -> cc변수 저장
+		
+		System.out.printf("%s\t%d", myCar.color, myCar.cc);
 	}
 	
 }
