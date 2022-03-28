@@ -4,67 +4,26 @@ import java.util.Scanner;
 
 public class 회원제도서프로그램 {
 
-	static Scanner scanner = new Scanner(System.in);
-	static Member[] members = new Member[1000];
+	// * 도서 대여 console 프로그램[ 클래스버전 ]
+			// 1. 클래스 설계 
+				// 1. book
+					// 필드 : ISBN(도서번호) , 도서명 , 작가 , 도서대여여부 , 대여회원
+					// 메소드 : 1.도서검색 2.도서목록 3.도서대여 4.도서반납 5.도서등록 6.도서삭제
+				// 2. member
+					// 필드 : 번호,아이디,비밀번호,이름,연락처
+					// 메소드 : 1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기
+			// 2. 화면 설계 
+				// 1. 초기 메뉴 [ 1.회원가입 , 2.로그인 , 3.아이디찾기 , 4.비밀번호찾기  ]
+				// 2. 일반회원메뉴 [ 1.도서검색 2.도서목록 3.도서대여 4.도서반납 5.로그아웃 ]
+				// 3. 관리자메뉴  [ 1.도서등록 2.도서목록 3.도서삭제 4.순위(도전) 5.로그아웃
+	
+	static Scanner scanner = new Scanner(System.in); // static 메소드를 사용하여 다른 패키지에서도 사용할 수 있도록한다.
+	static Member[] members = new Member[1000]; // static 메소드를 사용하여 다른 패키지에서도 사용할 수 있도록한다.
+	static Book[] books = new Book[1000]; // static 메소드를 사용하여 다른 패키지에서도 사용할 수 있도록한다.
 	
 	
-	void menu() {
-		while(true) {
-			System.out.println("-----------도서대여 프로그램------------");
-			System.out.print("1. 회원가입 2. 로그인 3. 아이디찾기 4. 비밀번호찾기 선택 : "); int ch = scanner.nextInt();
-			
-			if(ch == 1) {
-				
-			}else if(ch == 2) {
-				
-			}else if(ch == 3) {
-				
-			}else if(ch == 4) {
-				
-			}else {
-				
-			}
-		}
-	}
-	void membermenu() {
-		while(true) {
-			System.out.println("--------------회원 메뉴-------------");
-			System.out.print("1. 도서검색 2. 도서목록 3. 도서대여 4. 도서대여 5. 로그아웃 선택 : "); int ch = scanner.nextInt();
-			
-			if(ch == 1) {
-				
-			}else if(ch == 2) {
-				
-			}else if(ch == 3) {
-				
-			}else if(ch == 4) {
-				
-			}else if(ch == 5) {
-				
-			}else {
-				
-			}			
-		}
-	}
-	void adminmenu() {
-		System.out.println("-------------관리자 메뉴-------------");
-		System.out.print("1. 도서등록 2. 도서목록 3. 도서삭제 4. 로그아웃 선택 : "); int ch = scanner.nextInt();
-		
-		if(ch == 1) {
-			
-		}else if(ch == 2) {
-			
-		}else if(ch == 3) {
-			
-		}else if(ch == 4) {
-			
-		}else {
-			
-		}
-		
-	}
 	
-}
+} 
 
 
 
