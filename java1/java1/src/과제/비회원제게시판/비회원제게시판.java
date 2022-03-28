@@ -73,7 +73,7 @@ public class 비회원제게시판 {
 						System.out.println("게시물이 삭제되었습니다."); // 게시물이 삭제되었습니다 를 출력하고
 						boardlist[bno] = null; // 해당 게시물번호를 null로 변경해 준다.
 						
-						for(int i = 0; i<boardlist.length; i++) {
+						for(int i = bno; i<boardlist.length; i++) {
 							if(i == boardlist.length -1) { // i의 인덱스 번호가 boardlist 의 길이-1과 같다면 ( 예) 0(인덱스번호) 1(배열의 길이)-1 = 0)
 								boardlist[boardlist.length-1] = null; // boardlist의 길이-1 을 null로 변경해준다.
 							}else {
