@@ -50,6 +50,8 @@ public class Member {
 					}
 					else { // 첫번째 회원이 아니면 
 						bno = Day07_5_BookApplication.members[ j-1 ].mno + 1 ; // null 앞 [ 마지막회원 ]번호에 +1
+						// 1 2 3
+						// 0 1 2
 						break; // 끝내기 
 					}
 				}
