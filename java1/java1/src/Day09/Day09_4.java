@@ -19,7 +19,7 @@ public class Day09_4 {
 		//1. 서브클래스로 객체 생성
 		Computer computer = new Computer();
 		//2. 서브클래스로 만든 객체로 메소드 호출 
-		System.out.println("원면적 : "+ computer.areaCircle(r));
+		System.out.println("원면적 : "+computer.areaCircle(r));
 		// * 슈퍼클래스와 서브클래스내 메소드는 다르다.
 		
 		

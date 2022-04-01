@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -22,8 +21,8 @@ public class Login implements Initializable {
 			// this : 현재클래스의 메모리 [ 새로운 메모리할당 X ]
 	public Login() { instance = this; }
 	
-	@FXML
-	private MediaView mediaview;// fxid
+    @FXML
+    private MediaView mediaview;
 	
 	@FXML
 	private BorderPane borderpane; //fxid
