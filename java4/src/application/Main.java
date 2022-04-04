@@ -20,7 +20,9 @@ public class Main extends Application {
 			// 2. 컨트롤 만든기
 			Button button = new Button();
 			button.setText("닫기");
-			button.setOnAction(e -> Platform.exit()); // exit 창닫기 // 람다식?
+			button.setOnAction( e -> Platform.exit()); // exit 창닫기 // 람다식?익명함수    인수 -> 실행코드
+			//
+			
 		// 3. 컨테이너에 컨트롤 넣기
 		컨테이너.getChildren().add(button);
 		// 4. 씬 만들기
