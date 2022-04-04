@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Day22.DBí…ŒìŠ¤íŠ¸ì»¨íŠ¸ë¡¤ëŸ¬">
+<AnchorPane fx:controller="application.Day22.DBÅ×½ºÆ®ÄÁÆ®·Ñ·¯" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="60.0" layoutY="24.0" prefHeight="58.0" prefWidth="235.0" text="ë°ì´í„°ë² ì´ìŠ¤ í…ŒìŠ¤íŠ¸">
+      <Label layoutX="36.0" layoutY="39.0" prefHeight="42.0" prefWidth="253.0" text="µ¥ÀÌÅÍº£ÀÌ½º Å×½ºÆ®">
          <font>
-            <Font size="24.0" />
+            <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="txtwriter" layoutX="60.0" layoutY="105.0" prefHeight="58.0" prefWidth="235.0" promptText="ìž‘ì„±ìž" />
-      <TextField fx:id="txtcontent" layoutX="60.0" layoutY="171.0" prefHeight="58.0" prefWidth="235.0" promptText="ë‚´ìš©" />
-      <Button fx:id="btnget" layoutX="350.0" layoutY="33.0" mnemonicParsing="false" onAction="#get" prefHeight="40.0" prefWidth="200.0" text="DBí˜¸ì¶œ" />
-      <Button fx:id="btnwrite" layoutX="60.0" layoutY="259.0" mnemonicParsing="false" onAction="#write" prefHeight="58.0" prefWidth="235.0" text="DBë“±ë¡" />
-      <TextArea fx:id="txtcontentlist" layoutX="350.0" layoutY="100.0" prefHeight="219.0" prefWidth="200.0" />
+      <TextField fx:id="txtwriter" layoutX="42.0" layoutY="127.0" prefHeight="42.0" prefWidth="261.0" promptText="ÀÛ¼ºÀÚ" />
+      <TextField fx:id="txtcontent" layoutX="42.0" layoutY="187.0" prefHeight="42.0" prefWidth="261.0" promptText="³»¿ë" />
+      <Button fx:id="btnget" layoutX="368.0" layoutY="39.0" mnemonicParsing="false" onAction="#get" prefHeight="42.0" prefWidth="278.0" text="DB È£Ãâ" />
+      <Button fx:id="btnwrite" layoutX="42.0" layoutY="256.0" mnemonicParsing="false" onAction="#write" prefHeight="42.0" prefWidth="261.0" text="DB µî·Ï" />
+      <TextArea fx:id="txtcontentlist" layoutX="368.0" layoutY="90.0" prefHeight="236.0" prefWidth="278.0" />
    </children>
 </AnchorPane>

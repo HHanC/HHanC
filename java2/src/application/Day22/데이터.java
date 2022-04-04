@@ -1,12 +1,14 @@
 package application.Day22;
 
 public class 데이터 {
-
+	
 	private int 번호;
 	private String 작성자;
 	private String 내용;
 	
-	public 데이터() {}
+	public 데이터() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public 데이터(int 번호, String 작성자, String 내용) {
 		super();
@@ -37,8 +39,9 @@ public class 데이터 {
 
 	public void set내용(String 내용) {
 		this.내용 = 내용;
-	}		
+	}
 	
 	
 	
+
 }

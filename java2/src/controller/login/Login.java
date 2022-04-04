@@ -3,17 +3,18 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dto.Member;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 public class Login implements Initializable {
-	
 	// * 현재 클래스의 메모리를 반환하는 방법
 		// 1. 현재 클래스로 객체 선언 
 	public static Login instance ;
@@ -21,8 +22,11 @@ public class Login implements Initializable {
 			// this : 현재클래스의 메모리 [ 새로운 메모리할당 X ]
 	public Login() { instance = this; }
 	
-    @FXML
-    private MediaView mediaview;
+	// * 로그인 성공한 회원객체 [ static 사용하는이유 : 다른 클래스에서 호출하기 위해 ] 
+	public static Member member;
+	
+	@FXML
+	private MediaView mediaview;// fxid
 	
 	@FXML
 	private BorderPane borderpane; //fxid
