@@ -48,8 +48,10 @@ public class Loginpane implements Initializable {
     @FXML
     void accsignup(ActionEvent event) {
     	System.out.println("회원가입 페이지로 이동");
-    	Login login = new Login();
     	Login.instance.loadpage("/view/signuppane.fxml"); 
+    	
+    	
+    	
     }
 
     @FXML
