@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.board.Boardwrite">
+   <children>
+      <Label layoutX="25.0" layoutY="20.0" text="자유게시판" />
+      <Line endX="100.0" layoutX="115.0" layoutY="42.0" startX="-100.0" />
+      <Button fx:id="btnwrite" layoutX="44.0" layoutY="499.0" mnemonicParsing="false" onAction="#write" prefHeight="33.0" prefWidth="712.0" text="글 작성" />
+      <TextField fx:id="txttitle" layoutX="44.0" layoutY="90.0" prefHeight="84.0" prefWidth="712.0" promptText="짧은글" />
+      <Label layoutX="43.0" layoutY="68.0" text="제목" />
+      <TextArea fx:id="txtcontent" layoutX="44.0" layoutY="200.0" prefHeight="288.0" prefWidth="712.0" promptText="긴글" />
+      <Button fx:id="btnback" layoutX="623.0" layoutY="42.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="133.0" text="목록보기" />
+      <Label layoutX="43.0" layoutY="185.0" text="내용" />
+   </children>
+</AnchorPane>
