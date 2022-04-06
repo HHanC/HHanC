@@ -8,31 +8,53 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.board.Boardview">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="950.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.board.Boardview">
    <children>
-      <Label layoutX="25.0" layoutY="20.0" text="자유게시판" />
-      <Line endX="100.0" layoutX="115.0" layoutY="42.0" startX="-100.0" />
-      <TextField fx:id="txttitle" layoutX="44.0" layoutY="98.0" prefHeight="76.0" prefWidth="712.0" promptText="짧은글" />
-      <Label layoutX="44.0" layoutY="78.0" text="제목" />
-      <TextArea fx:id="txtcontent" layoutX="45.0" layoutY="195.0" prefHeight="108.0" prefWidth="712.0" promptText="긴글" />
-      <Button fx:id="btnback" layoutX="623.0" layoutY="42.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="133.0" text="목록보기" />
-      <Label layoutX="44.0" layoutY="174.0" text="내용" />
-      <Button fx:id="btnupdate" layoutX="341.0" layoutY="42.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="133.0" text="수정" />
-      <Button fx:id="btndelete" layoutX="482.0" layoutY="42.0" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="133.0" text="삭제" />
-      <TextArea fx:id="txtrecontent" layoutX="45.0" layoutY="322.0" prefHeight="76.0" prefWidth="481.0" promptText="댓글" />
-      <Label layoutX="44.0" layoutY="303.0" text="댓글" />
-      <Button fx:id="btnrewrite" layoutX="557.0" layoutY="322.0" mnemonicParsing="false" onAction="#rewrite" prefHeight="76.0" prefWidth="201.0" text="댓글작성" />
-      <TableView fx:id="replytable" layoutX="45.0" layoutY="404.0" prefHeight="124.0" prefWidth="712.0">
+      <Label layoutX="42.0" layoutY="29.0" prefHeight="63.0" prefWidth="224.0" text="자유게시판">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Line endX="172.0" layoutX="143.0" layoutY="92.0" startX="-100.0" stroke="#0873ff" strokeWidth="5.0" />
+      <Button fx:id="btnrewrite" layoutX="805.0" layoutY="499.0" mnemonicParsing="false" onAction="#rewrite" prefHeight="48.0" prefWidth="110.0" style="-fx-background-color: #0873ff;" text="댓글작성" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txttitle" layoutX="42.0" layoutY="218.0" prefHeight="48.0" prefWidth="875.0" />
+      <Label layoutX="45.0" layoutY="195.0" prefHeight="20.0" prefWidth="55.0" text="제목" />
+      <TextArea fx:id="txtcontent" layoutX="42.0" layoutY="286.0" prefHeight="175.0" prefWidth="875.0" />
+      <Label layoutX="45.0" layoutY="266.0" prefHeight="20.0" prefWidth="55.0" text="내용" />
+      <Button fx:id="btnback" layoutX="807.0" layoutY="140.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: #0873ff;" text="목록보기" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btndelete" layoutX="684.0" layoutY="140.0" mnemonicParsing="false" onAction="#delete" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: #0873ff;" text="삭제" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnupdate" layoutX="558.0" layoutY="140.0" mnemonicParsing="false" onAction="#update" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: #0873ff;" text="수정" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblwrite" layoutX="539.0" layoutY="187.0" prefHeight="20.0" prefWidth="133.0" text="작성자 : qweqweqweq" />
+      <Label fx:id="lbldate" layoutX="673.0" layoutY="187.0" prefHeight="20.0" prefWidth="133.0" text="작성일 : 2022-04-05" />
+      <Label fx:id="lblview" layoutX="807.0" layoutY="187.0" prefHeight="20.0" prefWidth="110.0" text="조회수 : 100" />
+      <TextArea fx:id="txtrecontent" layoutX="40.0" layoutY="499.0" prefHeight="48.0" prefWidth="758.0" />
+      <Label layoutX="45.0" layoutY="479.0" prefHeight="20.0" prefWidth="55.0" text="댓글" />
+      <Line endX="771.0" layoutX="143.0" layoutY="471.0" startX="-100.0" stroke="#0873ff" strokeWidth="3.0" />
+      <TableView fx:id="replytable" layoutX="41.0" layoutY="549.0" prefHeight="158.0" prefWidth="875.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="번호" />
-          <TableColumn prefWidth="75.0" text="작성자" />
-            <TableColumn prefWidth="75.0" text="작성일" />
-            <TableColumn prefWidth="486.0" text="내용" />
+          <TableColumn minWidth="0.0" prefWidth="0.0" text="번호" />
+          <TableColumn prefWidth="143.0" text="작성자" />
+            <TableColumn prefWidth="127.0" text="작성일" />
+            <TableColumn prefWidth="603.0" text="내용" />
         </columns>
       </TableView>
-      <Label fx:id="lblview" layoutX="623.0" layoutY="78.0" text="조회수" />
-      <Label fx:id="lbldate" layoutX="482.0" layoutY="78.0" text="작성일" />
-      <Label fx:id="lblwrite" layoutX="341.0" layoutY="78.0" text="작성자" />
    </children>
 </AnchorPane>

@@ -9,10 +9,7 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
-	
-	
-	
-	
+
 	@Override
 	public void start(Stage stage) throws Exception {
 		

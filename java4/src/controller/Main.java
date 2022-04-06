@@ -17,7 +17,7 @@ public class Main implements Initializable {
 	
 	@Override // 초기값 메소드 정의
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		loadpage("/view/login"); // 흐름이 헷갈림
+		loadpage("/view/login/login"); // 흐름이 헷갈림
 	}
 	
 	public void loadpage(String page) { // page = "/view/login" 
