@@ -61,6 +61,11 @@ public class Signuppane implements Initializable {
     	
     	// 유효성검사
     		// 1. id 중복 체크
+    	boolean result2 = MemberDao.memberDao.idcheck(id);
+    	if(result2) {
+    		lblconfirm.setText("사용중인 아이디 입니다.");
+    		return;
+    	}
     		// 2. id 길이 체크
     	if(id.length() < 4 || id.length() > 10) {
     		lblconfirm.setText("4~10 사이로 입력해주세요.");
@@ -82,7 +87,7 @@ public class Signuppane implements Initializable {
     		return;
     	}
     		// 6. 주소체크
-    	if(address.contains("시") && address.contains("구") && address.contains("동")) {
+    	if(!(address.contains("시") && address.contains("구") && address.contains("동"))) {
     		lblconfirm.setText("시, 구, 동 포함!!");
     		return;
     	}
@@ -93,16 +98,19 @@ public class Signuppane implements Initializable {
     	boolean result = MemberDao.memberDao.signup(member);
     	
     	if(result) {
-    		System.out.println("가입성공");
+    		// 1. 메시지창 출력
+    		// 2. 화면 전환
+    		Login.instance.loadpage("/view/loginpane.fxml");
     	}else {
-    		System.out.println("가입실패");
+    		lblconfirm.setText("DB오류");
+    		return;
     	}
     	
     }
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		lblconfirm.setText(""); // 처음 실행시 문구 없애기
 	}
 	
 }
