@@ -10,7 +10,7 @@ import dto.Member;
 public class MemberDao { // DB
 
 	private Connection con; // DB연동시 사용되는 클래스
-	private PreparedStatement ps; // 연결된 DB내 SQL 조작 할떄 사용되는 인터페이스 : DB조작
+	private PreparedStatement ps; // 연결된 DB내 SQL 조작 할때 사용되는 인터페이스 : DB조작
 	private ResultSet rs; // 결과물을 조작하는 인터페이스
 	
 	public static MemberDao memberDao = new MemberDao(); // DB연동객체
@@ -88,9 +88,42 @@ public class MemberDao { // DB
 		return false; // 아이디와 비밀번호가 동일하지 않으면 실패
 	}
 		// 3. 아이디찾기 메소드(인수 : 아이디찾기 시 필요한 이메일)
-	public String finid(String email) {return null;}
+	public String finid(String email) {
+		try {
+			// 1. sql 작성
+			String sql = "select * from member where memail=?";
+			// 2. sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			// 3. sql 실행
+			rs = ps.executeQuery(); // select 실행문 -> rs
+			// 4. sql 결과
+			if(rs.next()) { // 실행 결과의 다음이 존재하면
+				return rs.getString(2); // 필드 번호
+//					return rs.getString(가져올 필드 순서 번호)
+			}
+			
+		}catch (Exception e) {System.out.println("sql오류" + e);}
+		return null;
+	}
 		// 4. 비밀번호찾기 메소드(인수 : 비밀번호 찾기 시 필요한 아이디 이메일)
-	public String findpassword(String id, String email) {return null;}
+	public String findpassword(String id, String email) {
+		try {
+			// 1. sql 작성
+			String sql = "select * from member where mid=? and memail=?";
+			// 2. sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, email);
+			// 3. sql 실행
+			rs = ps.executeQuery();
+			// 4. sql 결과
+			if(rs.next()) {
+				return rs.getString(3); // 패스워드는 db테이블내 3번째 필드 이므로 3
+			}
+		}catch (Exception e) {System.out.println("sql오류" + e);}
+		return null;
+	}
 }
 
 
