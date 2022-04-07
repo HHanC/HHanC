@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -26,5 +27,11 @@
             <VBox fx:id="vbox" prefHeight="546.0" prefWidth="869.0" style="-fx-background-color: #ffffff;" />
          </content>
       </ScrollPane>
+      <TextField fx:id="txtserch" layoutX="544.0" layoutY="104.0" onAction="#serch" prefHeight="38.0" prefWidth="237.0" promptText="제품명" />
+      <Button fx:id="btnserch" layoutX="794.0" layoutY="104.0" mnemonicParsing="false" onAction="#serch" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #0873ff;" text="검색" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

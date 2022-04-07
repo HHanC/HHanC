@@ -42,11 +42,22 @@ public class ProductDao {
 		return false;
 	}
 	// 2. 모든 제품 출력 [ tableview 사용x -> arraylist 사용o ] 
-	public ArrayList<Product> list(){
+	public ArrayList<Product> list(String category, String serch){
 		ArrayList<Product> productlist = new ArrayList<>(); // 리스트 선언 	
 		try {
-			String sql = "select * from product order by pnum desc";	// SQL 작성
+			String sql = null;
+			if(serch == null) { // 검색이 없을 경우
+				sql = "select * from product where pcategory = ? order by pnum desc";	// SQL 작성
+				ps = con.prepareStatement(sql); // sql연결
+				ps.setString(1, category);
+			}else { // 검색이 있을 경우										// 필드명 = 값 [= 비교 연산자] // 필드명 like '%"값"%'
+				sql = "select * from product where pcategory = ? and pname like '%"+serch+"%' order by pnum desc";	// SQL 작성
+				ps = con.prepareStatement(sql); // sql 연결
+				ps.setString(1, category);
+				// ps.setString(2, serch);  sql 문자열에 ? 대신에 직접 변수를 넣기기 때문에 생략
+			}
 			ps = con.prepareStatement(sql);			// SQL 연결 
+			ps.setString(1, category);
 			rs = ps.executeQuery();					// SQL 실행  
 			while( rs.next() ) {					// SQL 결과[ 레코드 단위 ]
 				Product product = new Product(  	// 해당 레코드를 객체화
@@ -96,6 +107,33 @@ public class ProductDao {
 		return false;
 		
 	}
+	// 상태변경
+	public boolean activation(int pnum) {
+		try {
+			// 현재 제품의 상태
+			String sql = "select pactivation from product where pnum=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, pnum);
+			rs = ps.executeQuery();
+			if(rs.next()) { // 검색 결과가 존재하면 다음 레토드 가져오기
+				String upsql = null;
+				if(rs.getInt(1) == 1) { // 현재 제품의 상태가 
+					upsql = "update product set pactivation=2 where pnum=?";
+				}else if(rs.getInt(1) == 2) {
+					upsql = "update product set pactivation=3 where pnum=?";
+				}else if(rs.getInt(1) == 3) {
+					upsql = "update product set pactivation=1 where pnum=?";
+				}
+				
+				ps = con.prepareStatement(upsql);
+				ps.setInt(1, pnum);
+				ps.executeUpdate(); // sql 실행
+				return true;				
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
 	
 	
 }

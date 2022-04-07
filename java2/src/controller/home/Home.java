@@ -44,14 +44,50 @@ public class Home implements Initializable {
 	@FXML
 	private Label lblboard; // fxid가져오기
 	@FXML
-	private Label lblproduct; // fxid가져오기
+	private Label lblproduct1; // fxid가져오기
+	
+	@FXML
+	private Label lblproduct2; // fxid가져오기
+	
+	@FXML
+	private Label lblproduct3; // fxid가져오기
+	
+	@FXML
+	private Label lblproduct4; // fxid가져오기
 	
 	@FXML
 	private BorderPane borderpane;
 	
-	@FXML// 자유게시 레이블을 클릭했을때 이벤트
-	public void accproduct( MouseEvent e ) { loadpage("/view/product/product.fxml"); }
+	public static String category;
 	
+	@FXML// 남성의류 레이블을 클릭했을때 이벤트
+	public void accproduct1( MouseEvent e ) { 
+		category="남성의류";
+		loadpage("/view/product/product.fxml"); 
+	
+	} 
+	
+	@FXML// 여성의루 레이블을 클릭했을때 이벤트
+	public void accproduct2( MouseEvent e ) {
+		category="여성의류";
+		loadpage("/view/product/product.fxml"); 
+	
+	} 
+	
+	@FXML// 게임기기 레이블을 클릭했을때 이벤트
+	public void accproduct3( MouseEvent e ) { 
+		category="게임기기";
+		loadpage("/view/product/product.fxml");
+	
+	} 
+	
+	@FXML// 생활용품 레이블을 클릭했을때 이벤트
+	public void accproduct4( MouseEvent e ) { 
+		category="생활용품";
+		loadpage("/view/product/product.fxml"); 
+	
+	} 
+
 	@FXML// 자유게시 레이블을 클릭했을때 이벤트
 	public void accboard( MouseEvent e ) { loadpage("/view/board/board.fxml"); }
 	
