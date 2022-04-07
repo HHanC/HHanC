@@ -50,7 +50,7 @@ public class MemberDao { // DB
 	public boolean signup(Member member) {
 		try {
 		// 1. sql 작성
-		String sql = "insert into member(mid,mpassword,memail,maddress,mpoint,mcince)values(?,?,?,?,?,?)";
+		String sql = "insert into member(mid,mpassword,memail,maddress,mpoint,msince)values(?,?,?,?,?,?)";
 		// 2. sql 조작
 		ps = con.prepareStatement(sql); // prepareStatement 인터페이스내 연결된 db에 sql 넣기
 		ps.setString(1, member.getMid()); // 1번 ?에 id 넣어주기
@@ -68,7 +68,25 @@ public class MemberDao { // DB
 		return false;
 		}
 		// 2. 로그인 메소드(인수 : 로그인시 필요한 아이디, 비밀번호)
-	public boolean login(String id, String password) {return false;}
+	public boolean login(String id, String password) {
+		try {
+			// 1. sql 작성
+				// 연산자 and : 조건1 end 조건2		이면서
+				// 연산자 or : 조건1 or 조건2		이면
+			String sql = "select * from member where mid=? and mpassword=?";
+			// 2. sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id); // 첫번째 ? 에 id 변수 넣기
+			ps.setString(2, password); // 두번째 ?에 password 변수넣기
+			// 3. sql 실행
+			rs = ps.executeQuery(); // select 실행 -> resultset
+			// 4. sql 결과
+			if(rs.next()) { // selct시 결과물이 있으면
+				return true; // 아이디와 비밀번호가 동일한면 로그인 성공
+			}			
+		}catch (Exception e) {System.out.println("sql오류" + e);}
+		return false; // 아이디와 비밀번호가 동일하지 않으면 실패
+	}
 		// 3. 아이디찾기 메소드(인수 : 아이디찾기 시 필요한 이메일)
 	public String finid(String email) {return null;}
 		// 4. 비밀번호찾기 메소드(인수 : 비밀번호 찾기 시 필요한 아이디 이메일)

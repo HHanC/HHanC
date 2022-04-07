@@ -10,6 +10,8 @@ import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -98,8 +100,13 @@ public class Signuppane implements Initializable {
     	boolean result = MemberDao.memberDao.signup(member);
     	
     	if(result) {
-    		// 1. 메시지창 출력
-    		// 2. 화면 전환
+    		// 1. 메시지창 출력 [Alert : 메시지 클래스]
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("알림");
+    		alert.setHeaderText("안산시 중고거래에 가입을 축하합니다.");
+    		alert.setContentText("회원가입 성공");
+    		alert.showAndWait(); // 메시지 실행
+    		// 2. 화면 전환 [로그인 페이지로 전환]
     		Login.instance.loadpage("/view/login/loginpane.fxml");
     	}else {
     		lblconfirm.setText("DB오류");

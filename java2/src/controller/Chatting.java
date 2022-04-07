@@ -74,7 +74,8 @@ public class Chatting implements Initializable {
     				outputStream.flush(); // 3. 스트림 초기화[스트림 내 바이트 지우기]
     			}catch (Exception e) {System.out.println(e);}
     		} 		
-    	};   	
+    	}; // 멀티스레드 구현 끝
+    	thread.start();
     }
     // 5. 서버에게 메시지 받기 메소드
     public void receive() {
@@ -98,7 +99,7 @@ public class Chatting implements Initializable {
     		btnconnect.setText("채팅방 나가기");
     		
     		txtmsg.setText("");	// 채팅입력창 빈칸으로 설정
-    		txtmsg.setEditable(false); // 채팅입력 창 사용가능
+    		txtmsg.setDisable(false); // 채팅입력 창 사용가능
         	txtcontent.setDisable(false); // 채팅창 목록 사용가능
         	btnsend.setDisable(false); // 전송버튼 사용가능
         	txtmsg.requestFocus(); // 채팅입력창으로 포커스[커서] 이동
@@ -108,7 +109,7 @@ public class Chatting implements Initializable {
     		btnconnect.setText("채팅방 입장");
     		
     		txtmsg.setText("채팅방 입장후 사용가능");
-    		txtmsg.setEditable(true); // 채팅입력 창 사용금지
+    		txtmsg.setDisable(true); // 채팅입력 창 사용금지
         	txtcontent.setDisable(true); // 채팅창 목록 사용금지
         	btnsend.setDisable(true); // 전송버튼 사용금지
         	
@@ -130,7 +131,7 @@ public class Chatting implements Initializable {
     	// 채팅fxml이 열렸을때 초기값 메소드
     		// 채팅방 입장전에 아래 fxid를 사용못하게 금지
     	txtmsg.setText("채팅방 입장 후 가용 가능합니다.");
-    	txtmsg.setEditable(true); // 채팅입력 창 수정금지
+    	txtmsg.setDisable(true); // 채팅입력 창 수정금지
     	txtcontent.setDisable(true); // 채팅창 목록 사용금지
     	btnsend.setDisable(true); // 전송버튼 사용금지
     	
