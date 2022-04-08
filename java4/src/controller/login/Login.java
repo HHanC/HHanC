@@ -3,6 +3,7 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dto.Member;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,11 +21,14 @@ public class Login implements Initializable {
 		instance = this;
 	}
 	
+	public static Member member;
+	
 	@FXML
 	private MediaView mediaview;
 
     @FXML
     private BorderPane borderpane;
+    
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

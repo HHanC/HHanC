@@ -124,6 +124,54 @@ public class MemberDao { // DB
 		}catch (Exception e) {System.out.println("sql오류" + e);}
 		return null;
 	}
+	
+	// 5. 아이디 인수로 회원정보 호출
+	public Member getmMember(String id) {
+		try {
+		// 1. sql 작성
+			String sql = "select * from member where mid=?";
+		// 2. sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+		// 3. sql 실행
+			rs = ps.executeQuery();
+		// 4. sql 결과
+			if(rs.next()) {
+				Member member = new Member(
+						rs.getInt(1),
+						rs.getString(2), 
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getString(7));
+				// rs.next() : 결과내 다음 레코드 (줄, 가로)
+				// rs.getInt(필드순서번호) : 해당 필드의 자료형이 정수형으로 가져오기
+				// rs.getString(필드순서번호) : 해당 필드의 자료형이 문자열로 가져오기
+				// 2. 반환
+				return member;
+			}
+		}catch (Exception e) {System.out.println("sql오류" + e);} return null;
+	}
+	// 6. 회원 탈퇴 [회원번호를 인수로 받아 해당 회원번호의 레코드 삭제]
+	public boolean delete(int num) {
+		try {
+		// 1. sql 작성
+				// 레코드삭제 : delete from 테이블명 where 조건
+		String sql = "delete * from member where mum=?";
+		// 2. sql 조작
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, num);
+		// 3. sql 실행
+		ps.executeUpdate(); // insert, update , delete 실행
+		// 4. sql 결과
+		return true;
+		}catch (Exception e) {System.out.println("sql오류" + e);}
+		return false;
+	}
+	// 7. 회원 수정
+	
+	
 }
 
 
