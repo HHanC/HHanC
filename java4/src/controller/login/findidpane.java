@@ -38,7 +38,7 @@ public class findidpane implements Initializable {
     	// 1. 컨트롤에 입력된 이메일 가져오기
     	String email = txtemail.getText();
     	// 2. DB 연동 객체에서 아이디찾기 메소드 실행
-    	String id = MemberDao.memberDao.finid(email);
+    	String id = MemberDao.memberDao.findid(email);
     	// 3. 확인
     	if(id != null) { // id가 존재하면 db에서 아이디찾기 성공
     		Alert alert = new Alert(AlertType.INFORMATION); // 메시지 객체 선언
