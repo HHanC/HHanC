@@ -24,7 +24,9 @@ public class Home implements Initializable {
 	public static Home home; // 객체 
 	
 	// * this : 현재 클래스의 메모리 호출
-	public Home() { home = this; }
+	public Home() { 
+		home = this; 
+		}
 	
 	
 	@FXML
@@ -41,6 +43,7 @@ public class Home implements Initializable {
 	private Label lblupdate; // fxid가져오기
 	@FXML
 	private Label lblboard; // fxid가져오기
+	
 	@FXML
 	private Label lblproduct1; // fxid가져오기
 	
@@ -87,13 +90,19 @@ public class Home implements Initializable {
 	} 
 
 	@FXML// 자유게시 레이블을 클릭했을때 이벤트
-	public void accboard( MouseEvent e ) { loadpage("/view/board/board.fxml"); }
+	public void accboard( MouseEvent e ) {
+		loadpage("/view/board/board.fxml");
+		}
 	
 	@FXML// 회원정보 레이블을 클릭했을때 이벤트
-	public void accinfo( MouseEvent e ) { loadpage("/view/home/info.fxml"); }
+	public void accinfo( MouseEvent e ) { 
+		loadpage("/view/home/info.fxml");
+		}
 	
 	@FXML// 회원수정 레이블을 클릭했을때 이벤트
-	public void accupdate( MouseEvent e ) { loadpage("/view/home/update.fxml"); }
+	public void accupdate( MouseEvent e ) { 
+		loadpage("/view/home/update.fxml");
+		}
 	
 	
 	public void loadpage( String page ) {
