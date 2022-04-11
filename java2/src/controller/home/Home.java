@@ -56,10 +56,18 @@ public class Home implements Initializable {
 	private Label lblproduct4; // fxid가져오기
 	
 	@FXML
+	private Label lblrecord; 
+	
+	@FXML
 	private BorderPane borderpane;
 	
 	public static String category;
 	
+	 @FXML
+	 void accrecord(MouseEvent event) {
+		 loadpage("/view/record.fxml");
+	 }
+	 
 	@FXML// 남성의류 레이블을 클릭했을때 이벤트
 	public void accproduct1( MouseEvent e ) { 
 		category="남성의류";

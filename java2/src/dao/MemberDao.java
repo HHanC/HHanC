@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
 import dto.Member;
 
@@ -189,6 +191,50 @@ public class MemberDao { // DB 접근객체
 		return null;
 	}
 	
+	 // 11. 카테고리별 개수
+	public Map<String, Integer> countcategory() {
+		Map<String, Integer> map = new HashMap<>();
+		String sql = "select pcategory, count(*) from product group by pcategory";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				map.put(rs.getString(1), rs.getInt(2));
+			}
+			return map;
+		}catch (Exception e) {System.out.println();}
+		return null;
+	}
+	
+	// 9. 전체 회원수 반환
+	public int membertotal(String tname) {
+		
+		String sql = "select count(*) from "+tname;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+				// 조회 결과의 첫번째 필드를 반환
+			}
+		}catch (Exception e) {}
+		return 0;
+	}
+	// 10. (인수 : 테이블명, 날짜필드명)의 날짜별 레코드 전체 개수 반환
+	public Map<String, Integer > datetotal( String 테이블명, String 날짜필드명 ) {
+		Map<String, Integer > map = new HashMap<>();
+		String sql = "select substring_index("+날짜필드명+",' ',1), count(*) from "+테이블명+" group by substring_index("+날짜필드명+",' ',1)";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				map.put(rs.getString(1), rs.getInt(2));
+				// 결과의 해당 레코드의 첫번째필드[날짜], 두번째 필드[가입자수]
+			}
+			return map;
+		}catch (Exception e) {System.out.println(e);}	
+		return null;
+	}
 }
 
 

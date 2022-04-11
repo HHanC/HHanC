@@ -65,7 +65,7 @@
                </font>
             </Label>
             <Line endX="-47.0" layoutX="145.0" layoutY="572.0" startX="-100.0" stroke="WHITE" strokeWidth="5.0" />
-            <Label layoutX="43.0" layoutY="575.0" prefHeight="29.0" prefWidth="56.0" text="통계" textFill="WHITE" />
+            <Label fx:id="lblrecord" onMouseClicked="#accrecord" layoutX="43.0" layoutY="575.0" prefHeight="29.0" prefWidth="56.0" text="통계" textFill="WHITE" />
          </children>
       </AnchorPane>
    </left>
