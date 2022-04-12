@@ -70,28 +70,28 @@ public class Home implements Initializable {
 	 
 	@FXML// 남성의류 레이블을 클릭했을때 이벤트
 	public void accproduct1( MouseEvent e ) { 
-		category="남성의류";
+		category="바벨";
 		loadpage("/view/product/product.fxml"); 
 	
 	} 
 	
 	@FXML// 여성의루 레이블을 클릭했을때 이벤트
 	public void accproduct2( MouseEvent e ) {
-		category="여성의류";
+		category="덤벨";
 		loadpage("/view/product/product.fxml"); 
 	
 	} 
 	
 	@FXML// 게임기기 레이블을 클릭했을때 이벤트
 	public void accproduct3( MouseEvent e ) { 
-		category="게임기기";
+		category="원판";
 		loadpage("/view/product/product.fxml");
 	
 	} 
 	
 	@FXML// 생활용품 레이블을 클릭했을때 이벤트
 	public void accproduct4( MouseEvent e ) { 
-		category="생활용품";
+		category="기타";
 		loadpage("/view/product/product.fxml"); 
 	
 	} 

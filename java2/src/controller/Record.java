@@ -63,7 +63,7 @@ public class Record implements Initializable {
 			// Map 컬렉션 => 키(날짜), 값(가입수) 으로 하나의 엔트리 구성
 			// 2. DB에서 데이터 가져오기
 			Map<String, Integer> map = MemberDao.memberDao.datetotal("member", "msince");
-			System.out.println(map);
+//			System.out.println(map);
 			// 반복문
 			// 3. 데이터를 계열에 추가
 			for(String key : map.keySet()) {
@@ -79,7 +79,7 @@ public class Record implements Initializable {
 			// 1. 계열 생성
 			XYChart.Series series2 = new XYChart.Series<>();
 			Map<String, Integer> map2 = MemberDao.memberDao.datetotal("board", "bdate");
-			System.err.println(map2);
+//			System.err.println(map2);
 			// 2. 데이터 생성
 			for(String key : map2.keySet()) {
 				XYChart.Data data = new XYChart.Data<>(key, map2.get(key));
@@ -113,17 +113,17 @@ public class Record implements Initializable {
 				// 2. 데이터 선언
 				XYChart.Data data4 = new XYChart.Data<>("신동엽", 30);
 				// 3. 계열에 데이터 추가
-				series3.getData().add(data4);
+				series4.getData().add(data4);
 				
 				// 2. 데이터 선언
 				XYChart.Data data5 = new XYChart.Data<>("강호동", 20);
 				// 3. 계열에 데이터 추가
-				series3.getData().add(data5);
+				series4.getData().add(data5);
 				
 				// 2. 데이터 선언
 				XYChart.Data data6 = new XYChart.Data<>("유재석", 10);
 				// 3. 계열에 데이터 추가
-				series3.getData().add(data6);
+				series4.getData().add(data6);
 				
 			// 2. 차트에 계열 추가
 			pbc.getData().add(series4);

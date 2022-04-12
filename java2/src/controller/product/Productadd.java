@@ -78,11 +78,11 @@ public class Productadd implements Initializable {
     		// * 카테고리
     	String pcategory = null;
     		if( opt1.isSelected() ) { // 만약에 opt1라는 fxid의 컨트롤(라디오버튼)이 선택되었으면
-    			pcategory="남성의류";
+    			pcategory="바벨";
     		}
-    		if( opt2.isSelected() ) { pcategory ="여성의류";}
-    		if( opt3.isSelected() ) { pcategory ="게임기기";}
-    		if( opt4.isSelected() ) { pcategory ="생활용품";}
+    		if( opt2.isSelected() ) { pcategory ="덤벨";}
+    		if( opt3.isSelected() ) { pcategory ="원판";}
+    		if( opt4.isSelected() ) { pcategory ="기타";}
     	int mnum = Login.member.getMnum();
     	// 2. 객체화
     	Product product = new Product(0, pname, pimage, pcontent, pcategory, pprice, 1, null, mnum);
@@ -127,7 +127,7 @@ public class Productadd implements Initializable {
     		FileInputStream inputStream = new FileInputStream(file); // file : fileChooser에서 선택된 파일 객체
     	// 2. 파일 출력 스트림
     		// 1. 새로운 경로 설정
-    		File copyfile = new File("C:/Users/MSI/git/ezen_web_2022_A/java2/src/img/" +file.getName() );
+    		File copyfile = new File("C:/Users/504/git/HHanC/java2/src/img" +file.getName() );
     		FileOutputStream outputStream = new FileOutputStream( copyfile );
     	// 3. 바이트 배열 선언 
     		byte[] bytes = new byte[1024*1024*1024]; // 1바이트 -> 1024바이트 -> 1키로바이트 -> 1024키로바이트-> 1메가바이트

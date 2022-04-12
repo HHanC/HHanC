@@ -43,7 +43,7 @@ public class MemberDao { // DB 접근객체
 			if( rs.next() ){ // 만약에 다음 결과물이 존재하면 => 해당 아이디가 존재 -> 중복O 
 				return true; // 해당 아이디는 중복이 존재
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao SQL 오류]"+e  ); }
 		return false; // 해당 아이디는 중복이 없음 
 	}
 		// 1. 회원가입 메소드 ( 인수 : db에 넣을 아이디,비밀번호,이메일,주소 )
@@ -62,7 +62,7 @@ public class MemberDao { // DB 접근객체
 			// 3. SQL 실행 
 			ps.executeUpdate(); // insert 실행 -> 삽입 결과물 X -> resultset X
 			return true; // * 성공시 
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 1SQL 오류]"+e  ); }
 		return false; // * 실패시
 	}
 		// 2. 로그인 메소드 ( 인수 : 로그인시 필요한 아이디,비밀번호 )
@@ -82,7 +82,7 @@ public class MemberDao { // DB 접근객체
 			if( rs.next() ) { // select 시 결과물이 있으면 
 				return true; // 아이디와 비밀번호가 동일 -> 로그인 성공 
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 2 SQL 오류]"+e  ); }
 		return false; // 로그인 실패
 	}
 		// 3. 아이디찾기 메소드 ( 인수 : 아이디찾기 시 필요한 이메일 )
@@ -100,7 +100,7 @@ public class MemberDao { // DB 접근객체
 				return rs.getString(2); // 필드(세로) 번호 
 				//rs.getString(가져올필드순서번호);
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 4 SQL 오류]"+e  ); }
 		return null;
 	}
 		// 4. 비밀번호찾기 메소드 ( 인수 : 비밀번호찾기 시 필요한 아이디, 이메일 )
@@ -117,7 +117,7 @@ public class MemberDao { // DB 접근객체
 			if( rs.next() ) {
 				return rs.getString(3); // 패스워드는 db테이블내 3번째 필드 이므로 3 
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 4SQL 오류]"+e  ); }
 		return null;
 	}
 	
@@ -148,7 +148,7 @@ public class MemberDao { // DB 접근객체
 				// 2. 반환
 				return member;
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); } 
+		}catch(Exception e ) { System.out.println( "[dao 5 SQL 오류]"+e  ); } 
 		return null;
 	}
 	// 6. 회원탈퇴 [ 회원번호를 인수로 받아 해당 회원번호의 레코드 삭제 ]
@@ -161,7 +161,7 @@ public class MemberDao { // DB 접근객체
 			ps.executeUpdate(); // insert , update , delete 실행 // 3.SQL 실행
 			return true; // 4.SQL 결과
 			
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 6 SQL 오류]"+e  ); }
 		return false;
 	}
 	
@@ -174,7 +174,7 @@ public class MemberDao { // DB 접근객체
 			ps.setString( 1 , email ); ps.setString(2, address); ps.setInt( 3 , mnum );
 			ps.executeUpdate(); // 3.SQL 실행
 			return true; // 4.SQL 결과
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 7 SQL 오류]"+e  ); }
 		return false;
 	}
 	// 8. 해당 회원번호로 해당 id 찾기
@@ -187,7 +187,7 @@ public class MemberDao { // DB 접근객체
 			if( rs.next() ) {
 				return rs.getString(1);// 찾은 id 반환
 			}
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "[dao 8 SQL 오류]"+e  ); }
 		return null;
 	}
 	
@@ -202,7 +202,7 @@ public class MemberDao { // DB 접근객체
 				map.put(rs.getString(1), rs.getInt(2));
 			}
 			return map;
-		}catch (Exception e) {System.out.println();}
+		}catch (Exception e) {System.out.println("dao11"+e);}
 		return null;
 	}
 	
@@ -217,7 +217,7 @@ public class MemberDao { // DB 접근객체
 				return rs.getInt(1);
 				// 조회 결과의 첫번째 필드를 반환
 			}
-		}catch (Exception e) {}
+		}catch (Exception e) {System.out.println("dao9"+e);}
 		return 0;
 	}
 	// 10. (인수 : 테이블명, 날짜필드명)의 날짜별 레코드 전체 개수 반환
@@ -232,7 +232,7 @@ public class MemberDao { // DB 접근객체
 				// 결과의 해당 레코드의 첫번째필드[날짜], 두번째 필드[가입자수]
 			}
 			return map;
-		}catch (Exception e) {System.out.println(e);}	
+		}catch (Exception e) {System.out.println("dao10"+e);}	
 		return null;
 	}
 }

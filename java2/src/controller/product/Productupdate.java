@@ -35,10 +35,10 @@ public class Productupdate implements Initializable {
 		txtpcontent.setText( product.getPcontent() );
 		txtpprice.setText( product.getPprice()+"" );
 		txtpath.setText( product.getPimg() );
-		if( product.getPcategory().equals("남성의류") ) { opt1.setSelected(true);}
-		if( product.getPcategory().equals("여성의류") ) { opt2.setSelected(true);}
-		if( product.getPcategory().equals("게임기기") ) { opt3.setSelected(true);}
-		if( product.getPcategory().equals("생활용품") ) { opt4.setSelected(true);}
+		if( product.getPcategory().equals("바벨") ) { opt1.setSelected(true);}
+		if( product.getPcategory().equals("덤벨") ) { opt2.setSelected(true);}
+		if( product.getPcategory().equals("원판") ) { opt3.setSelected(true);}
+		if( product.getPcategory().equals("기타") ) { opt4.setSelected(true);}
 	}
 	
     @FXML
@@ -135,10 +135,10 @@ public class Productupdate implements Initializable {
     	if( pimage == null ) pimage = Productcontrol.select.getPimg();
     	
     	String pcategory = null; 
-    	if( opt1.isSelected() ) pcategory="남성의류";
-    	if( opt2.isSelected() ) pcategory="여성의류";
-    	if( opt3.isSelected() ) pcategory="게임기기";
-    	if( opt4.isSelected() ) pcategory="생활용품";
+    	if( opt1.isSelected() ) pcategory="바벨";
+    	if( opt2.isSelected() ) pcategory="덤벨";
+    	if( opt3.isSelected() ) pcategory="원판";
+    	if( opt4.isSelected() ) pcategory="기타";
     	
     	Product upproduct = new Product(
     			Productcontrol.select.getPnum() ,

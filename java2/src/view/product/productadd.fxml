@@ -32,14 +32,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <RadioButton fx:id="opt1" layoutX="63.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="남성의류">
+      <RadioButton fx:id="opt1" layoutX="63.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="바벨">
          <toggleGroup>
             <ToggleGroup fx:id="category" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="opt2" layoutX="140.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="의성의류" toggleGroup="$category" />
-      <RadioButton fx:id="opt3" layoutX="219.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="게임기기" toggleGroup="$category" />
-      <RadioButton fx:id="opt4" layoutX="300.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="생활용품" toggleGroup="$category" />
+      <RadioButton fx:id="opt2" layoutX="140.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="덤벨" toggleGroup="$category" />
+      <RadioButton fx:id="opt3" layoutX="219.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="원판" toggleGroup="$category" />
+      <RadioButton fx:id="opt4" layoutX="300.0" layoutY="557.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="105.0" text="기타" toggleGroup="$category" />
       <ImageView fx:id="img" fitHeight="252.0" fitWidth="363.0" layoutX="490.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnback" layoutX="490.0" layoutY="599.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #0873ff;" text="취소" textFill="WHITE">
          <font>
