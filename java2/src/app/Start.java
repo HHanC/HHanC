@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class Start extends Application {
 
 	@Override
-	public void start(Stage stage ) throws Exception {
+	public void start(Stage stage ) throws Exception { 
 		
 		// 5. FXML 파일[ 컨테이너 ] 불러오기
 		Parent parent = 
