@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="950.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Boardwrite">
+   <children>
+      <Label layoutX="42.0" layoutY="29.0" prefHeight="63.0" prefWidth="224.0" text="비회원 게시판">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Line endX="172.0" layoutX="143.0" layoutY="92.0" startX="-100.0" stroke="#0aff57" strokeWidth="5.0" />
+      <Button fx:id="btnwrite" layoutX="38.0" layoutY="647.0" mnemonicParsing="false" onAction="#write" prefHeight="48.0" prefWidth="883.0" style="-fx-background-color: #0aff57;" text="글 작성">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txttitle" layoutX="38.0" layoutY="320.0" prefHeight="32.0" prefWidth="875.0" />
+      <Label layoutX="38.0" layoutY="289.0" prefHeight="20.0" prefWidth="55.0" text="제목" />
+      <TextArea fx:id="txtcontent" layoutX="38.0" layoutY="390.0" prefHeight="242.0" prefWidth="875.0" />
+      <Label layoutX="38.0" layoutY="360.0" prefHeight="20.0" prefWidth="55.0" text="내용" />
+      <Button fx:id="btnback" layoutX="38.0" layoutY="107.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="110.0" style="-fx-background-color: #0aff57;" text="목록보기">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="464.0" layoutY="185.0" prefHeight="20.0" prefWidth="55.0" text="비밀번호" />
+      <Label layoutX="38.0" layoutY="185.0" prefHeight="20.0" prefWidth="55.0" text="작성자" />
+      <TextField fx:id="twrite" layoutX="38.0" layoutY="213.0" prefHeight="32.0" prefWidth="174.0" />
+      <TextField fx:id="tpw" layoutX="464.0" layoutY="213.0" prefHeight="32.0" prefWidth="174.0" />
+   </children>
+</AnchorPane>

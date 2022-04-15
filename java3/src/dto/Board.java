@@ -1,18 +1,20 @@
 package dto;
 
-public class Nonmember {
+public class Board {
 
 	private int nnum;
 	private String ntitle;
+	private String ncontent;
 	private String nwrite;
 	private String ndate;
 	
-	public Nonmember() {}
+	public Board() {}
 
-	public Nonmember(int nnum, String ntitle, String nwrite, String ndate) {
+	public Board(int nnum, String ntitle, String ncontent, String nwrite, String ndate) {
 		super();
 		this.nnum = nnum;
 		this.ntitle = ntitle;
+		this.ncontent = ncontent;
 		this.nwrite = nwrite;
 		this.ndate = ndate;
 	}
@@ -33,6 +35,14 @@ public class Nonmember {
 		this.ntitle = ntitle;
 	}
 
+	public String getNcontent() {
+		return ncontent;
+	}
+
+	public void setNcontent(String ncontent) {
+		this.ncontent = ncontent;
+	}
+
 	public String getNwrite() {
 		return nwrite;
 	}
@@ -48,7 +58,6 @@ public class Nonmember {
 	public void setNdate(String ndate) {
 		this.ndate = ndate;
 	}
-	
 	
 	
 }
