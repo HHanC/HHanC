@@ -72,8 +72,18 @@ public class BoardDao {
 		return false;
 	}
 	
-	
-	
+	public boolean update(int nnum, String title, String content) {
+		try {
+			String sql = "update board set ntitle=?, ncontent=?, where nnum=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setInt(3, nnum);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 }
 
 
