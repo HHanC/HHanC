@@ -19,7 +19,7 @@
 			height: 100px;
 		}
 	
-		#logo{float: left; margin: 20px 0 0 20px;}
+		#logo{float: left; margin: 20px 0 0 20px;} /* 시계방향 : 왼쪽 위 오른쪽 아래 */
 		#menus{float: right;}
 		#top_menu{
 			text-align: right;
