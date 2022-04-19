@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import dto.Board;
+import dto.Replys;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -74,15 +75,50 @@ public class BoardDao {
 	
 	public boolean update(int nnum, String title, String content) {
 		try {
-			String sql = "update board set ntitle=?, ncontent=?, where nnum=?";
+			String sql = "update nboard set ntitle=?, ncontent=? where nnum=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, title);
 			ps.setString(2, content);
 			ps.setInt(3, nnum);
 			ps.executeUpdate();
 			return true;
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) {}
 		return false;
+	}
+	
+	public boolean rwrite(Replys replys) {
+		try {
+			String sql = "insert into replys(rcontent,rwrite,nnum)values(?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, replys.getRcontent());
+			ps.setString(2, replys.getRwrite());
+			ps.setInt(3, replys.getNnum());
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.err.println("12121" + e);}
+		return false;
+	}
+	
+	public ObservableList<Replys> replyslist(int nnum) {
+		ObservableList<Replys> replyslist = FXCollections.observableArrayList();
+		try {
+			String spl = "select * from replys where nnum=? order by rnum desc";
+			ps = con.prepareStatement(spl);
+			ps.setInt(1, nnum);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Replys replys = new Replys(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4), 
+						rs.getInt(5));
+				replyslist.add(replys);
+			}
+			return replyslist;
+		}catch (Exception e) {}
+		return null;
 	}
 }
 

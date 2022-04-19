@@ -9,6 +9,7 @@ public class Reply {
 	private int bnum ;
 	
 	public Reply() {}
+	
 	public Reply(int rnum, String rcontent, String rwrite, String rdate, int bnum) {
 		super();
 		this.rnum = rnum;
@@ -17,6 +18,7 @@ public class Reply {
 		this.rdate = rdate;
 		this.bnum = bnum;
 	}
+	
 	public int getRnum() {
 		return rnum;
 	}
