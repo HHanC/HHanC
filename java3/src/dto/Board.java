@@ -7,16 +7,18 @@ public class Board {
 	private String ncontent;
 	private String nwrite;
 	private String ndate;
+	private String npassword;
 	
 	public Board() {}
 
-	public Board(int nnum, String ntitle, String ncontent, String nwrite, String ndate) {
+	public Board(int nnum, String ntitle, String ncontent, String nwrite, String ndate, String npassword) {
 		super();
 		this.nnum = nnum;
 		this.ntitle = ntitle;
 		this.ncontent = ncontent;
 		this.nwrite = nwrite;
 		this.ndate = ndate;
+		this.npassword = npassword;
 	}
 
 	public int getNnum() {
@@ -58,6 +60,14 @@ public class Board {
 	public void setNdate(String ndate) {
 		this.ndate = ndate;
 	}
+	public String getNpassword() {
+		return npassword;
+	}
+	
+	public void setNpassword(String npassword) {
+		this.npassword = npassword;
+	}
+	
 	
 	
 }

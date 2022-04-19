@@ -55,7 +55,7 @@ public class Board implements Initializable {
     	tc.setCellValueFactory( new PropertyValueFactory<>("bview"));
     	
     	// 3. tableview 에 list 연결
-    	boardtable.setItems(boardlist);;
+    	boardtable.setItems(boardlist);
     		// 테이블명(fxid).setItems( ObservableList );  // 테이블에 표시할 리스트(일반적arraylist X) 설정
     	
     	
