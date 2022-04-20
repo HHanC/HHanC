@@ -5,11 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	
+	<style type="text/css">
+	
+		*{box-sizing: border-box;}
+		
+	</style>
+
 </head>
 <body>
-	<%@include file="header.jsp" %>
-	<%@include file="mainimage.jsp" %>
-	<%@include file="main.jsp" %>
-	<div> footer </div>
+
+	<div id="main_img">
+		<img alt="" src="img/main.jpg">
+	</div>
+
 </body>
 </html>
