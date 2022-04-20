@@ -5,28 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<style type="text/css">
+	
+		*{margin: 0px; padding: 0px;}
+		
+	</style>
+
 </head>
 <body>
 
-	<!-- jsp문법 : 속성 태그[자바 사용가능] -->
-	<%@include file="header.jsp"%> 
-	
-	<%@include file="mainimage.jsp"%> 
-	
+	<%@include file="header.jsp" %>
+	<%@include file="main이미지.jsp" %>
 	<%@include file="main.jsp" %>
-	
 	<%@include file="footer.jsp" %>
-	
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

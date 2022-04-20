@@ -8,6 +8,11 @@
 
 	<style type="text/css">
 	
+		#contents{
+			width: 1150px;
+			margin: 0 auto;
+		}
+	
 		li {list-style-type: none;}/*글 머리 제거*/
 		#sub_menu{
 			width: 240px;
