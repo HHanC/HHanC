@@ -29,6 +29,7 @@ public class Boardview implements Initializable {
 		txtpassword.setText(Board.board.getNpassword());
 		txttitle.setText(Board.board.getNtitle());
 		txtcontent.setText(Board.board.getNcontent());
+		replystableshow();
 	}
 
     @FXML
