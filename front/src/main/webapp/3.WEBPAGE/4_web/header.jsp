@@ -14,8 +14,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	
 	<style type="text/css">
-	
-		*{border: solid 1px red;}
 		
 	</style>
 </head>
