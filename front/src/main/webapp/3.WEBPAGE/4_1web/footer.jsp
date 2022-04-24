@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<br><br><br>
 	<div class="bg-light text-dark">
 		<div class="container">
