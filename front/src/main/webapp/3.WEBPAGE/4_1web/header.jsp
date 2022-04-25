@@ -56,16 +56,18 @@
 						<li class="nav-item"> <a href="#" class="nav-link">악세사리</a> </li>
 						<li class="nav-item"> <a href="#" class="nav-link">스타일</a> </li>
 						<li class="nav-item"> <a href="#" class="nav-link">리뷰</a> </li>
-						<li class="nav-item"> <a href="#" class="nav-link">고객센터</a> </li>
+						<li class="nav-item"> <a href="boardlist.jsp" class="nav-link">고객센터</a> </li>
 						<li class="nav-item"> <a href="#" class="nav-link"> <i class="fas fa-serch"></i> </a> </li>
 					
 					</ul>
 				</div>
-				<!-- 부트스트랩js -->
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+				
 			</div>
 		</div>
 	</div>
+	
+	<!-- 부트스트랩js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

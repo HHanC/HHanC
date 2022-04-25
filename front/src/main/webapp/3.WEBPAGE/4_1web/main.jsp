@@ -11,7 +11,7 @@
 	<%@include file="header.jsp" %>
 	<br><br><br><br><br><br>
 	<!-- 캐러셀 : 이미지 슬라이드 -->
-	<div id="cs" class="caroucel slide" data-bs-ride="carousel" data-bs-interval="1000">
+	<div id="cs" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
 		
 		<!-- 슬라이드 위치 표시 : 인디케이터 -->
 		<div class="carousel-indicators">
@@ -19,7 +19,9 @@
 			<button data-bs-target="#cs" data-bs-slide-to="1"></button>
 			<button data-bs-target="#cs" data-bs-slide-to="2"></button>
 			<button data-bs-target="#cs" data-bs-slide-to="3"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="4"></button>
 		</div>
+		
 		
 		<!-- 캐러셀 내용물 -->
 		<div class="carousel-inner">
@@ -31,11 +33,10 @@
 		</div>
 		
 		<!-- 이미지 이동 버튼 -->
-		<button class="carousel-control-prev" data-bs-taget="#cs" data-bs-slide="prev">
+		<button class="carousel-control-prev" data-bs-target="#cs" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon"></span>
 		</button>
-		
-		<button class="carousel-control-next" data-bs-taget="#cs" data-bs-slide="next">
+		<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		</button>
 	</div> <!-- 캐러셀 end -->

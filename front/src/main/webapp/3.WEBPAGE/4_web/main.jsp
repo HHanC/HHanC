@@ -22,6 +22,7 @@
 			<button data-bs-target="#cs" data-bs-slide-to="1"></button>
 			<button data-bs-target="#cs" data-bs-slide-to="2"></button>
 			<button data-bs-target="#cs" data-bs-slide-to="3"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="4"></button>
 		</div>
 		
 		<!-- 캐러셀 내용물 -->							
