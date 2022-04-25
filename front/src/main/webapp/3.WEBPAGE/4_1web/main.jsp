@@ -11,6 +11,7 @@
 	<%@include file="header.jsp" %>
 	<br><br><br><br><br><br>
 	<!-- 캐러셀 : 이미지 슬라이드 -->
+<<<<<<< HEAD
 	<div id="cs" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
 		
 		<!-- 슬라이드 위치 표시 : 인디케이터 -->
@@ -21,6 +22,9 @@
 			<button data-bs-target="#cs" data-bs-slide-to="3"></button>
 			<button data-bs-target="#cs" data-bs-slide-to="4"></button>
 		</div>
+=======
+	<div id="cs" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
+>>>>>>> branch 'master' of https://github.com/HHanC/HHanC.git
 		
 		
 		<!-- 캐러셀 내용물 -->
@@ -39,6 +43,16 @@
 		<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		</button>
+		
+		<!-- 슬라이드 위치 표시 : 인디케이터 -->
+		<div class="carousel-indicators">
+			<button data-bs-target="#cs" data-bs-slide-to="0" class="active"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="1"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="2"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="3"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="4"></button>
+		</div>
+		
 	</div> <!-- 캐러셀 end -->
 	
 	<br><br>
@@ -74,6 +88,7 @@
 			<% } %>
 		</div>
 	</div>
+	<%@include file="footer.jsp" %>
 </body>
 </html>
 
