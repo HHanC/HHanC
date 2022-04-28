@@ -12,7 +12,7 @@
 	<!-- jsp : html 과 java 를 동시에 작성하는 파일 -->
 		<!-- html : <마크업> / java 태그 -->
 	<h3>선언문 태그 : 메모리할당[변수 생성, 객체 생성, 메소드 실행x 선언o, 클래스정의o]</h3>
-	<h3>스크립트 태그 : 자바실행문 [변수 생성, 객체 생성, 메소드 실행o 선언x, 클래스정의x]</h3>
+	<h3>스크립트 태그 : 자바실행문 [변수 생성, 객체 생성, 메소드 실행o 선언x, 클래스정의o]</h3>
 	<h3>표현식 태그 : 메모리 호출 [java에서 html 출력]</h3>
 	<!-- html 작성 공간 -->
 	<p>html에서 작성된 코드</p>
@@ -33,8 +33,8 @@
 		int 변수2 = 20; // 변수 가능
 		Date date2 = new Date(); // 객체 선언 가능
 		// 자바 언어가 작성할 수 있는 공간 [스크립트 태그]
-		System.out.println("jsp 파일에서 작성된 변수" + 변수2);
-		System.out.println("jsp 파일에서 작성된 객체" + date2);
+		System.out.println("jsp 파일에서 생성된 변수" + 변수2);
+		System.out.println("jsp 파일에서 생성된 객체" + date2);
 		// int 함수2() {return 3;} // 함수 선언x
 		class 클래스명2{
 			String 필드2 = "유재석";
