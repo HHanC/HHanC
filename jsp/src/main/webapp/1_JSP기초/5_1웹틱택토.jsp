@@ -79,7 +79,7 @@
 			
 	%>
 	<%=request.getParameter("b") %> <!-- 표현식 : html로 출력 -->
-	<form action="5_웹틱택토.jsp" method="get"> <!-- action을 사용하여 5_웹틱택토 연결 -->
+	<form action="5_1웹틱택토.jsp" method="get"> <!-- action을 사용하여 5_웹틱택토 연결 -->
 		<button type="submit" name="b" value="0"><%= str[0]%></button> <!-- type을 submit으로하고 name을 b로 설정 -->
 		<button type="submit" name="b" value="1"><%= str[1]%></button>
 		<button type="submit" name="b" value="2"><%= str[2]%></button>
