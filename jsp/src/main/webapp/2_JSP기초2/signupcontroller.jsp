@@ -29,4 +29,14 @@
         	response.sendRedirect("main.jsp");
         	// response.sendRedirect("이동할페이지")
         		}
-        %>s
+        %>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

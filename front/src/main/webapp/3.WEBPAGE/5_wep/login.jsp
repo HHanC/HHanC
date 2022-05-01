@@ -22,7 +22,7 @@
 			<br><br><br>
 			
 			<div class="row">
-				<div class="col-md-4 offset-3">
+				<div class="col-md-3 offset-4">
 					<div class="row">
 						<div class="col-md-8">
 							<div class="row">
@@ -33,7 +33,7 @@
 							</div>
 						</div>
 						<div class="col-md-4">
-							<button type="button" class="btn text-white form-control " styl e="background-color: black;">Login</button>
+							<button class="form-control " style="height: 80px;">Login</button>
 						</div>
 					</div>
 					<br><br>
