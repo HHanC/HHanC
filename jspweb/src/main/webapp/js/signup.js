@@ -5,16 +5,13 @@
 	// jquery식	: $("#id")
 		// .keyup () : 해당 id에 키보드가 눌렸을때 [입력 되었을때]
 		
-
-$(function(){
-	
-	$("#msignup").click(function(){
-		let msignup = document.getElementById("");
-	});
-	
-});
+// 입력상자 유효성 확인 체크 배열
+let pass = [false, false, false, false, false, false, false]
 
 $(function() { // 문서 열리면 해당 코드가 실행
+
+	// 배열 = [ ]
+
 	// idcheck
 	$("#mid").keyup(function(){ // mid가 입력될때마다 해당 함수가 실행
 		// 1. html 태그내 값 가져오기
@@ -45,9 +42,11 @@ $(function() { // 문서 열리면 해당 코드가 실행
             success : function( result ){
               
                if( result == 1 ){ // 만약에 받은 데이터가 1이면
-                  idcheck.innerHTML="사용중인 아이디 입니다.";
+                  idcheck.innerHTML="사용중인 아이디 입니다."; 
+                  pass[0] = false;
                }else{ // 만약에 받은 데이터가 1이 아니면
-                  idcheck.innerHTML="사용가능한 아이디 입니다.";
+                  idcheck.innerHTML="사용가능한 아이디 입니다."; 
+                  pass[0] = true;
                };
             }
          });
@@ -56,6 +55,7 @@ $(function() { // 문서 열리면 해당 코드가 실행
 			
 		}else{
 			idcheck.innerHTML = "영문 , 숫자 포함 5~15길이로 입력해 주세요!!!!!!!!!!!!!";
+			pass[0] = false;
 		}
 		
 	}); // keyup end
@@ -71,12 +71,12 @@ $(function() { // 문서 열리면 해당 코드가 실행
 			if(mpassword != mpasswordcheck){ // 정규 표현식 
 			// 비밀번호 와 비밀번호 체크 와 다르면
 				// equals(x) // != ( o )
-			$("#passwordcheck").html("패스워드가 서로 다릅니다.");
+			$("#passwordcheck").html("패스워드가 서로 다릅니다."); pass[1] = false;
 			}else{
-				$("#passwordcheck").html("사용 가능한 비밀번호 입니다.");
+				$("#passwordcheck").html("사용 가능한 비밀번호 입니다."); pass[1] = true; pass[2] = true;
 			}
 		}else{ // 정규표현식 다르면
-			$("#passwordcheck").html("영소문자 5~15 사이로 입력해주세요!");
+			$("#passwordcheck").html("영소문자 5~15 사이로 입력해주세요!"); pass[1] = false;
 		}
 	}); // keyup end
 	
@@ -92,12 +92,12 @@ $(function() { // 문서 열리면 해당 코드가 실행
 			if(mpassword != mpasswordcheck){ // 정규 표현식 
 			// 비밀번호 와 비밀번호 체크 와 다르면
 				// equals(x) // != ( o )
-			$("#passwordcheck").html("패스워드가 서로 다릅니다.");
+			$("#passwordcheck").html("패스워드가 서로 다릅니다."); pass[2] = false;
 			}else{
-				$("#passwordcheck").html("사용 가능한 비밀번호 입니다.");
+				$("#passwordcheck").html("사용 가능한 비밀번호 입니다."); pass[2] = true; pass[1] = true;
 			}
 		}else{ // 정규표현식 다르면
-			$("#passwordcheck").html("영소문자 5~15 사이로 입력해주세요!");
+			$("#passwordcheck").html("영소문자 5~15 사이로 입력해주세요!"); pass[2] = false;
 		}
 	}); // keyup end
 	
@@ -108,9 +108,9 @@ $(function() { // 문서 열리면 해당 코드가 실행
 		let mname = $("#mname").val(); // 해당 id의 데이터 가져오기
 		let namej = /^[가-힣]{2,10}$/; // 한글만 2~10 정규표현식
 		if(namej.test(mname)){
-			$("#namecheck").html("사용 가능한 이름입니다.");
+			$("#namecheck").html("사용 가능한 이름입니다."); pass[3] = true;
 		}else{
-			$("#namecheck").html("한글 2~10 사이만 가능합니다.");
+			$("#namecheck").html("한글 2~10 사이만 가능합니다."); pass[3] = false;
 		}
 		
 	 });
@@ -121,30 +121,89 @@ $(function() { // 문서 열리면 해당 코드가 실행
 		let mphone = $("#mphone").val();
 		let phonej = /^010-([0-9]{4})-([0-9]{4})$/;
 		if(phonej.test(mphone)){
-			$("#phonecheck").html("사용 가능한 번호입니다.");
+			$("#phonecheck").html("사용 가능한 번호입니다."); pass[4] = true;
 		}else{
-			$("#phonecheck").html("010-0000-0000 형식으로 입력해주세요.");
+			$("#phonecheck").html("010-0000-0000 형식으로 입력해주세요."); pass[4] = false;
 		}
 		
 	});
-	// 이메일 체크
-	$("#memail").keyup(function(){
-		
+	// 이메일 체크 
+	$("#memail").keyup( function(){
 		let memail = $("#memail").val();
-		let emailj = /^([a-zA-Z0-9]{0,15})@([a-z]{0,15}).com$/
-		if(emailj.test(memail)){
-			$("#emailcheck").html("사용 가능한 이메일 입니다.");
+		let memailaddress = $("#memailaddress").val();
+		if( memailaddress == "" ){ 
+			$("#emailcheck").html("이메일 주소 입력해주세요~");  pass[5] = false;
 		}else{
-			$("#emailcheck").html("사용 불가능한 이메일 입니다.");
+			let emailj = /^[a-zA-Z0-9]{3,20}$/;
+			if( emailj.test(memail) ){
+				// 이메일 중복체크 
+				let email = memail+"@"+memailaddress;
+				$.ajax({
+					url : "../emailcheck",
+					data : { "email" : email } , 
+					success : function( result ){
+						if( result == 1 ){
+							$("#emailcheck").html("사용중인 이메일 입니다."); pass[5] = false;
+						}else{
+							$("#emailcheck").html("사용가능한 이메일 입니다."); pass[5] = true;
+						}
+					}
+				}); // ajax end 
+				
+			}else{
+				$("#emailcheck").html("이메일 형식이 아닙니다.");  pass[5] = false;
+			}
+		}
+	});
+	
+	// 이메일주소 목록상자 선택시 
+	$("#emailselect").change( function(){ // 목록상자내 값이 변경 되었을때 이벤트
+		
+		let emailselect = $("#emailselect").val();
+		if( emailselect == "" ){
+			$("#memailaddress").val("");
+			$("#memailaddress").attr("readonly" , false); // 읽기모드 취소
+		}else{
+			$("#memailaddress").val(emailselect);	// val() -> value 값
+			$("#memailaddress").attr("readonly" , true); // attr -> attribute 속성
 		}
 		
 	});
 	
 	
+	// 주소 체크
+	$("#adress4").keyup(function(){
+		
+		let adress1 = $("#adress1").val();
+		let adress2 = $("#adress2").val();
+		let adress3 = $("#adress3").val();
+		let adress4 = $("#adress4").val();
+		
+		if(adress1 == "" || adress2 == "" ||
+		 		adress3 == "" || adress4 == ""){
+			$("#adresscheck").html("모든 주소를 입력해 주세요."); pass[6] = false;
+		}else{
+			$("#adresscheck").html("사용 가능한 주소입니다."); pass[6] = true;
+		}
+		
+	});
 	
 }); // 문서 열리면 해당 코드가 종료
-// 
- function sample4_execDaumPostcode() {
+
+// 폼 전송 메소드
+function signup(){
+	// pass 배열이 모두 true이면 폼 전송
+	let check  = true;
+	for(let i=0; i<pass.length; i++){
+		if(pass[i] == false) check = false;
+	}
+	// js에서 전송하는 방식
+	if(check) document.getElementById("signupform").submit();
+	else{alert("필수 입력 사항이 입력되지 않습니다.")}
+	
+}
+
+function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -172,13 +231,6 @@ $(function() { // 문서 열리면 해당 코드가 실행
                 document.getElementById('adress1').value = data.zonecode;
                 document.getElementById("adress2").value = roadAddr;
                 document.getElementById("adress3").value = data.jibunAddress;
-                
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("address5").value = extraRoadAddr;
-                } else {
-                    document.getElementById("address5").value = '';
-                }
 
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.

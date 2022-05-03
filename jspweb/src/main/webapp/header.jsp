@@ -15,10 +15,27 @@
 <body>
 	
 	<!-- 헤더 페이지 [모든 페이지 사용되기 때문에 = 절대경로]-->
+	
+	<%
+		String loginid = (String)session.getAttribute("login"); // 세션 호출 (기본타입 = Object)
+	%>
+	
+	
+	
 	<div class="contaicer">
+	<!-- 공통 -->
 	<a href="/jspweb/main.jsp">home</a>
+	<!-- 로그인이 안된 상태 -->
+	<%if(loginid == null){%>
 	<a href="/jspweb/member/login.jsp">로그인</a>
 	<a href="/jspweb/member/signup.jsp">회원가입</a>
+	<%} %>
+	<!-- 만약에 로그인된 상태 -->
+	<%if(loginid != null){%>
+		<span><%=loginid %>님</span>
+		<a href="logout">로그아웃</a>
+		<a href="/jspweb/mmember/memberinfo.jsp">회원정보</a>
+	<%} %>
 	</div>
 	<!-- 사용자 정의 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>

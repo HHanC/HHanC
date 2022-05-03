@@ -1,4 +1,4 @@
-package controller;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,40 +6,38 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.MemberDao;
-import dto.Member;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class member
+ * Servlet implementation class logout
  */
-@WebServlet("/member")
-public class Signup extends HttpServlet {
+@WebServlet("/logout")
+public class logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Signup() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public logout() {
         super();
-        
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		String mid = request.getParameter("mid");
-		String mpassword = request.getParameter("mpassword");
-		String mname = request.getParameter("mname");
-		String mphone = request.getParameter("mphone");
-		String memail = request.getParameter("memail");
-		Member member = new Member(0, mid, mpassword, mname, mphone, memail, mphone, 0, memail);
-		MemberDao.memberDao.signup(member);
-		
-		
-				
+		HttpSession session = request.getSession();
+		session.setAttribute("login", null);
+		response.sendRedirect("/jspweb/main.jsp");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
