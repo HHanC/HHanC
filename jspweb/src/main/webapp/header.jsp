@@ -22,7 +22,7 @@
 	
 	
 	
-	<div class="contaicer">
+	<div class="container col-md-4 offset-8 fixed-top pd-1 pt-5 px-5">
 	<!-- 공통 -->
 	<a href="/jspweb/main.jsp">home</a>
 	<!-- 로그인이 안된 상태 -->
@@ -36,6 +36,27 @@
 		<a href="logout">로그아웃</a>
 		<a href="/jspweb/mmember/memberinfo.jsp">회원정보</a>
 	<%} %>
+	</div>
+	<br><br><br><br>
+	<div class="col-md-12 content">
+		<div id="cs" class="carousel slide" class="carousel slide" data-bs-ride="carousel" data-bs-intervar="1000">
+			<div class="carousel-inner">
+				<div class="carousel-item active"> <img alt="" src="img/무신사1.jpg" style="width: 100%;" > </div>
+				<div class="carousel-item"> <img alt="" src="img/무신사2.jpg" style="width: 100%;"> </div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<button class="carousel-control-prev" data-bs-target="#cs" data-bs-slide="prev" >
+				<span class="carousel-control-prev-icon"></span>
+			</button>
+			<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</button>
+		</div>
+		<div class="carousel-indicators">
+			<button data-bs-target="#cs" data-bs-slide-to="0" class="active"></button>
+			<button data-bs-target="#cs" data-bs-slide-to="1"></button>
+		</div>
 	</div>
 	<!-- 사용자 정의 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>

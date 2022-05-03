@@ -7,22 +7,39 @@
 <body>
 
 	<%@include file = "../header.jsp" %>
-	<div class="container">
-		<form action="../login" method="post">
-			로그인 : <input type="text" name="mid">
-			비밀번호 : <input type="text" name="mpassword">
-			<input type="submit" value="로그인">
-			<!-- 로그인 실패시 -->
-			<%
-				String result = request.getParameter("result");
-				if(result != null && result.equals("2")){
-			%>
-				<span>동일한 회원정보가 없습니다.</span>
-			<%		
-				}
-			%>
-		</form>
-	</div>
+	<form action="../login" method="post">
+		<div class="col-md-10 offset-2">
+			<div class="row">
+				<div class="col-md-3 offset-4">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="row">
+								<input class="form-control" type="text" name="mid" placeholder="아이디"> <br>
+							</div>
+							<div class="row">
+								<input class="form-control" type="text" name="mpassword" placeholder="비밀번호"> <br>
+							</div>
+							
+							<!-- 로그인 실패시 -->
+							<%
+								String result = request.getParameter("result");
+								if(result != null && result.equals("2")){
+							%>
+								<span>동일한 회원정보가 없습니다.</span>
+							<%		
+								}
+							%>
+						
+						</div>
+						<div class="col-md-4">
+							<input class="form-control" style="height: 80px;" type="submit" value="로그인">
+						</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 	<%@include file = "../footer.jsp" %>
 
 	
