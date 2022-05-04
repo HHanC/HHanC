@@ -36,13 +36,13 @@ public class Signup extends HttpServlet {
 		String memail = request.getParameter("memail");
 		String memailaddress = request.getParameter("memailaddress");
 			String email = memail+"@"+memailaddress;
-		String adress1 = request.getParameter("adress1");
-		String adress2 = request.getParameter("adress2");
-		String adress3 = request.getParameter("adress3");
-		String adress4 = request.getParameter("adress4");
-			String adress = adress1+"_"+adress2+"_"+adress3+"_"+adress4;
+		String address1 = request.getParameter("address1");
+		String address2 = request.getParameter("address2");
+		String address3 = request.getParameter("address3");
+		String address4 = request.getParameter("address4");
+			String address = address1+"_"+address2+"_"+address3+"_"+address4;
 			
-		Member member = new Member(0, mid, mpassword, mname, mphone, email, adress, 0, null);
+		Member member = new Member(0, mid, mpassword, mname, mphone, email, address, 0, null);
 		
 		// System.out.println(member.toString()); // toString() : 객체 정보 확인 -> 주소값 나옴
 			// toString() : object클래스[최상위클래스] 의 객체 주소 반환 메소드

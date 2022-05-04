@@ -172,18 +172,18 @@ $(function() { // 문서 열리면 해당 코드가 실행
 	
 	
 	// 주소 체크
-	$("#adress4").keyup(function(){
+	$("#address4").keyup(function(){
 		
-		let adress1 = $("#adress1").val();
-		let adress2 = $("#adress2").val();
-		let adress3 = $("#adress3").val();
-		let adress4 = $("#adress4").val();
+		let address1 = $("#address1").val();
+		let address2 = $("#address2").val();
+		let address3 = $("#address3").val();
+		let address4 = $("#address4").val();
 		
-		if(adress1 == "" || adress2 == "" ||
-		 		adress3 == "" || adress4 == ""){
-			$("#adresscheck").html("모든 주소를 입력해 주세요."); pass[6] = false;
+		if(address1 == "" || address2 == "" ||
+		 		address3 == "" || address4 == ""){
+			$("#addresscheck").html("모든 주소를 입력해 주세요."); pass[6] = false;
 		}else{
-			$("#adresscheck").html("사용 가능한 주소입니다."); pass[6] = true;
+			$("#addresscheck").html("사용 가능한 주소입니다."); pass[6] = true;
 		}
 		
 	});
@@ -228,9 +228,9 @@ function sample4_execDaumPostcode() {
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('adress1').value = data.zonecode;
-                document.getElementById("adress2").value = roadAddr;
-                document.getElementById("adress3").value = data.jibunAddress;
+                document.getElementById('address1').value = data.zonecode;
+                document.getElementById("address2").value = roadAddr;
+                document.getElementById("address3").value = data.jibunAddress;
 
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
@@ -250,6 +250,12 @@ function sample4_execDaumPostcode() {
             }
         }).open();
     }
+    
+function passwordchange(){
+	
+	$("#passwordbox").css("display", "block");
+	
+}
 
 
 

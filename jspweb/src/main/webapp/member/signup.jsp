@@ -23,7 +23,7 @@
 			<br>
 			이메일 : <input type="text" id="memail" name="memail" placeholder="user email">
 			@
-			<input type="text" id="memailaddress" name="memailaddress">
+			<input type="text" id="memailaddres" name="memailaddres">
 			<select id="emailselect" >
 				<option value="">직접입력</option>
 				<option value="naver.com">naver.com</option>
@@ -32,14 +32,14 @@
 			</select>
 			<span id="emailcheck"></span>
 			<br>
-				<input type="text" id="adress1" name="adress1" placeholder="우편번호">
+				<input type="text" id="address1" name="address1" placeholder="우편번호">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="adress2" name="adress2" placeholder="도로명주소">
-				<input type="text" id="adress3" name="adress3" placeholder="지번주소">
+				<input type="text" id="address2" name="address2" placeholder="도로명주소">
+				<input type="text" id="address3" name="address3" placeholder="지번주소">
 				<span id="guide" style="color:#999;display:none"></span>
-				<input type="text" id="adress4" name="adress4" placeholder="상세주소">
+				<input type="text" id="address4" name="address4" placeholder="상세주소">
 			<br>
-			<span id="adresscheck"></span>
+			<span id="addresscheck"></span>
 			<button onclick="signup()" type="button">회원가입</button>
 		</form>
 	</div>
