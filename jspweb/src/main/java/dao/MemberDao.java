@@ -152,6 +152,30 @@ public class MemberDao extends Dao{
 			return false;
 		}
 		
+		// 회원번호 출력 메소드
+		public int getmno(String mid) {
+			String sql = "select mno from member where mid='"+mid+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1);
+				}
+			} catch (Exception e) {} return 0;
+		}
+		
+		// 회원 아이디 출력 메소드
+		public String getmid(int mno) {
+			String sql = "select mid from member where mno='"+mno+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getString(1);
+				}
+			} catch (Exception e) {} return null;
+		}
+		
 }
 
 
