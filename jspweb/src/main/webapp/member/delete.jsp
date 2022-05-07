@@ -9,7 +9,7 @@
 <body>
 
 	<%@include file = "../header.jsp" %>
-		
+		<br><br><br>
 		<%
 			String mid = (String)session.getAttribute("login");
 		%>
@@ -21,10 +21,12 @@
 				</div>
 				<div class="col-md-9"> <!-- 본문 -->
 					<h3>회원탈퇴 화면</h3>
-					<input type="password" id="mpassword">
-					<button id="btncofirm" onclick="passwordcheck('<%=mid%>')">확인</button>
-					<span id="checkmsg"></span>
-					<button id="btndelete" style="display: none;" onclick="mdelete('<%=mid%>')">탈퇴승인</button>
+					<div class="form-group row">
+						<input class="form-control" style="height: 40px; width: 175px;" type="password" id="mpassword">
+						<button class="form-control" style="height: 40px; width: 175px; margin: 0 0 0 5px;" id="btncofirm" onclick="passwordcheck('<%=mid%>')">확인</button>
+						<span id="checkmsg"></span>
+						<button class="form-control" id="btndelete" style="display: none; height: 40px; width: 175px;" onclick="mdelete('<%=mid%>')">탈퇴승인</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,12 +1,20 @@
 @charset "UTF-8";
 
 *{
-	font-family: "고딕";
+	font-family: 'GangwonEdu_OTFBoldA';
 }
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
 
 a{
 	text-decoration: none;
 	color: black;
+	margin: 0 0 0 10px;
 }
 
 a:hover {

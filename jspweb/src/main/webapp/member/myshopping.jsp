@@ -9,7 +9,7 @@
 <body>
 
 	<%@include file = "../header.jsp" %>
-		
+	<br><br><br><br><br>
 		<div class="container"> 
 			<div class="row">
 				<div class="col-md-3"> <!-- 사이드바 -->
@@ -20,7 +20,7 @@
 				</div>
 			</div>
 		</div>
-	
+	<br><br><br><br><br>
 	<%@include file = "../footer.jsp" %>
 
 </body>
