@@ -37,7 +37,7 @@ $(function() { // 문서 열리면 해당 코드가 실행
             // 보내는 위치 [ 서블릿 경로 ]
             url : "../Idcheck" ,
             // 보내는 데이터  { "변수명" : 값 }
-            data : { mid : mid } ,
+            data : { "mid" : mid } ,
             // 통신 성공 했을경우 (  result = 받은 값 변수 )
             success : function( result ){
               
@@ -47,7 +47,7 @@ $(function() { // 문서 열리면 해당 코드가 실행
                }else{ // 만약에 받은 데이터가 1이 아니면
                   idcheck.innerHTML="사용가능한 아이디 입니다."; 
                   pass[0] = true;
-               };
+               }
             }
          });
 			

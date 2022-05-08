@@ -9,7 +9,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<!-- 사용자 정의 css -->
 	<link href="/jspweb/css/main.css" rel="stylesheet">
-	<!-- jquery 최신 cdn -->
 	
 </head>
 <body>
@@ -58,7 +57,8 @@
 	<!-- 사용자 정의 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>
 	<!-- 부트스트랩 js cdn -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- 제이쿼리 cdn -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>

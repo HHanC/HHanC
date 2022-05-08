@@ -29,16 +29,16 @@
 					<div class="form-group row" style="margin: 0 0 0 1px;">
 						<input class="form-control" style="height: 40px; width: 175px;" type="text" id="memail" name="memail" placeholder="user email">
 						@
-						<input class="form-control" style="height: 40px; width: 175px;" type="text" id="memailaddres" name="memailaddres">
+						<input class="form-control" style="height: 40px; width: 175px;" type="text" id="memailaddress" name="memailaddress">
 						<select style="height: 40px; width: 130px; margin: 0 0 0 5px;" id="emailselect"> 
 							<option value="">직접입력</option>
 							<option value="naver.com">naver.com</option>
 							<option value="nate.com">nate.com</option>
 							<option value="daum.com">daum.com</option>
 						</select>
+						<span id="emailcheck"></span>
 					</div>
 					<br>
-					<span id="emailcheck"></span>
 						<input class="form-control" style="height: 40px; width: 350px;" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 						<input class="form-control" style="height: 40px; width: 350px;" type="text" id="address1" name="address1" placeholder="우편번호">
 						<input class="form-control" style="height: 40px; width: 350px;" type="text" id="address2" name="address2" placeholder="도로명주소">
@@ -52,7 +52,9 @@
 			</div>
 		</div>
 	</div>
+	<!-- 우편 연결 -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- 제이쿼리 연결 -->
 	<script src="../js/signup.js" type="text/javascript"></script>
 	<br><br><br><br><br>
 	<%@include file = "../footer.jsp" %>
