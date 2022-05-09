@@ -2,6 +2,9 @@ package dao;
 // dao : Db 접근 객체
 
 
+import java.util.ArrayList;
+
+import dto.Board;
 import dto.Member;
 
 public class MemberDao extends Dao{

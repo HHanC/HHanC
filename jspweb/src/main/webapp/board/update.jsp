@@ -21,17 +21,28 @@
 
 	<%@include file = "../header.jsp" %>
 	
+	<%
+		//
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		Board board = BoardDao.getBoardeDao().getboard(bno);
+	
+	%>
 		
 	
 		<div class="container">
 			<a href="boardlist.jsp"> <button>글목록</button> </a>
 			<h3>글쓰기</h3>
-			<form action="../board/write" method="post" enctype="multipart/form-data">
+			<form action="../board/update?bno=<%=board.getBno()%>" method="post" enctype="multipart/form-data">
 				<!-- form 전송 인코딩 타입 : 기본 타입은 첨부파일 불가능 -->
 				<!-- form 첨부파일 인코딩 타입 : enctype="multipart/form-data -->
-				제목 : <input type="text" name="btitle"> <br>
-				내용 : <textarea name="bcontent" id="summernote"></textarea>
-				첨부파일 : <input type="file" name="bfile"> <br>
+				제목 : <input type="text" name="btitle" value="<%=board.getBtitle()%>"> <br>
+				<textarea name="bcontent" id="summernote"> <%=board.getBcontent()%> </textarea>
+				<%if(board.getBfile() != null){ %>
+				첨부파일 : <%=board.getBfile() %>
+				<button type="button" onclick="filedelete(<%=board.getBno()%>)">파일삭제</button>
+				<br>
+				<%}%>
+				<input type="file" name="bfile"> 
 				<!--첨부파일(여러개) : <input type="file" multiple="multiple">-->
 				<input type="submit" value="등록"> 
 				<input type="reset" value="취소">

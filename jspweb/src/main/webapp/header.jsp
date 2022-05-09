@@ -14,7 +14,7 @@
 <body>
 	
 	<!-- 헤더 페이지 [모든 페이지 사용되기 때문에 = 절대경로]-->
-	
+
 	<%
 		String loginid = (String)session.getAttribute("login"); // 세션 호출 (기본타입 = Object)
 	%>
@@ -52,8 +52,7 @@
 		<a href="#"> 50% 할인 </a>
 		<input type="text"> <button> 검색 </button>
 		<a href="#"> <img alt="" src=""> 장바구니이미지 </a>
-		
-	</div>
+		</div>
 	<!-- 사용자 정의 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>
 	<!-- 부트스트랩 js cdn -->

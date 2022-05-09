@@ -34,9 +34,20 @@
 				ArrayList<Board> boardlist = BoardDao.boardDao.getboardlist();
 				for(Board board : boardlist){
 			%>
+				<!-- 
+					행을 클릭했을때[js] 
+						<tr onclick="location.href='boardview.jsp'">
+					링크(상세 페이지로 이동시) [식별 번호 같이 이동]
+						// 1. HTML : <a href='파일명(경로).jsp?변수명=rkqt'">
+						// 2. JS : "location.href='파일명(경로).jsp?변수명=값'"
+						// 3. java : response.sendRedirect("파일명(경로),jsp?변수명=값");
+				-->
 				<tr>
 					<td><%=board.getBno()%></td>
-					<td><%=board.getBtitle()%></td>
+					<td> <a href="boardview.jsp?bno=<%=board.getBno()%>"> 
+					<%=board.getBtitle()%>
+					</a> 
+					</td>
 					<td><%=MemberDao.getMemberDao().getmid(board.getMno())%></td>
 					<td><%=board.getBview()%></td>
 					
