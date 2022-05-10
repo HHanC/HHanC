@@ -170,7 +170,7 @@ public class MemberDao extends Dao{
 		// 회원 아이디 출력 메소드
 		public String getmid(int mno) {
 			String sql = "select mid from member where mno='"+mno+"'";
-			try {
+			try { 
 				ps = con.prepareStatement(sql);
 				rs = ps.executeQuery();
 				if(rs.next()) {
@@ -179,6 +179,7 @@ public class MemberDao extends Dao{
 			} catch (Exception e) {} return null;
 		}
 		
+		// 게별 게시물 출력 메소드
 }
 
 

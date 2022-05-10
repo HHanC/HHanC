@@ -14,7 +14,7 @@
 		<li> <a href="#"> 관심상품 </a> </li>
 		<li> <a href="#"> 포인트 </a> </li>
 		<li> <a href="#"> 쿠폰 </a> </li>
-		<li> <a href="../board/mywrite"> 내가쓴글 </a> </li>
+		<li> <a href="../board/mywrite.jsp"> 내가쓴글 </a> </li>
 		<li> <a href="info.jsp"> 회원정보 </a> </li>
 		<li> <a href="update.jsp"> 회원수정 </a> </li>
 		<li> <a href="delete.jsp"> 회원탈퇴 </a> </li>

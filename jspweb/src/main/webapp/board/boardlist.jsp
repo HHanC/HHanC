@@ -1,6 +1,4 @@
-<%@page import="java.time.format.DateTimeFormatter"%>
-<%@page import="java.time.LocalDate"%>
-<%@page import="dao.MemberDao"%>
+<%@page import="dto.Reply"%>
 <%@page import="dao.BoardDao"%>
 <%@page import="dto.Board"%>
 <%@page import="java.util.ArrayList"%>
@@ -11,64 +9,61 @@
 <head>
 </head>
 <body>
-
-	<%@include file = "../header.jsp" %>
+	
+	<%@include file ="../header.jsp" %>
 
 	<div class="container">
-	<h3> 자유게시판 </h3>
+		<h3> 자유게시판 </h3>
+		
 		<%
+			Reply reply = new Reply();
 			String mid = (String)session.getAttribute("login");
-			if(mid != null){
+			if( mid != null ){
 		%>
 			<a href="boardwrite.jsp"> 글쓰기 </a>
-		<%
+		<%} %>
 		
-			}
-		%>
 		<table class="table"> <!-- 테이블 -->
 			<tr>
-				<th> 번호 </th> <th> 제목 </th> <th> 작성자 </th> <th> 조회수 </th> <th> 작성일 </th>
+				<th> 번호 </th> <th> 제목 </th> <th> 작성자 </th> 
+				<th> 조회수  </th> <th> 작성일 </th> 
 			</tr>
 			<!-- for 문 -->
 			<%
-				ArrayList<Board> boardlist = BoardDao.boardDao.getboardlist();
-				for(Board board : boardlist){
+				// 1. 모든 게시물  호출 
+				ArrayList<Board> boardlist = BoardDao.getBoardeDao().getboardlist();
+				for( Board board : boardlist ){
+				int count = BoardDao.getBoardeDao().replycount(board.getBno());
 			%>
 				<!-- 
-					행을 클릭했을때[js] 
+					행을 클릭했을때[ js ]   
 						<tr onclick="location.href='boardview.jsp'">
-					링크(상세 페이지로 이동시) [식별 번호 같이 이동]
-						// 1. HTML : <a href='파일명(경로).jsp?변수명=rkqt'">
+					*링크 [ 식별 번호 같이 이동 ] 
+						// 1. HTML : <a href='파일명(경로).jsp?변수명=값'">
 						// 2. JS : "location.href='파일명(경로).jsp?변수명=값'"
-						// 3. java : response.sendRedirect("파일명(경로),jsp?변수명=값");
+						// 3. java : response.sendRedirect("파일명(경로).jsp?변수명=값");
 				-->
+				
 				<tr>
-					<td><%=board.getBno()%></td>
-					<td> <a href="boardview.jsp?bno=<%=board.getBno()%>"> 
-					<%=board.getBtitle()%>
-					</a> 
+					<td> <%=board.getBno() %> </td>
+					<td> 
+							<a href="boardview.jsp?bno=<%=board.getBno()%>">
+								<%=board.getBtitle()%>
+							</a>
+							<span>(<%=count%>)</span>
 					</td>
-					<td><%=MemberDao.getMemberDao().getmid(board.getMno())%></td>
-					<td><%=board.getBview()%></td>
-					
-			<%
-				LocalDate localDate = LocalDate.now();
-				DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-				String date2 = localDate.format(dateTimeFormatter);
-				String[] date = board.getBdate().split(" ");
-				if(date[0].equals(date2)){
-			%>
-				<td><%=date[1]%></td>
-			
-				<%}else{%>
-			
-				<td><%=board.getBdate()%></td>
-				<%}%>
-				<%}%>
+					<td> <%=board.getMid() %> </td>
+					<td> <%=board.getBview() %> </td>
+					<td> <%=board.getBdate() %> </td>
 				</tr>
+			<%
+				}
+			%>
+			
+			
 		</table>
 	</div>
-	<%@include file = "../footer.jsp" %>
+	<%@include file ="../footer.jsp" %>
 
 </body>
 </html>

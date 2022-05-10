@@ -20,9 +20,6 @@
 <body>
 
 	<%@include file = "../header.jsp" %>
-	
-		
-	
 		<div class="container">
 			<a href="boardlist.jsp"> <button>글목록</button> </a>
 			<h3>글쓰기</h3>
