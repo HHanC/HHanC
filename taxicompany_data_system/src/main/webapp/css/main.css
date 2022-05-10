@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+*{font-family:'KyoboHandwriting2020A';}
+.check{color: red;}
+a{text-decoration: none; color: black }
+
+
+@font-face {
+    font-family: 'KyoboHandwriting2020A';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/KyoboHandwriting2020A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.must_do{color: red;}

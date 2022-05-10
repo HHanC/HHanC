@@ -2,23 +2,24 @@ package dto;
 
 public class Member {
 
+	@Override
+	public String toString() {
+		return "Member [mno=" + mno + ", mep=" + mep + ", mpassword=" + mpassword + ", mname=" + mname + "]";
+	}
+
 	private int mno;
-	private String mid;
+	private String mep;
 	private String mpassword;
 	private String mname;
-	private String memail;
-	private String mphone;
 	
 	public Member() {}
 
-	public Member(int mno, String mid, String mpassword, String mname, String memail, String mphone) {
+	public Member(int mno, String mep, String mpassword, String mname) {
 		super();
 		this.mno = mno;
-		this.mid = mid;
+		this.mep = mep;
 		this.mpassword = mpassword;
 		this.mname = mname;
-		this.memail = memail;
-		this.mphone = mphone;
 	}
 
 	public int getMno() {
@@ -29,12 +30,12 @@ public class Member {
 		this.mno = mno;
 	}
 
-	public String getMid() {
-		return mid;
+	public String getMep() {
+		return mep;
 	}
 
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setMep(String mep) {
+		this.mep = mep;
 	}
 
 	public String getMpassword() {
@@ -53,26 +54,6 @@ public class Member {
 		this.mname = mname;
 	}
 
-	public String getMemail() {
-		return memail;
-	}
-
-	public void setMemail(String memail) {
-		this.memail = memail;
-	}
-
-	public String getMphone() {
-		return mphone;
-	}
-
-	public void setMphone(String mphone) {
-		this.mphone = mphone;
-	}
-
-	@Override
-	public String toString() {
-		return "member [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", memail="
-				+ memail + ", mphone=" + mphone + "]";
-	}
+	
 	
 }

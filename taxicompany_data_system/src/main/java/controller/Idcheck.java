@@ -1,4 +1,4 @@
-package controller.member;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,38 +12,42 @@ import dao.MemberDao;
 /**
  * Servlet implementation class idcheck
  */
-@WebServlet("/idcheck")
-public class idcheck extends HttpServlet {
+@WebServlet("/Idcheck")
+public class Idcheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public idcheck() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Idcheck() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String mid = request.getParameter("mid");
-		boolean result = MemberDao.getMemberDao().idcheck(mid);
-		if(result) {
-			response.getWriter().print(1);
-		}else {
-			response.getWriter().print(2);
-		}
 		
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		String mid=request.getParameter("mid");
+		
+		boolean result= MemberDao.getMemberDao().idcheck(mid);
+		if(result) {
+			response.getWriter().print(2);
+		}else {
+			response.getWriter().print(1);
+		}
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+	
 	}
 
 }
-
-
-
-
-
-
-
-

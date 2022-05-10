@@ -4,29 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>instagram</title>
+<title>ISTAGRAM</title>
 </head>
 <body>
 
 	<form action="../signup" method="post">
-		<input type="text" id="memail" name="memail" placeholder="이메일 주소">
-		@
-		<input type="text" id="memailaddress" name="memailaddress">
-		<select id="emailselect">
-			<option value="">직접입력</option>
-			<option value="naver.com">naver.com</option>
-			<option value="gmail.com">gmail.com</option>
-			<option value="hanmail.net">hanmail.net</option>
-			<option value="nate.com">nate.com</option>
-			<option value="yahoo.com">yahoo.com</option>
-		</select>
-		<span id="emailcheck"></span>
+		<input type="text" id="mep" name="mep" placeholder="휴대폰 번호 또는 이메일 주소">
+		<span id="mepcheck"></span>
 		<br>
-		<input type="text" id="mname" name="mname" placeholder="이름"> <br>
+		<input type="text" id="mname" name="mname" placeholder="성명">
 		<span id="namecheck"></span>
-		<input type="text" id="mid" name="mid" placeholder="아이디"> <br>
-		<span id="idcheck"></span>
+		<br>
+		<input type="text" id="mname2" name="mname2" placeholder="사용자 이름">
+		<span id="namecheck2"></span>
+		<br>
 		<input type="password" id="mpassword" name="mpassword" placeholder="비밀번호">
+		<span id="pwcheck"></span>
 	</form>
 
 	<!-- jquery 최신 cdn --> <!-- 제이쿼리란? 자바스크립트 라이브러리 -->
