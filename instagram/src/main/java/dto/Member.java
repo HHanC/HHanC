@@ -4,22 +4,25 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [mno=" + mno + ", mep=" + mep + ", mpassword=" + mpassword + ", mname=" + mname + "]";
+		return "Member [mno=" + mno + ", mep=" + mep + ", mname=" + mname + ", mname2=" + mname2 + ", mpassword="
+				+ mpassword + "]";
 	}
 
 	private int mno;
 	private String mep;
-	private String mpassword;
 	private String mname;
+	private String mname2;
+	private String mpassword;
 	
 	public Member() {}
 
-	public Member(int mno, String mep, String mpassword, String mname) {
+	public Member(int mno, String mep, String mname, String mname2, String mpassword) {
 		super();
 		this.mno = mno;
 		this.mep = mep;
-		this.mpassword = mpassword;
 		this.mname = mname;
+		this.mname2 = mname2;
+		this.mpassword = mpassword;
 	}
 
 	public int getMno() {
@@ -38,14 +41,6 @@ public class Member {
 		this.mep = mep;
 	}
 
-	public String getMpassword() {
-		return mpassword;
-	}
-
-	public void setMpassword(String mpassword) {
-		this.mpassword = mpassword;
-	}
-
 	public String getMname() {
 		return mname;
 	}
@@ -54,6 +49,21 @@ public class Member {
 		this.mname = mname;
 	}
 
+	public String getMname2() {
+		return mname2;
+	}
+
+	public void setMname2(String mname2) {
+		this.mname2 = mname2;
+	}
+
+	public String getMpassword() {
+		return mpassword;
+	}
+
+	public void setMpassword(String mpassword) {
+		this.mpassword = mpassword;
+	}
 	
 	
 }

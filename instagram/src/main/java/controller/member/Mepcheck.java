@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MemberDao;
 
 /**
- * Servlet implementation class Namecheck2
+ * Servlet implementation class mep
  */
-@WebServlet("/Namecheck2")
-public class Namecheck2 extends HttpServlet {
+@WebServlet("/Mepcheck")
+public class Mepcheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Namecheck2() {
+    public Mepcheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +28,15 @@ public class Namecheck2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("123");
+		
 		request.setCharacterEncoding("UTF-8");
-		String mname2 = request.getParameter("mname2");
-		boolean result = MemberDao.getMemberDao().namecheck2(mname2);
+		String mep = request.getParameter("mep");
+		boolean result = MemberDao.getMemberDao().mepcheck(mep);
+		
 		if(result) {
 			response.getWriter().print(1);
 		}else {
-			response.getWriter().print(2); 
+			response.getWriter().print(2);
 		}
 	}
 
@@ -43,24 +44,8 @@ public class Namecheck2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.MemberDao;
+import dto.Member;
 
 /**
- * Servlet implementation class Namecheck2
+ * Servlet implementation class Signup
  */
-@WebServlet("/Namecheck2")
-public class Namecheck2 extends HttpServlet {
+@WebServlet("/Signup")
+public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Namecheck2() {
+    public Signup() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +29,8 @@ public class Namecheck2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("123");
-		request.setCharacterEncoding("UTF-8");
-		String mname2 = request.getParameter("mname2");
-		boolean result = MemberDao.getMemberDao().namecheck2(mname2);
-		if(result) {
-			response.getWriter().print(1);
-		}else {
-			response.getWriter().print(2); 
-		}
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,23 +38,21 @@ public class Namecheck2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8"); 
+		String mep = request.getParameter("mep");
+		String mname = request.getParameter("mname");
+		String mname2 = request.getParameter("mname2");
+		String mpassword = request.getParameter("mpasswrod");
+		
+		Member member = new Member(0, mep, mname, mname2, mpassword);
+		
+		boolean result = MemberDao.getMemberDao().signup(member);
+		if(result) {
+			response.sendRedirect("/instagram/member/signupsuccess.jsp");
+		}else {
+			response.sendRedirect("instagram/error.jsp");
+		}
+		
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
