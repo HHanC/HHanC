@@ -257,7 +257,61 @@ function passwordchange(){
 	
 }
 
+function send(){
+	let nicname = $("#nicname").val();
+	let content = $("#content").val();
+	let ip = $("#ip").html();
+	$.ajax({ 
+		url : "send",
+		data : { "nicname" : nicname , "content" : content , "ip" : ip  },
+		success : function( result ){
+			$("#nicname").val("");
+			$("#content").val("");
+		}
+		
+	});
+	
+}
 
+$(function() {
+	timer = setInterval( function () {
+		alert();
+	    $.ajax ({
+	        url : "receive",
+	        cache : false,
+	        success : function ( result ) {
+		        var co =  result.split(",");
+		        var contents = "";
+		        for( var i = 0 ; i<co.length-1 ; i++ ){
+					
+					let ip = $("#ip").html();
+					
+					if( co[i].split("_")[1] == ip ){
+						contents += 
+					 '<div class="box"  style="text-align: right;">'+
+						'<div class="nicname">'+co[i].split("_")[2]+'</div>'+
+						'<span class="date">'+co[i].split("_")[0].split(" ")[1]+'</span>'+
+						'<span class="content">'+co[i].split("_")[3]+'</span>'+
+						
+					'</div>'
+					}else{
+						contents += 
+					 '<div class="box">'+
+						'<div class="nicname">'+co[i].split("_")[2]+'</div>'+
+						'<span class="content">'+co[i].split("_")[3]+'</span>'+
+						'<span class="date">'+co[i].split("_")[0].split(" ")[1]+'</span>'+
+						
+					'</div>'
+					}
+					
+					 
+				}
+				$("#contentlist").html( contents );
+				$('#contentlist').scrollTop($('#contentlist')[0].scrollHeight);
+	        }
+	    });
+	    }, 500);
+});
 
 
 

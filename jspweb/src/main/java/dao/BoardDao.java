@@ -32,15 +32,40 @@ public class BoardDao extends Dao{
 		} catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-	// 2. 모든 게시물 출력 메소드 [인수 : //추후기능 = 검색 : 조건]
-	public ArrayList<Board> getboardlist() {
+	// 2-2 게시물 전체 개수출력 메소드
+	public int gettotalrow(String key, String keyword) {
 		
-		ArrayList<Board> boardlist  = new ArrayList<Board>();
-		
-		String sql = "select * from board order by bno desc"; // desc 내림차순
-		
+		// 만약에 작성자 요청이면
+		if(key.equals("mid")) key = "mno"; keyword = MemberDao.getMemberDao().getmno(keyword)+"";
+		String sql = null;
+		if(key.equals("") && keyword.equals("")) {
+			sql = "select count(*) from board";
+		}else {
+			sql = "select count(*) from board where "+key+" like '%"+keyword+"%'";
+		}
 		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {}
+		return 0;
+	}
+	// 2. 모든 게시물 출력 메소드 [인수 : //추후기능 = 검색 : 조건]
+	public ArrayList<Board> getboardlist(int startrow, int listsize, String key, String keyword) {
+		ArrayList<Board> boardlist  = new ArrayList<Board>();
+		if(key.equals("mid")) key = "mno"; keyword = MemberDao.getMemberDao().getmno(keyword)+"";
+		String sql = null;
+		if(key.equals("") && keyword.equals("")) { // 검색이 없을경우
+			sql = "select * from board order by bno desc limit "+startrow+","+listsize; // desc 내림차순
+		}else {
 			
+			sql = "select * from board where "+key+" like '%"+keyword+"%' "
+					+ "order by bno desc limit "+startrow+","+listsize;
+		}
+		 
+		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()){

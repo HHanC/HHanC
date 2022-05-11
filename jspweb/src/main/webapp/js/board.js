@@ -110,6 +110,13 @@ function replydelete(rno){
 
 
 
+$("#cchatting").keyup(function(){
+	
+	alert("!23");
+	
+});
+
+	
 
 
 
