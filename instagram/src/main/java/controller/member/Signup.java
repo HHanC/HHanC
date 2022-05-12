@@ -37,12 +37,11 @@ public class Signup extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8"); 
 		String mep = request.getParameter("mep");
 		String mname = request.getParameter("mname");
 		String mname2 = request.getParameter("mname2");
-		String mpassword = request.getParameter("mpasswrod");
+		String mpassword = request.getParameter("mpassword");
 		
 		Member member = new Member(0, mep, mname, mname2, mpassword);
 		

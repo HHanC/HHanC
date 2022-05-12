@@ -28,7 +28,6 @@ public class Namecheck2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("123");
 		request.setCharacterEncoding("UTF-8");
 		String mname2 = request.getParameter("mname2");
 		boolean result = MemberDao.getMemberDao().namecheck2(mname2);

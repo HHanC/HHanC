@@ -23,7 +23,7 @@ public class MemberDao extends Dao{
 			if(rs.next()) {
 				return true;
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {System.out.println("이메일 체크 오류" + e);}
 		return false;
 	}
 	
@@ -72,7 +72,7 @@ public class MemberDao extends Dao{
 	}
 	
 	public boolean signup(Member member) {
-		String sql = "insert into member(mep, mname, mname2, mpasswrod)";
+		String sql = "insert into member(mep, mname, mname2, mpassword)values(?,?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getMep());
@@ -81,7 +81,7 @@ public class MemberDao extends Dao{
 			ps.setString(4, member.getMpassword());
 			ps.executeUpdate();
 			return true;
-		} catch (Exception e) {}
+		} catch (Exception e) {System.out.println("회원가입 오류" + e);}
 		return false;
 	}
 	

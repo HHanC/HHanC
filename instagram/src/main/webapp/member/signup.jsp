@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form id="signupform" action="../signup" method="post">
+	<form id="signupform" action="../Signup" method="post">
 	
 		<input type="text" id="mep" name="mep" placeholder="휴대폰 번호 또는 이메일 주소">
 		<span id="mepcheck"></span>
