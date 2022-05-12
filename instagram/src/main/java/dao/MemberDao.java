@@ -99,9 +99,35 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {
 			return 3;
 		}
-		
 	}
-	
+	// 회원번호 출력 메소드
+	public int getmno(String mep) {
+		
+		String sql = "select mno from member where mep = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mep);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {System.out.println("회원번호 출력 메소드" + e);}
+		return 0;
+	}
+	// 회원 이메일 및 연락처 출력
+	public String getmep(int mno) {
+		String sql = "select mep from member where mno=?";
+		try {
+			
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (Exception e) {}
+		return null;
+	}
 }
 
 

@@ -45,6 +45,7 @@ public class Login extends HttpServlet {
 		if(result == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("login", mep);
+			
 			response.sendRedirect("/instagram/main.jsp");
 		}else if(result == 2) {
 			response.sendRedirect("/instagram/login.jsp?result=2");
