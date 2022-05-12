@@ -122,4 +122,5 @@ public class Board {
 				+ bfile + ", bview=" + bview + ", bdate=" + bdate + ", mid=" + mid + "]";
 	}
 	
+
 }

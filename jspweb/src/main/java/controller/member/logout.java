@@ -30,7 +30,6 @@ public class logout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("login", null);
 		response.sendRedirect("/jspweb/main.jsp");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

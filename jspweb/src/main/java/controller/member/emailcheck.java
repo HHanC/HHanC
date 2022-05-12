@@ -32,14 +32,10 @@ public class emailcheck extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
 		
-		boolean result = MemberDao.getmemberDao().emailcheck(email);
-		if(result) {
-			response.getWriter().print(1);
-		}else {
-			response.getWriter().print(2);
-		}
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		boolean result 
+			= MemberDao.getmemberDao().emailcheck(email);
+		if( result ) { response.getWriter().print(1); }
+		else { response.getWriter().print(2); }
 	}
 
 	/**

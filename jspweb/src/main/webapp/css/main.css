@@ -1,36 +1,38 @@
 @charset "UTF-8";
 
-*{
-	font-family: 'GangwonEdu_OTFBoldA';
-}
-
+/* 외부 폰트 */
 @font-face {
-    font-family: 'GangwonEdu_OTFBoldA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-family: 'SuseongDotum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/SuseongDotum.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-	}
-
-a{
-	text-decoration: none;
-	color: black;
-	margin: 0 0 0 10px;
 }
 
-a:hover {
-	color: red;
+/* 모든곳에 적용 */
+*{ 
+	font-family: "SuseongDotum";
+	padding: 0px;
+	margin: 0px;
 }
+/* a태그(링크) 기본 속성 제거  */
+a{ text-decoration: none; color: black;}
 
 .boardview_title{
-	border-bottom: 2px solid black;
-	padding: 10px;
-	margin-top: 50px;
+	border-bottom: 2px solid black; /* 아래 테두리 */
+	padding: 10px; /* 안쪽여백 */
+	margin-top: 50px; /* 위 바깥여백 */
 }
 .boardview_content{
-	min-height: 400px;
+	min-height: 400px; /*최소높이*/	
+}
+textarea {
+	resize: none;	/* 크기변경 불가능 */
 }
 .replywriter{
-	font-size: 12px;
+	font-size: 14px;
+}
+.replybtn{
+	font-size: 10px;
 }
 .replydate{
 	font-size: 7px;
@@ -44,17 +46,19 @@ a:hover {
 	padding: 2px 6px 2px 6px;
 }
 .header_input{
-	border: 0; /*테두리 제거*/
-	border-bottom: 2px solid black; 
+	border: 0; /* 테두리 제거 */
+	border-bottom: 2px solid black;
 }
 .shoppingbox{
-	font-size: 15px;
-	background-color: blue;
+	font-size: 10px;
+	background-color: skyblue;
 	color: white;
 	padding: 2px 5px 2px 5px;
 	border-radius: 10px;
 	margin-right: 10px;
 }
+
+/* 드랍다운에 마우스 올렸을때 */
 .dropdown:hover .dropdown-menu{
 	display: block;
 }
@@ -66,13 +70,12 @@ a:hover {
 	margin: 100px 0px 50px 0px;
 }
 .boardlist_topbtn{
-	margin: 20px 0px;
+	margin: 20px 0px;	
 }
 .pagenum{
 	color: black;
 	font-size: 12px;
 }
-
 
 
 

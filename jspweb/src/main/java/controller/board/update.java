@@ -42,46 +42,35 @@ public class update extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		String uploadpath = request.getSession().getServletContext().getRealPath("/board/upload");
-		MultipartRequest multipartRequest = new MultipartRequest(
-				request,
-				uploadpath,
-				1024*1024*10,
-				"UTF-8",
-				new DefaultFileRenamePolicy()
-				);
+		int bno =  Integer.parseInt( request.getParameter("bno") );
 		
-		String btitle = multipartRequest.getParameter("btitle");
-		String bcontent = multipartRequest.getParameter("bcontent");
-		String bfile = multipartRequest.getFilesystemName("bfile");
-			// 기존파일
+		String uploadpath = request.getSession().getServletContext().getRealPath("/board/upload");
+		MultipartRequest multi = new MultipartRequest( request,uploadpath ,1024*1024*10 ,"UTF-8" ,new DefaultFileRenamePolicy());
+		String btitle = multi.getParameter("btitle");
+		String bcontent = multi.getParameter("bcontent");
+		String bfile = multi.getFilesystemName("bfile");
+		
+			//기존파일명
 			Board temp = BoardDao.getBoardDao().getboard(bno);
 			String oldfile = temp.getBfile();
-			if(bfile == null) { // 새로운 첨부파일 없다
+			if( bfile == null ) {// 새로운 첨부파일 없다 . 
 				bfile = oldfile;
-			}else { // 새로운 첨부파일이 있다.
-				// 기존 파일은 서버내에서 삭제처리
-				String upload = request.getSession().getServletContext().getRealPath("/board/upload" + oldfile);
+			}else { // 새로운 첨부파일 있다. 
+				// * 기존파일은 서버내에서 삭제처리
+				String upload = request.getSession().getServletContext().getRealPath("/board/upload/"+oldfile);
 				File file = new File(upload);
 				file.delete();
 			}
 		
+			//객체화 
 		Board board = new Board(bno, btitle, bcontent, 0, bfile, 0, null, null);
-		
+			// DB
 		boolean result = BoardDao.getBoardDao().update(board);
-		if(result) {
-			response.sendRedirect("boardview.jsp?bno=" + bno);
-		}else {
-			response.sendRedirect("boardview.jsp?bno=" + bno);
-		}
-		
-		
+		if( result ) { response.sendRedirect("boardview.jsp?bno="+bno ); }
+		else { response.sendRedirect("boardview.jsp?bno="+bno );}
 	}
 
 }
-
-
 
 
 

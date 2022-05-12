@@ -3,19 +3,12 @@ package dto;
 import dao.MemberDao;
 
 public class Reply {
-
-	@Override
-	public String toString() {
-		return "Reply [rno=" + rno + ", rcontent=" + rcontent + ", rdate=" + rdate + ", rindex=" + rindex + ", bno="
-				+ bno + ", mno=" + mno + ", mid=" + mid + "]";
-	}
-
 	private int rno;
-    private String rcontent;
-    private String rdate;
-    private int rindex;
-    private int bno;
-    private int mno;
+	private String  rcontent;
+	private String  rdate ;
+    private int  rindex;
+    private int  bno;
+    private int  mno;
     private String mid;
     
     public Reply() {}
@@ -88,8 +81,11 @@ public class Reply {
 		this.mid = mid;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "Reply [rno=" + rno + ", rcontent=" + rcontent + ", rdate=" + rdate + ", rindex=" + rindex + ", bno="
+				+ bno + ", mno=" + mno + ", mid=" + mid + "]";
+	}
     
 	
 }
