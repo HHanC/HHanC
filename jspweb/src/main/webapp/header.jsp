@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ezen 쇼핑몰</title>
+<title>윽</title>
 	<!-- 부트스트랩 css cdn -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 	<!-- 사용자정의 css -->
@@ -23,7 +23,7 @@
 		<div class="py-4"> <!-- py : 위아래 패딩(안쪽여백) -->
 			<div class="row"> <!-- row : 가로배치 -->
 				<div class="col-md-4"> <!-- 그리드[12조각중 4 ] -->
-					<a href="/jspweb/main.jsp" class="header_logo">EZEN SHOP</a>
+					<a href="/jspweb/main.jsp" class="header_logo"> 윽 </a>
 				</div>
 				<div class="col-md-4 offset-4 d-flex justify-content-end header_topmenu"> <!-- offset 공백그리드 -->
 				

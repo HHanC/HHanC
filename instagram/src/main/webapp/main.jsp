@@ -14,6 +14,7 @@
 	<h3>메인 페이지</h3>
 	<%
 		ArrayList<Board> boardlist = BoardDao.getBoardDao().getboardlist();
+		String mid = (String)session.getAttribute("login");
 	%>
 	<div>
 		<ul>
@@ -22,9 +23,11 @@
 		<table>
 			<% for(Board board : boardlist) {%>
 			<tr>
-				<td>
-					<%=board.getBcontent()%>
-				</td>
+				<td><%=board.getBfile() %></td>
+				<td><%=mid %></td>
+				<td><%=board.getBcontent()%></td>
+				<td><%=board.getBdate() %></td>
+				
 			</tr>
 			<%}%>
 		</table>

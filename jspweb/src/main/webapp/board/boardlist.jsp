@@ -106,7 +106,7 @@
 					<td> <%=board.getBno() %> </td>
 					<td  style="text-align: left;"> 
 							<a href="boardview.jsp?bno=<%=board.getBno()%>">
-								<%=board.getBtitle() %>
+								<%=board.getBtitle()%>
 							</a> 
 					</td>
 					<td> <%=board.getMid() %> </td>
