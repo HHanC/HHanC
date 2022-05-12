@@ -34,9 +34,9 @@ public class delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		// DB삭제 전에 파일명 가져오기
-		Board board = BoardDao.getBoardeDao().getboard(bno);
+		Board board = BoardDao.getBoardDao().getboard(bno);
 		String bfile = board.getBfile();
-		boolean result = BoardDao.getBoardeDao().delete(bno);
+		boolean result = BoardDao.getBoardDao().delete(bno);
 		// * java에서 html js 작성하기 (js명령어) 사용하기
 		response.setCharacterEncoding("UTF-8"); // 응답 인코딩 타입 = 한글
 		response.setContentType("text/html; charset=UTF-8"); // 응답 파일타입 = HTML

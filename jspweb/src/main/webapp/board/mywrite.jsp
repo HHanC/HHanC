@@ -15,9 +15,9 @@
 	<%@include file = "../header.jsp" %>
 	
 	<%
-		ArrayList<Board> list = BoardDao.getBoardeDao().getboardlist();
+		ArrayList<Board> list = BoardDao.getBoardDao().getboardlist(startrow, listsize, key, keyword);
 		String mid = (String)session.getAttribute("login");
-		int mno = MemberDao.getMemberDao().getmno(mid);
+		int mno = MemberDao.getmemberDao().getmno(mid);
 	%>
 	
 	<div class="container">

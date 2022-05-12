@@ -29,7 +29,7 @@ public class replydelete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int rno = Integer.parseInt(request.getParameter("rno"));
-		boolean result = BoardDao.getBoardeDao().replydelete(rno);
+		boolean result = BoardDao.getBoardDao().replydelete(rno);
 		if(result) {
 			response.getWriter().print(1);
 		}else {

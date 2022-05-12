@@ -30,7 +30,7 @@ public class delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("ajax통신 성공");
 		String mid = request.getParameter("mid");
-		boolean result = MemberDao.getMemberDao().delete(mid);
+		boolean result = MemberDao.getmemberDao().delete(mid);
 		if(result) {
 			response.getWriter().print(1);
 		}else {

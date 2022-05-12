@@ -36,11 +36,11 @@ public class rereplywrite extends HttpServlet {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String rcontent = request.getParameter("rrcontent");
 		String mid = (String)request.getSession().getAttribute("login");
-		int mno = MemberDao.getMemberDao().getmno(mid);
+		int mno = MemberDao.getmemberDao().getmno(mid);
 		// 객체화  (댓글번호, 작성일, mid제외)
 		Reply reply = new Reply(0, rcontent, null, rindex, bno, mno, null);
 		// db처리
-		boolean result = BoardDao.getBoardeDao().replywrite(reply);
+		boolean result = BoardDao.getBoardDao().replywrite(reply);
 		if(result) {
 			response.getWriter().print(1);
 		}else {

@@ -1,4 +1,4 @@
-package controller.board;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,22 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dao.BoardDao;
 import dao.MemberDao;
-import dto.Reply;
 
 /**
- * Servlet implementation class replywrite
+ * Servlet implementation class Login
  */
-@WebServlet("/board/replywrite")
-public class replywrite extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public replywrite() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,28 +29,45 @@ public class replywrite extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		String rcontent = request.getParameter("rcontent");
-			String mid = (String)request.getSession().getAttribute("login");
-		int mno = MemberDao.getmemberDao().getmno(mid);
-		// 객체화 [댓글번호, 댓글작성일, rindex, mid제외]
-		Reply reply = new Reply(0, rcontent, null, 0, bno, mno, null);
-		//DB처리
-		boolean result = BoardDao.getBoardDao().replywrite(reply);
-		if(result) {
-			response.getWriter().print(1);
-		}else {
-			response.getWriter().print(2);
-		}
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		request.setCharacterEncoding("UTF-8");
+		String mep = request.getParameter("mep");
+		String mpassword = request.getParameter("mpassword");
+		int result = MemberDao.getMemberDao().login(mep, mpassword);
+		if(result == 1) {
+			HttpSession session = request.getSession();
+			session.setAttribute("login", mep);
+			response.sendRedirect("/instagram/main.jsp");
+		}else if(result == 2) {
+			response.sendRedirect("/instagram/login.jsp?result=2");
+		}else {
+			response.sendRedirect("/instagram/error.jsp");
+		}
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

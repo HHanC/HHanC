@@ -70,7 +70,7 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {}
 		return false;
 	}
-	
+	// 회원가입 메소드
 	public boolean signup(Member member) {
 		String sql = "insert into member(mep, mname, mname2, mpassword)values(?,?,?,?)";
 		try {
@@ -84,7 +84,23 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {System.out.println("회원가입 오류" + e);}
 		return false;
 	}
-	
+	// 로그인 메소드
+	public int login(String mep, String mpassword) {
+		
+		String sql = "select * from member where mep=? and mpassword=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mep);
+			ps.setString(2, mpassword);
+			rs = ps.executeQuery();
+			if(rs.next()) 
+				return 1;
+				return 2;
+		} catch (Exception e) {
+			return 3;
+		}
+		
+	}
 	
 }
 

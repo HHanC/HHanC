@@ -31,9 +31,9 @@ public class filedelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 게시물번호 요청
 		int bno = Integer.parseInt(request.getParameter("bno"));
-		String bfile = BoardDao.getBoardeDao().getboard(bno).getBfile(); // 기존파일명 임시보관
+		String bfile = BoardDao.getBoardDao().getboard(bno).getBfile(); // 기존파일명 임시보관
 		// 2. [DB변경]해당 게시물번호의 게시물 첨부파일의 필드를 null 변경
-		boolean result = BoardDao.getBoardeDao().filedelete(bno);
+		boolean result = BoardDao.getBoardDao().filedelete(bno);
 		// 3. [파일삭제]서버내 첨부파일은 삭제
 		if(result) {
 			String uploadpath = request.getSession().getServletContext().getRealPath("/board/upload/" + bfile);

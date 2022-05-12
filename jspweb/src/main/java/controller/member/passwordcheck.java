@@ -41,7 +41,7 @@ public class passwordcheck extends HttpServlet {
 		// 3. DB처리
 		System.out.println(mid);
 		System.out.println(mpassword);
-		boolean result = MemberDao.getMemberDao().passwordcheck(mid, mpassword);
+		boolean result = MemberDao.getmemberDao().passwordcheck(mid, mpassword);
 		
 		// 4. 결과
 		if(result) {

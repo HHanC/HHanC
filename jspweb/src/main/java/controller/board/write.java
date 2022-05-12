@@ -57,12 +57,12 @@ public class write extends HttpServlet {
 				HttpSession session = request.getSession();	
 				String mid = (String)session.getAttribute("login");
 				
-			   int mno = MemberDao.getMemberDao().getmno(mid);
+			   int mno = MemberDao.getmemberDao().getmno(mid);
 			
 			// 객체화
 			Board board = new Board(0, btitle, bcontent, mno, bfile, 0, null, null);
 			// DB 처리
-			boolean result = BoardDao.getBoardeDao().write(board);
+			boolean result = BoardDao.getBoardDao().write(board);
 			// 결과
 			if(result) {
 				response.sendRedirect("/jspweb/board/boardlist.jsp");

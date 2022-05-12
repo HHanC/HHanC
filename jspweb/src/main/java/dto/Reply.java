@@ -29,7 +29,7 @@ public class Reply {
 		this.bno = bno;
 		this.mno = mno;
 		// 회원번호를 이용한 회원 아이디 찾기
-		this.mid = MemberDao.getMemberDao().getmid(mno);
+		this.mid = MemberDao.getmemberDao().getmid(mno);
 	}
 
 	public int getRno() {

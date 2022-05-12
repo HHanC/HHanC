@@ -46,7 +46,7 @@ public class Board {
 		}else { this.bdate = bdate; }
 		
 		// mno를 가지고 mid출력
-		this.mid = MemberDao.getMemberDao().getmid(mno);
+		this.mid = MemberDao.getmemberDao().getmid(mno);
 		
 	}
 

@@ -50,13 +50,12 @@ public class login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("form 통신");
 		// 1. 요청
 				String mid = request.getParameter("mid");
 				String mpassword = request.getParameter("mpassword");
 				// 2. 객체화 (데이터가 적기때문에 생략)
 				// 3. DB처리
-				int result = MemberDao.getMemberDao().login(mid,mpassword);
+				int result = MemberDao.getmemberDao().login(mid,mpassword);
 				if(result == 1) {
 					// 4. 로그인 성공시 세션 부여 [세션 : 서버에 메모리 할당 -> 모든 페이지에서 동일한 메모리 사용 가능]
 					HttpSession session = request.getSession(); // http 내장 세션 호출

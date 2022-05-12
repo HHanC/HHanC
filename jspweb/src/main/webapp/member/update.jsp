@@ -16,7 +16,7 @@
 			// 1. 세션에 저장된 회원id 호출
 			String mid = (String)session.getAttribute("login");
 			// 2. 회원 정보 가져오기
-			Member member = MemberDao.getMemberDao().getMember(mid);
+			Member member = MemberDao.getmemberDao().getmember(mid);
 		%>
 		
 		<div class="container"> 

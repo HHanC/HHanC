@@ -56,7 +56,7 @@ public class update extends HttpServlet {
 		String bcontent = multipartRequest.getParameter("bcontent");
 		String bfile = multipartRequest.getFilesystemName("bfile");
 			// 기존파일
-			Board temp = BoardDao.getBoardeDao().getboard(bno);
+			Board temp = BoardDao.getBoardDao().getboard(bno);
 			String oldfile = temp.getBfile();
 			if(bfile == null) { // 새로운 첨부파일 없다
 				bfile = oldfile;
@@ -69,7 +69,7 @@ public class update extends HttpServlet {
 		
 		Board board = new Board(bno, btitle, bcontent, 0, bfile, 0, null, null);
 		
-		boolean result = BoardDao.getBoardeDao().update(board);
+		boolean result = BoardDao.getBoardDao().update(board);
 		if(result) {
 			response.sendRedirect("boardview.jsp?bno=" + bno);
 		}else {

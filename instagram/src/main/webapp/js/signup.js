@@ -6,7 +6,7 @@ $(function(){
 	$("#mep").keyup(function(){
 	let mep = $("#mep").val();
 	let mepj = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
-	let phonej = /^\d{3}-\d{3,4}-\d{4}$/;
+	let phonej = /^\d{3}\d{3,4}\d{4}$/;
 		if(mepj.test(mep)){
 			$.ajax({
 				url : "../Mepcheck",
@@ -19,19 +19,10 @@ $(function(){
 					}
 				}
 			});
-		}
-		if(phonej.test(mep)){
-			$.ajax({
-				url : "../Mepcheck",
-				data : {"mep" : mep},
-				success : function(result){
-					if(result == 1){
-						$("#mepcheck").html("빨간색x"); pass[0] = false;
-					}else{
-						$("#mepcheck").html("초록색v"); pass[0] = true;
-					}
-				}
-			});
+		}else if(phonej.test(mep)){
+			$("#mepcheck").html("초록색v"); pass[0] = true;
+		}else{
+			$("#mepcheck").html("빨간색x"); pass[0] = false;
 		}
 	});
 	
@@ -53,7 +44,7 @@ $(function(){
 	$("#mname2").keyup(function(){
 		
 		let mname2 = $("#mname2").val();
-		let namecheck2j = /^[a-zA-Z0-9_.]{2,10}$/;
+		let namecheck2j = /^[a-zA-Z0-9_/.][a-zA-Z0-9_/. ]*$/;
 		
 		if(namecheck2j.test(mname2)){
 			$.ajax({

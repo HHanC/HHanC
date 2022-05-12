@@ -47,7 +47,7 @@ public class Signup extends HttpServlet {
 		
 		boolean result = MemberDao.getMemberDao().signup(member);
 		if(result) {
-			response.sendRedirect("/instagram/member/signupsuccess.jsp");
+			response.sendRedirect("/instagram/member/login.jsp");
 		}else {
 			response.sendRedirect("instagram/error.jsp");
 		}

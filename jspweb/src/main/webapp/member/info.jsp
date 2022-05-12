@@ -24,7 +24,7 @@
 						// 1. 세션 호출 [회원 id 저장] 
 						String mid = (String)session.getAttribute("login");
 						// 2. DB 메소드 호출
-						Member member = MemberDao.getMemberDao().getMember(mid);
+						Member member = MemberDao.getmemberDao().getmember(mid);
 						// 3. HTML에 객체 표현식
 					%>
 					회원번호 : <%=member.getMno()%> <br>

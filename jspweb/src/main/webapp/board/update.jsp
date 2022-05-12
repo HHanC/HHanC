@@ -24,7 +24,7 @@
 	<%
 		//
 		int bno = Integer.parseInt(request.getParameter("bno"));
-		Board board = BoardDao.getBoardeDao().getboard(bno);
+		Board board = BoardDao.getBoardDao().getboard(bno);
 	
 	%>
 		

@@ -69,7 +69,7 @@ public class update extends HttpServlet {
 			String mid = (String)session.getAttribute("login");
 			System.out.println(mid);
 			System.out.println(newpassword);
-			boolean result = MemberDao.getMemberDao().passwordcheck(mid, oldpassword);
+			boolean result = MemberDao.getmemberDao().passwordcheck(mid, oldpassword);
 			if(result) {
 				member = new Member(mno, null, newpassword, mname, mphone, email, address, 0, null);
 			}else {
@@ -77,7 +77,7 @@ public class update extends HttpServlet {
 			}
 		}
 		//DB처리
-		boolean result = MemberDao.getMemberDao().update(member);
+		boolean result = MemberDao.getmemberDao().update(member);
 		if(result) {
 			response.sendRedirect("/jspweb/member/update.jsp?result=1");
 		}else {

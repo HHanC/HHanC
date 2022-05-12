@@ -1,29 +1,31 @@
 package dto;
+
+import dao.MemberDao;
+
 // dto 데이터 교환 객체
 public class Member {
-
+	
 	@Override
 	public String toString() {
 		return "Member [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
-				+ mphone + ", memail=" + memail + ", unique=" + unique + ", maddress=" + maddress + ", mpoint=" + mpoint
-				+ ", mdate=" + mdate + "]";
+				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mpoint=" + mpoint + ", mdate=" + mdate
+				+ "]";
 	}
 
-	private int mno;
-	private String mid;
-	private String mpassword;
-	private String mname;
-	private String mphone;
-	private String memail;
-	private String unique;
-	private String maddress;
-	private int mpoint;
-	private String mdate;
+	private int mno; 		
+	private String mid ;		
+	private String mpassword;	
+	private String mname	;	
+	private String mphone	;	
+	private String memail	;	
+	private String maddress	;
+	private int mpoint	;
+	private String mdate	;
 	
 	public Member() {}
 
-	public Member(int mno, String mid, String mpassword, String mname, String mphone, String memail, String unique,
-			String maddress, int mpoint, String mdate) {
+	public Member(int mno, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
+			int mpoint, String mdate) {
 		super();
 		this.mno = mno;
 		this.mid = mid;
@@ -31,7 +33,6 @@ public class Member {
 		this.mname = mname;
 		this.mphone = mphone;
 		this.memail = memail;
-		this.unique = unique;
 		this.maddress = maddress;
 		this.mpoint = mpoint;
 		this.mdate = mdate;
@@ -85,14 +86,6 @@ public class Member {
 		this.memail = memail;
 	}
 
-	public String getUnique() {
-		return unique;
-	}
-
-	public void setUnique(String unique) {
-		this.unique = unique;
-	}
-
 	public String getMaddress() {
 		return maddress;
 	}
@@ -116,5 +109,11 @@ public class Member {
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
 	}
+	
+	
+	
+	
+	
+	
 
 }

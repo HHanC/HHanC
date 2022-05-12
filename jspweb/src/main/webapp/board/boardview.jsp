@@ -22,13 +22,13 @@
 			// 조회수 중복방지 세션이 존재하지 않으면 
 			if( session.getAttribute( mid+bno ) == null  ){
 				// 조회수 증가처리 
-				BoardDao.getBoardeDao().increview( bno );
+				BoardDao.getBoardDao().increview( bno );
 				// 조회수 중복방지[ 세션 생성 ]
 				session.setAttribute( mid+bno , true );// 세션명 : 아이디 + 게시물번호  // 세션의 값 : true
 				session.setMaxInactiveInterval( 60*60*24 ); // 24시간
 			}
 			
-			Board board =  BoardDao.getBoardeDao().getboard(bno); 			// 게시물번호로 게시물 dto 가져오기 
+			Board board =  BoardDao.getBoardDao().getboard(bno); 			// 게시물번호로 게시물 dto 가져오기 
 		%>
 	
 	
@@ -60,7 +60,7 @@
  <!----------------------------------- 게시물 삭제/수정/목록 버튼 구역 ------------------------------------------------->		
 		<div class="row">
 		<%
-			if( board.getMno() == MemberDao.getMemberDao().getmno(mid) ){ 	// 아이디로 회원번호 가져와서 비교 
+			if( board.getMno() == MemberDao.getmemberDao().getmno(mid) ){ 	// 아이디로 회원번호 가져와서 비교 
 		%>
 			<div class="col-md-2">
 				<a href="delete?bno=<%=board.getBno()%>"> <button class="form-control">삭제</button> </a> <!--작성자와 로그인된 id가 동일하면 보이는 버튼  -->
@@ -89,7 +89,7 @@
 		<%} %>
 <!----------------------------------- 댓글 출력 구역 -------------------------------------------------------------------->			
 		<table id="replytable" class="table" > <!-- 댓글 작성 성공시 해당 태그 새로고침 => js( jquery ) -->
-			<%  ArrayList<Reply> replylist = BoardDao.getBoardeDao().replylist(bno);
+			<%  ArrayList<Reply> replylist = BoardDao.getBoardDao().replylist(bno);
 				for( Reply reply : replylist ){  %>
 			<tr>
 				<td class="replywriter" width="15%">
@@ -117,7 +117,7 @@
 			</tr>
 			
 			<!-- 대댓글 출력창  -->
-			<%ArrayList<Reply> rereplylist = BoardDao.getBoardeDao().rereplylist( bno , reply.getRno() );
+			<%ArrayList<Reply> rereplylist = BoardDao.getBoardDao().rereplylist( bno , reply.getRno() );
 				for( Reply rereply : rereplylist ){%>
 				<tr>
 					<td></td>

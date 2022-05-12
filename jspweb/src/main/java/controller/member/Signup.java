@@ -46,7 +46,7 @@ public class Signup extends HttpServlet {
 		
 		// System.out.println(member.toString()); // toString() : 객체 정보 확인 -> 주소값 나옴
 			// toString() : object클래스[최상위클래스] 의 객체 주소 반환 메소드
-		boolean result = MemberDao.getMemberDao().signup(member);
+		boolean result = MemberDao.getmemberDao().signup(member);
 		if(result) {
 			response.sendRedirect("/jspweb/member/signupsuccess.jsp");
 		}else {
