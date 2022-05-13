@@ -1,6 +1,5 @@
  $(document).ready( function(){
-	alert("123");
-	 $('#summernote').summernote({
+	 $("#summernote").summernote({
     	placeholder: '내용 입력',
     	tabsize: 2,
    	 	minheight : 250, // 최소 높이

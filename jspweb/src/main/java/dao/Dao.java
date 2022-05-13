@@ -15,7 +15,7 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3307/jspweb?serverTimezone=UTC",
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3307/js?serverTimezone=UTC",
 					"root","1234");
 			System.out.println("연동 성공");
 		}catch (Exception e) { System.out.println("연동 실패"+e);}

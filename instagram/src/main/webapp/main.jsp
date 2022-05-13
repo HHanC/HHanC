@@ -27,7 +27,6 @@
 				<td><%=mid %></td>
 				<td><%=board.getBcontent()%></td>
 				<td><%=board.getBdate() %></td>
-				
 			</tr>
 			<%}%>
 		</table>

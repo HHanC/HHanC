@@ -16,15 +16,13 @@ public class BoardDao extends Dao{
 	// 게시물 작성 메소드
 	public boolean write(Board board) {
 		
-		String sql = "insert into board(bcontent, mno, bdate, bfile)values(?,?,?,?)";
+		String sql = "insert into board(bcontent, mno, bfile)values(?,?,?)";
 		
 		try {
-			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, board.getBcontent());
 			ps.setInt(2, board.getMno());
-			ps.setString(3, board.getBdate());
-			ps.setString(4, board.getBfile());
+			ps.setString(3, board.getBfile());
 			ps.executeUpdate();
 			return true;
 			
