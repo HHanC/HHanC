@@ -78,7 +78,6 @@ $(function(){
 });
 
 function signup(){
-	
 	let check = true;
 	for(let i=0; i<pass.length; i++){
 		if(pass[i] == false){

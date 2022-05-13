@@ -9,7 +9,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/lib/cos-20.08/lib/cos.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user/lib/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="C:/Users/504/lib/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="C:/Users/504/lib/cos-20.08/lib/cos.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

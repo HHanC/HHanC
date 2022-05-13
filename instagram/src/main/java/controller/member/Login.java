@@ -42,13 +42,15 @@ public class Login extends HttpServlet {
 		String mep = request.getParameter("mep");
 		String mpassword = request.getParameter("mpassword");
 		int result = MemberDao.getMemberDao().login(mep, mpassword);
+		
 		if(result == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("login", mep);
-			
 			response.sendRedirect("/instagram/main.jsp");
+			
 		}else if(result == 2) {
-			response.sendRedirect("/instagram/login.jsp?result=2");
+			response.sendRedirect("/instagram/member/login.jsp?result=2");
+			
 		}else {
 			response.sendRedirect("/instagram/error.jsp");
 		}

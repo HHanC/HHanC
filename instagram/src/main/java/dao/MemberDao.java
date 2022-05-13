@@ -93,12 +93,13 @@ public class MemberDao extends Dao{
 			ps.setString(1, mep);
 			ps.setString(2, mpassword);
 			rs = ps.executeQuery();
-			if(rs.next()) 
+			if(rs.next()) {
 				return 1;
+			}else {
 				return 2;
-		} catch (Exception e) {
-			return 3;
-		}
+			}
+		} catch (Exception e) {System.out.println("로그인 실패" + e);}
+		return 3;
 	}
 	// 회원번호 출력 메소드
 	public int getmno(String mep) {
