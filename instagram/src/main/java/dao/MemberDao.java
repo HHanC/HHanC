@@ -129,6 +129,38 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {}
 		return null;
 	}
+	// 회원 아이디 찾기
+	public String getname2(String mep , String mname) {
+		String sql = "select mname2 from member where mep=? and mname=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mep);
+			ps.setString(2, mname);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString("mname2");
+			}
+		} catch (Exception e) {System.out.println("아이디 찾기 오류" + e);}
+		return null;
+	}
+	
+	// 회원 비밀번호 찾기
+	public String getpasswrod(String mep, String mname, String mname2) {
+		String sql = "select mpassword from member where mep=? and mname=? and mname2";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mep);
+			ps.setString(2, mname);
+			ps.setString(3, mname2);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString("mpassword");
+			}
+		} catch (Exception e) {System.out.println("비밀번호 찾기 오류" + e);}
+		return null;
+	}
+	
 }
 
 

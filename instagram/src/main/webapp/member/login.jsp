@@ -17,7 +17,7 @@
 
 </head>
 <body>
-	<h3>회원가입 성공</h3>
+	<h3>로그인 화면</h3>
 	
 	<form action="../Login" method="post">
 		<input name="mep" placeholder="휴대폰 번호 또는 이메일 주소"> <br>
@@ -34,6 +34,15 @@
 		
 		<input type="submit" value="로그인">
 	</form>
+	
+	<div>
+		<ul>
+			<li> <a href="signup.jsp"> 가입하기  </a> </li>
+			<li> <a href="findname2.jsp"> 아이디찾기 </a> </li>
+			<li> <a href="findpw.jsp"> 비밀번호찾기 </a> </li>
+		</ul>
+	</div>
+	
 	
 	<!-- jquery 최신 cdn --> <!-- 제이쿼리란? 자바스크립트 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>

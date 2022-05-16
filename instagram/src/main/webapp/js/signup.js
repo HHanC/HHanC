@@ -87,7 +87,7 @@ function signup(){
 	if(check){
 		document.getElementById("signupform").submit();
 	}else{
-		alert("필수 입력 사항이 입력되지 않았습니다.")
+		alert("필수 입력 사항이 입력되지 않았습니다.");
 	}
 	
 }

@@ -57,7 +57,6 @@ public class Main extends HttpServlet {
 		// 데이터 요청
 		String bfile = multipartRequest.getParameter("bfile");
 		String bcontent = multipartRequest.getParameter("bcontent");
-		System.out.println(bfile);
 		HttpSession session = request.getSession();
 		String mep = (String)session.getAttribute("login");
 		
