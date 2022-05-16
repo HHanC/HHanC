@@ -3,6 +3,7 @@
 function pnomove( pno ){
 	$("#modelinput").val(pno);
 }
+
 /* ----------------------------------*/
 /* -------------- 상태변경 비동식 처리 --------------------*/
 function activechange( active ){
@@ -22,6 +23,67 @@ function activechange( active ){
 	});
 };
 /* ----------------------------------*/
+
+// 제품번호 , 색상 , 사이즈 동일한 경우의 재고 호출    
+function getamount( pno ){
+	let scolor = $("#colorbox"+pno).val();	// 선택된 색상 가져오기 
+	let ssize  = $("#sizebox"+pno).val();	// 선택된 사이즈 가져오기
+	$.ajax({ 
+		url : 'getstock' , 
+		data : { 'field' : 'amount' , "pno" : pno , 
+					"scolor" : scolor , "ssize" : ssize } ,
+		success : function( re ){
+			if( re == ""){ 
+				$("#amountbox"+pno).html('해당 사이즈 색상 <br>재고없음');
+				 $("#datebox"+pno).html("");
+			}
+			else{ $("#amountbox"+pno).html(re.split(',')[0] +'개' ); // 문자열 분해함수 문자열.split("기준문자")
+				 $("#datebox"+pno).html(re.split(',')[1] );}
+		}
+	});
+};
+
+/*******************선택한 제품의 제고 변경********************/
+function getstock(pno){
+	$.ajax({
+		url : "getstock" ,
+		data : {"pno" : pno} , 
+		success : function(re){
+				$("#stocklistbox").html(re);
+		}
+		
+	});
+}
+
+function showupdate(sno){
+	
+	$("#updatebox").css("display" , "block"); // 재고 수량 입력창 열기
+	$("#sno").val(sno); // 수정할 재고 번호 넣어주기
+	
+	
+}
+
+function stockupdate(){
+	
+	let sno = $("#sno").val();
+	let samount = $("#samount").val();
+	
+	$.ajax({
+		
+		url : "stockupdate" ,
+		data : {"sno" : sno , "samount" : samount} ,
+		success : function(re){
+			$("#modalclosebtn2").click(); // 모달 닫기 버튼을 강제로 클릭이벤트
+			$("#mainbox").load("modalclosebtn2.jsp"); // 페이지 재로드
+		}
+		
+	});
+	
+}
+
+
+
+
 
 
 
