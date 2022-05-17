@@ -62,7 +62,7 @@ public class Main extends HttpServlet {
 		
 		int mno = MemberDao.getMemberDao().getmno(mep);
 		// 객체화
-		Board board = new Board(0, bcontent, mno, null, bfile);
+		Board board = new Board(0, bcontent, mno, null, bfile, null);
 		// DB처리
 		boolean result = BoardDao.getBoardDao().write(board);
 		if(result) {

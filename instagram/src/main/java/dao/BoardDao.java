@@ -32,26 +32,24 @@ public class BoardDao extends Dao{
 	// 모든 게시물 출력 메소드
 	public ArrayList<Board> getboardlist(){
 		ArrayList<Board> boardlist = new ArrayList<Board>();
-		String sql = "select * from board order by bno desc";
+		String sql = "select * from board order by bno desc"; // 내림차순
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				Board board = new Board(
 						rs.getInt(1),
 						rs.getString(2),
 						rs.getInt(3),
 						rs.getString(4),
-						rs.getString(5)
-						);
+						rs.getString(5), 
+						null );
 				boardlist.add(board);
 			}
 			return boardlist;
 		} catch (Exception e) {}
 		return null;
-		
 	}
-	
 }
 
 

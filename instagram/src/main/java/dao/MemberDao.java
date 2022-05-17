@@ -115,11 +115,11 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {System.out.println("회원번호 출력 메소드" + e);}
 		return 0;
 	}
+	
 	// 회원 이메일 및 연락처 출력
 	public String getmep(int mno) {
 		String sql = "select mep from member where mno=?";
 		try {
-			
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, mno);
 			rs = ps.executeQuery();

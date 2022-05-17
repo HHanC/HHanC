@@ -13,18 +13,22 @@
 
 	<h3>메인 페이지</h3>
 	<%
-		ArrayList<Board> boardlist = BoardDao.getBoardDao().getboardlist();
 		String mid = (String)session.getAttribute("login");
+		if(mid != null){
 	%>
+	 <a href="/instagram/board/boardwrite.jsp"> 게시물 작성으로 이동 </a> 
+	<%} %>
 	<div>
-		<ul>
-			<li> <a href="/instagram/board/boardwrite.jsp"> 게시물 작성으로 이동 </a> </li>
-		</ul>
 		<table>
-			<% for(Board board : boardlist) {%>
+			<% 
+				// 모든 게시물 호출
+				ArrayList<Board> boardlist = BoardDao.getBoardDao().getboardlist();
+				for(Board board : boardlist) {
+			%>
 			<tr>
+				<td><%=board.getBno() %></td>
 				<td><%=board.getBfile() %></td>
-				<td><%=mid %></td>
+				<td><%=board.getMep()%></td>
 				<td><%=board.getBcontent()%></td>
 				<td><%=board.getBdate() %></td>
 			</tr>
