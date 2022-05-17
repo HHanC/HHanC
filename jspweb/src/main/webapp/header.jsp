@@ -16,7 +16,7 @@
 	<!--   헤더페이지[ 모든 페이지 사용되기 때문에 = 최상위에서 절대경로 ] -->
 	<%
 		String loginid 
-		= (String)session.getAttribute("login"); // 세션 호출 ( 기본타입 = Odject )
+		= (String)session.getAttribute("login"); // 세션 호출 ( 기본타입 = Odject ) 
 	%>
 	<div class="container"> <!-- container : 박스권 -->
 	

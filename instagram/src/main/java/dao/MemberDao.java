@@ -146,7 +146,7 @@ public class MemberDao extends Dao{
 	
 	// 회원 비밀번호 찾기
 	public String getpasswrod(String mep, String mname, String mname2) {
-		String sql = "select mpassword from member where mep=? and mname=? and mname2";
+		String sql = "select mpassword from member where mep=? and mname=? and mname2=?";
 		
 		try {
 			ps = con.prepareStatement(sql);
