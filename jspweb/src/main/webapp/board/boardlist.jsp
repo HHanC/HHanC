@@ -85,7 +85,7 @@
 <!------------------------- 전체글 / 인기글  버튼 구역 -------------------------- -->
 		<div class="row boardlist_topbtn">
 			<div class="col-md-1 offset-10">
-				<a href="boardlist.jsp?key=&keyword="> <button class="form-control">전체글</button>  </a>
+				<button class="form-control">전체글</button>
 			</div>
 			<div class="col-md-1">
 				<button class="form-control">인기글</button>

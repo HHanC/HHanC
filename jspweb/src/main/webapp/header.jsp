@@ -23,7 +23,7 @@
 		<div class="py-4"> <!-- py : 위아래 패딩(안쪽여백) -->
 			<div class="row"> <!-- row : 가로배치 -->
 				<div class="col-md-4"> <!-- 그리드[12조각중 4 ] -->
-					<a href="/jspweb/main.jsp" class="header_logo">EZEN SHOP</a>
+					<a href="/jspweb/main.jsp" class="header_logo">지웅이형 사랑해요</a>
 				</div>
 				<div class="col-md-4 offset-4 d-flex justify-content-end header_topmenu"> <!-- offset 공백그리드 -->
 				
@@ -73,7 +73,7 @@
 				<li class="nav-item"> <a href="#"> 악세사리 </a> </li>
 				<li class="nav-item"> <a href="#"> BEST </a> </li>
 				<li class="nav-item"> <a href="/jspweb/teamchatting.jsp"> 트레이닝 </a> </li>
-				<li class="nav-item"> <a href="/jspweb/teammarble.jsp" style="color: #FFBB00;"> 모델처러입자 </a> </li>
+				<li class="nav-item"> <a href="/jspweb/teammarble.jsp" style="color: #FFBB00;"> 모델처럼입자 </a> </li>
 				<li class="nav-item"> <a href="#" style="color: #FF0000;"> 50% 할인 </a> </li>
 				<li class="nav-item"> 
 					<input type="text" class="header_input" size="13"> 

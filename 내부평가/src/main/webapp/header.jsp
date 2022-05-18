@@ -17,13 +17,19 @@
 <body>
 
 	<div class="container">
-		<div class="col-md-3 offset-9">
-			<ul class="nav">
-				<li> <a> 회원가입 </a> </li>
-				<li> <a> 로그인 </a> </li>
-				<li> <a> 장바구니 </a> </li>
-				<li> <a> 내정보 </a> </li>
-			</ul>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="/내부평가/main.jsp">준신사</a>
+			</div>
+			<div class="col-md-4 offset-4">
+				<ul class="nav">
+					<li> <a href="/내부평가/member/signup.jsp"> 회원가입 </a> </li>
+					<li> <a href="/내부평가/member/login.jsp"> 로그인 </a> </li>
+					<li> <a href="/내부평가/board/boardlist.jsp"> 게시판 </a> </li>
+					<li> <a> 장바구니 </a> </li>
+					<li> <a> 내정보 </a> </li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
