@@ -28,7 +28,7 @@
 			<tr>
 				<td><%=board.getBno() %></td>
 				<td><%=board.getBfile() %></td>
-				<td><%=board.getMep()%></td>
+				<td><%=board.getmname2()%></td>
 				<td><%=board.getBcontent()%></td>
 				<td><%=board.getBdate() %></td>
 			</tr>

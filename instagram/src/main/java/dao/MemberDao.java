@@ -117,8 +117,8 @@ public class MemberDao extends Dao{
 	}
 	
 	// 회원 이메일 및 연락처 출력
-	public String getmep(int mno) {
-		String sql = "select mep from member where mno=?";
+	public String getmname2(int mno) {
+		String sql = "select mname2 from member where mno=?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, mno);
@@ -129,7 +129,7 @@ public class MemberDao extends Dao{
 		} catch (Exception e) {}
 		return null;
 	}
-	// 회원 아이디 찾기
+	// 회원 사용자 이름 찾기
 	public String getname2(String mep , String mname) {
 		String sql = "select mname2 from member where mep=? and mname=?";
 		try {

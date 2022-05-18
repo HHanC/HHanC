@@ -7,7 +7,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [bno=" + bno + ", bcontent=" + bcontent + ", mno=" + mno + ", bdate=" + bdate + ", bfile=" + bfile
-				+ ", mid=" + mep + "]";
+				+ ", mid=" + mname2 + "]";
 	}
 
 
@@ -16,20 +16,20 @@ public class Board {
 	private int mno;
 	private String bdate;
 	private String bfile;
-	private String mep;
+	private String mname2;
 	
 	
 	public Board() {}
 
 
-	public Board(int bno, String bcontent, int mno, String bdate, String bfile, String mep) {
+	public Board(int bno, String bcontent, int mno, String bdate, String bfile, String mname2) {
 		super();
 		this.bno = bno;
 		this.bcontent = bcontent;
 		this.mno = mno;
 		this.bdate = bdate;
 		this.bfile = bfile;
-		this.mep = MemberDao.getMemberDao().getmep(mno);
+		this.mname2 = MemberDao.getMemberDao().getmname2(mno);
 	}
 
 
@@ -83,13 +83,13 @@ public class Board {
 	}
 
 
-	public String getMep() {
-		return mep;
+	public String getmname2() {
+		return mname2;
 	}
 
 
-	public void setMep(String mep) {
-		this.mep = mep;
+	public void setMname2(String mname2) {
+		this.mname2 = mname2;
 	}
 
 	
