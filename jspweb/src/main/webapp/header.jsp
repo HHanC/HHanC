@@ -23,7 +23,7 @@
 		<div class="py-4"> <!-- py : 위아래 패딩(안쪽여백) -->
 			<div class="row"> <!-- row : 가로배치 -->
 				<div class="col-md-4"> <!-- 그리드[12조각중 4 ] -->
-					<a href="/jspweb/main.jsp" class="header_logo">지웅이형 사랑해요</a>
+					<a href="/jspweb/main.jsp" class="header_logo">윽!!!!!</a>
 				</div>
 				<div class="col-md-4 offset-4 d-flex justify-content-end header_topmenu"> <!-- offset 공백그리드 -->
 				
@@ -79,7 +79,8 @@
 					<input type="text" class="header_input" size="13"> 
 					<a href="#"><i class="fas fa-search"></i></a>
 				</li>
-				<li class="nav-item"> <a href="#">장바구니<span class="shoppingbox">3</span></a></li>
+				<li class="nav-item"> <a href="/jspweb/product/productcart.jsp">장바구니<span class="shoppingbox">3</span></a></li>
+				
 			</ul>
 		</div> <!-- 본 메뉴 끝 -->
 		
