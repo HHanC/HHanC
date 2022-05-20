@@ -1,0 +1,89 @@
+
+.processbox{
+	margin: 100px 0px 50px 0px;
+	text-align: right;
+}
+
+.processbox span{
+	color: #999999;
+	margin-right: 20px;
+}
+
+#process_active{
+	color: black;
+	font-size: 25px;
+}
+
+.paybox{
+	text-align: center;
+	border: 2px solid #999999;
+	padding: 50px 20px;
+	margin: 50px 0px;
+}
+
+.paybox span{
+	margin-right: 10px;
+}
+
+#totalpay{
+	color: red;
+	font-size: 30px
+}
+
+.pointbox{
+	color: #999999;
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+.table th{
+	text-align: center;
+}
+
+.pnamebox{
+	
+	padding: 2%;
+	
+}
+
+
+.optionbox{
+	padding-top : 2%;
+	border-top : solid 1px #999999;
+	color: #999999;
+	font-size: 12px;
+}
+
+.dmount_btn{
+	display: block;
+	background-color: white;
+	font-size: 5px;
+	border: 1px #ced4da solid;
+	padding: 0px 10px;
+}
+.pricebox{
+	text-align: right;
+}
+.deletebox button{
+	background-color: white;
+	margin-left: 30px;
+	border: none;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
