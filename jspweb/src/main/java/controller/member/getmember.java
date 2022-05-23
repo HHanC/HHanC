@@ -1,4 +1,4 @@
-package controller.product;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,46 +7,50 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import dao.MemberDao;
+import dto.Member;
 
 /**
- * Servlet implementation class saveorder
+ * Servlet implementation class getmember
  */
-@WebServlet("/product/saveorder")
-public class saveorder extends HttpServlet {
+@WebServlet("/member/getmember")
+public class getmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public saveorder() {
+    public getmember() {
         super();
         // TODO Auto-generated constructor stub
     }
- 
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
 		String mid = (String)request.getSession().getAttribute("login");
-		int mno = MemberDao.getmemberDao().getmno(mid);
+		Member member = MemberDao.getmemberDao().getmember(mid);
 		
-			String ordername =
-			String orderphone =
-			String orderaddress =
-			in ordertotalpay =
-			String orderrequest =
-		} catch (Exception e) {}
-		// 1. 주문 DB처리 [pk]
-		
-		
-		
-		// 2. 주문상세 DB처리 [cart -> orderdetail]
-		
+		// dto -> json 변환
+		JSONObject jsonObject = new JSONObject(); // 1. json객체 선언
+		try {
+			jsonObject.put("mno", member.getMno());
+			jsonObject.put("mid", member.getMid());
+			jsonObject.put("mname", member.getMname());
+			jsonObject.put("mphone", member.getMphone());
+			jsonObject.put("memail", member.getMemail());
+			jsonObject.put("maddress", member.getMaddress());
+			jsonObject.put("mpoint", member.getMpoint());
+			jsonObject.put("mdate", member.getMdate());
+			// json -> js 통신 []
+			response.setCharacterEncoding("UTF-8"); // 한글 인코딩
+			response.setContentType("application/json"); // json형식으로 통신 타입
+			response.getWriter().print(jsonObject);
+			
+		} catch (Exception e) {System.out.println(e);}
 	}
 
 	/**
