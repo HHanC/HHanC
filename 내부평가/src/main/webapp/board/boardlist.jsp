@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<th width="10%">1</th>
-				<th width="50%"> <a href="boardupdate.jsp"> 티셔트 문의 </a> </th>
+				<th width="50%"> <a href="boardview.jsp"> 티셔트 문의 </a> </th>
 				<th width="15%">나야나</th>
 				<th width="15%">10.10.10</th>
 			</tr>
