@@ -34,52 +34,57 @@ function getamount( pno ){
 					"scolor" : scolor , "ssize" : ssize } ,
 		success : function( re ){
 			if( re == ""){ 
-				$("#amountbox"+pno).html('해당 사이즈 색상 <br>재고없음');
-				 $("#datebox"+pno).html("");
+				$("#amountbox"+pno).html('해당 사이즈색상 <br> 재고없음');
+				$("#datebox"+pno).html( "" );
 			}
-			else{ $("#amountbox"+pno).html(re.split(',')[0] +'개' ); // 문자열 분해함수 문자열.split("기준문자")
-				 $("#datebox"+pno).html(re.split(',')[1] );}
+			else{ 
+				$("#amountbox"+pno).html( re.split(',')[0] +'개' );	// 문자열분해함수 문자열.split('기준문자')
+				$("#datebox"+pno).html( re.split(',')[1] );
+			 }
 		}
 	});
 };
-
-/*******************선택한 제품의 제고 변경********************/
-function getstock(pno){
-	$.ajax({
-		url : "getstock" ,
-		data : {"pno" : pno} , 
-		success : function(re){
-				$("#stocklistbox").html(re);
+/******  선택한 제품의 재고 변경  ******** */
+function getstock( pno ){
+	$.ajax({ 
+		url : 'getstock',
+		data : { 'pno' : pno } ,
+		success:function( re ){
+			$('#stocklistbox').html(re);
 		}
-		
 	});
 }
-
-function showupdate(sno){
+/******  선택한 제품의 재고 변경 입력창 열기   ******** */
+function showupdate( sno ){
 	
-	$("#updatebox").css("display" , "block"); // 재고 수량 입력창 열기
-	$("#sno").val(sno); // 수정할 재고 번호 넣어주기
-	
-	
+	$("#updatebox").css("display","block"); // 재고수량 수정 입력창 열기 
+	$("#sno").val(sno); // 수정할 재고번호 넣어주기 
 }
-
-function stockupdate(){
-	
+/******  선택한 제품의 재고 변경처리 하기  ******** */
+function stockupdate( ){
 	let sno = $("#sno").val();
 	let samount = $("#samount").val();
 	
 	$.ajax({
-		
-		url : "stockupdate" ,
-		data : {"sno" : sno , "samount" : samount} ,
-		success : function(re){
-			$("#modalclosebtn2").click(); // 모달 닫기 버튼을 강제로 클릭이벤트
-			$("#mainbox").load("modalclosebtn2.jsp"); // 페이지 재로드
+		url : 'stockupdate' ,
+		data :  { 'sno' : sno , 'samount' : samount} ,
+		success : function( re ){
+			$("#modalclosebtn2").click(); // 모달 닫기 버튼를 강제로 클릭이벤트 실행 
+			$("#updatebox").css("display","none"); // 재고수량 수정 입력창 숨기기
+			$("#samount").val(""); 
+			
+			$("#mainbox").load( productlist+".jsp");
 		}
-		
 	});
 	
 }
+
+
+
+
+
+
+
 
 
 

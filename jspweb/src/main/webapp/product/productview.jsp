@@ -1,4 +1,5 @@
 <%@page import="dao.MemberDao"%>
+<%@page import="controller.admin.productadd"%>
 <%@page import="java.util.TreeSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="dto.Stock"%>
@@ -72,7 +73,7 @@
 							<td>  <select id="color_select" class="form-select info_t">
 										<option value="">-[필수]옵션 선택-</option>
 									<% for( String c  : colorlist ){ %>
-										<option value=<%=c %> ><%=c %></option>
+										<option value=<%=c%>><%=c %></option>
 									<%} %>
 									</select> </td>
 						</tr>
@@ -84,29 +85,27 @@
 						</tr>
 					</table>
 					<table id="select_table" class="table my-5">
-						<tr> <th width="60%"> 상품명 </th><th width="25%"> 상품수 </th><th width="15%"> 가격 </th> </tr>
 					</table>
 					
 					<div class="row my-5">
 						<div class="col-md-6"> 총 상품금액  </div>
-						<div id="total_price" class="col-md-6 total_price" > 54,900원(1개)  </div>
+						<div id="total_price" class="col-md-6 total_price" ></div>
 					</div>
-					<%
-							String mid = (String)session.getAttribute("login");
-							int mno = MemberDao.getmemberDao().getmno(mid);
+					<% 
+						String mid = (String)session.getAttribute("login");
+						int mno = MemberDao.getmemberDao().getmno(mid);
 					%>
 					<div id="btnbox" class="btnbox">
 						<button id="btn1">바로 구매하기</button>
 						<button onclick="savecart(<%=mno %>)" id="btn2">장바구니 담기</button>
-						<%
-							// 만약에 로그인이 있고 관심등록이 되어있으면
-							if(mid != null && ProductDao.getProductDao().getplike(pno, mno)){
-						%>
-							<button id="btn3" onclick="saveplike('<%=mid %>');"> ♥</button>
-						<%}else{ %>
-							<button id="btn3" onclick="saveplike('<%=mid %>');"> ♡</button>
-						<%}%>
 						
+						<% // 만약에 로그인이 있고 관심등록이 되어있으면 
+							if( mid !=null && ProductDao.getProductDao().getplike(pno, mno ) ){
+						%>
+							<button id="btn3" onclick="saveplike('<%=mid %>')" > ♥</button>
+						<% }else{  %>
+							<button id="btn3" onclick="saveplike('<%=mid %>')" > ♡</button>
+						<% }  %>
 					</div>
 				</div>
 			</div>
@@ -117,3 +116,8 @@
 
 </body>
 </html>
+
+
+
+
+

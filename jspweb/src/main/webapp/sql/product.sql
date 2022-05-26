@@ -32,6 +32,60 @@ create table stock(
 
 /* 한 명령어( ; 기준 = 커서위치 ) 씩 실행단축키 = ctrl+엔터 */
 
+create table plike(
+	plikeno int primary key auto_increment , 
+    pno int ,
+    mno int ,
+    foreign key(pno) references product(pno) on delete cascade ,
+    foreign key(mno) references member(mno) on delete cascade 
+)
+
+create table porderdetail(
+	orderdetailno int primary key auto_increment , 	/* 주문상세 번호 */
+    orderdetailactive  int ,   /* 주문상세 상태 */
+    samount int , 			/* 수량 */ 
+    totalprice	int , 		/* 총결제액 */
+	orderno int ,  			/* 주문번호 */ 
+	sno int , 				/* 재고번호 */
+    foreign key( sno ) references stock( sno ) on update cascade , 
+    foreign key( orderno ) references porder( orderno) on update cascade 
+);
+create table cart(
+	cartno int primary key auto_increment , 	/* 카트 번호 */
+    samount int , 			/* 수량 */ 
+    totalprice	int , 		/* 총결제액 */
+    sno int , 				/* 재고번호 */
+	mno int , 				/* 회원번호 */ 
+    foreign key( sno ) references stock( sno ) on update cascade , 
+    foreign key ( mno ) references member(mno) on update cascade 
+);
+create table porder(
+	orderno	 int primary key auto_increment , 	/* 주문 번호 */
+    orderdate datetime default now() , /* 주문 날짜 */
+    ordername varchar(20) , /* 받는사람 성명 */
+    orderphone varchar(20) , /* 받는사람 연락처 */ 
+    orderaddress varchar(100) , /* 받는사람 주소 */
+    ordertotalpay int ,   /* 주문 총 결제액  */
+    orderactive int ,   /* 주문 상태 */
+    orderrequest varchar(100) ,   /* 주문 요청사항 */
+    orderdeliverno int ,   /* 배송 번호  */
+    mno int , 				/* 회원번호 */ 
+    foreign key ( mno ) references member(mno) on update cascade 
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 select pno , pimg from product;
@@ -91,7 +145,39 @@ select * from product join stock on product.pno = stock.pno;
         avg( 필드명 ) : 평균
         max( 필드명 ) : 최댓값
         min( 필드명 ) : 최솟값 
-/*	
+
+
+--- 
+-- 검색된 결과를 다른 테이블에 추가 
+-- 1.-- 테이블 생성 
+create table A(	
+	필드1 int
+);
+-- 2. 테이블에 레코드 추가 
+insert into A value( 3 );
+-- 3. 테이블 검색
+select * from A;
+
+-- 4. -- 테이블 생성 
+create table B(
+	필드1 int 
+);
+select * from b;
+-- 5. A테이블에 데이터를 B테이블 추가하기 [ 필드명 동일해야 함 ] 
+insert into B select * from A;
+-- 6.확인 
+select * from B;
+-- -------------------------------------------------------
+-- 적용 : cart 테이블 ----> porderdetail 
+--  	mno 				samount ,  totalprice , orderno[x] , sno
+-- 1. 특정 회원의 cart 찾기 [ 회원번호 2 번 인 회원의 카트 ] 
+select * from cart where mno = 2;
+-- 2. 특정 회원의 cart 찾기 -> 특정 필드만 표시 [ ]
+select samount , totalprice , 1 , sno from cart where mno = 2;
+-- 3. 검색 결과를 porderdetail 추가하기
+insert into porderdetail( samount , totalprice , orderno , sno )
+select samount , totalprice , 1 , sno from cart where mno = 2;
+
 
 
 

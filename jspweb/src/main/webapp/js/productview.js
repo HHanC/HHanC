@@ -1,3 +1,6 @@
+
+
+
 /* 칼라 select 목록이 변경 되었을때 */
 $("#color_select").change( function(){
 	
@@ -222,7 +225,49 @@ function savecart( mno ){
 		success: function( re ){
 			if( re == -1 ){  alert('장바구니에 등록했습니다.');  }
 			else{ alert('오류발생[관리자게에문의] : '+(re+1)+"옵션 ");  }
+			
 		}
 	});
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

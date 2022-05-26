@@ -45,7 +45,6 @@ public class write extends HttpServlet {
 			// 2. 서버 폴더 경로 
 				// 서버 경로 찾기 : request.getSession().getServletContext().getRealPath( 경로 ) ;
 		String uploadpath = request.getSession().getServletContext().getRealPath("/board/upload") ;
-
 		// 첨부파일 업로드 [ MultipartRequest : cos 라이브러리 제공 클래스 ] 
 		MultipartRequest multi = new MultipartRequest(
 				request ,		// 1. 요청방식 
@@ -54,15 +53,12 @@ public class write extends HttpServlet {
 				"UTF-8" ,		// 4. 인코딩타입 
 				new DefaultFileRenamePolicy() 	// 5. 보안방식 : 동일한 파일명이 있을경우 자동 이름 변환 
 				);	
-		
 		// 데이터 요청 
 		String btitle = multi.getParameter("btitle");
 		String bcontent = multi.getParameter("bcontent");
 		String bfile = multi.getFilesystemName("bfile"); // 첨부파일 : getFilesystemName
-		
 			HttpSession session = request.getSession();
 			String mid = (String)session.getAttribute("login");
-			
 		int mno = MemberDao.getmemberDao().getmno(mid);
 		// 객체화 
 		Board board = new Board( 0 , btitle, bcontent, mno, bfile, 0 , null, null);

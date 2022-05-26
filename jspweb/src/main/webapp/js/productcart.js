@@ -1,3 +1,5 @@
+
+
 let jsonarray; // JSON 형식의 변수를 선언
 	
 let sumprice = 0; //상품 총가격 변수 선언 
@@ -162,3 +164,18 @@ function cancel( i ){
 	}
 	deletecart( i ); // 삭제  DB처리 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

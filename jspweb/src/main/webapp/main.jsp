@@ -26,13 +26,13 @@
 			<!-- 이미지 목록  -->														
 			<div class="carousel-inner"> 
 				<div class="carousel-item active"> <!-- 이미지 -->
-					<img alt="" src="img/헤일로1.PNG">
+					<img alt="" src="img/mainpageimg1.jpg">
 				</div>
 				<div class="carousel-item"> <!-- 이미지 -->
-					<img alt="" src="img/헤일로2.PNG">
+					<img alt="" src="img/mainpageimg2.jpg">
 				</div>
 				<div class="carousel-item"> <!-- 이미지 -->
-					<img alt="" src="img/헤일로3.PNG">
+					<img alt="" src="img/mainpageimg3.jpg">
 				</div>
 			</div>
 			<!-- 왼쪽 이동 버튼  -->
@@ -46,26 +46,26 @@
 		</div>
 		<div class="row adbox"> <!-- 광고 / 이벤트 -->
 			<div class="col-md-6">
-				<img alt="" src="img/헤일로광고1.gif">
+				<img alt="" src="img/mainad1.gif">
 			</div>
 			<div class="col-md-6">
-				<img alt="" src="img/헤일로광고2.jpg">
+				<img alt="" src="img/mainad2.jpg">
 			</div>
 		</div>
 		<div class="main_box">	<!--베스트-->
 			<h6 class="main_title"> BEST </h6>
 			<div class="row">
 				<div class="col-md-3 best_box">
-					<img alt="" src="img/헤일로베스트1.webp">
+					<img alt="" src="img/img1.webp">
 				</div>
 				<div class="col-md-3 best_box">
-					<img alt="" src="img/헤일로베스트2.jpg">
+					<img alt="" src="img/img1.webp">
 				</div>
 				<div class="col-md-3 best_box">
-					<img alt="" src="img/헤일로베스트3.gif">
+					<img alt="" src="img/img1.webp">
 				</div>
 				<div class="col-md-3 best_box">
-					<img alt="" src="img/헤일로베스트4.gif">
+					<img alt="" src="img/img1.webp">
 				</div>
 			</div>
 		</div>
@@ -122,3 +122,6 @@
 
 </body>
 </html>
+
+
+

@@ -87,7 +87,7 @@ public class savecart extends HttpServlet {
 			if( error == -1 ) response.getWriter().print( -1 ); // 오류가 없으면 -1 응답 
 			else { response.getWriter().print( i ); }  // 만약에 i번째 오류가 있으면 인덱스 응답 
 			
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) {}
 		
 	}
 

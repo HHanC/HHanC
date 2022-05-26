@@ -28,9 +28,12 @@ public class stockupdate extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int sno =  Integer.parseInt(request.getParameter("sno")) ;
-		int samount = Integer.parseInt(request.getParameter("samount"));
-		ProductDao.getProductDao().stockupdate(sno,samount);
+		
+		int sno 
+		= Integer.parseInt( request.getParameter("sno") );
+		int samount 
+		= Integer.parseInt( request.getParameter("samount") );
+		ProductDao.getProductDao().stockupdate( sno , samount );
 		
 	}
 
@@ -43,3 +46,6 @@ public class stockupdate extends HttpServlet {
 	}
 
 }
+
+
+

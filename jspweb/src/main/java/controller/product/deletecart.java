@@ -28,7 +28,7 @@ public class deletecart extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int cartno = Integer.parseInt(request.getParameter("cartno"));
+		int cartno = Integer.parseInt(request.getParameter("cartno") );
 		ProductDao.getProductDao().deletecart(cartno);
 	}
 

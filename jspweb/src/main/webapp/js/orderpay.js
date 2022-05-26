@@ -1,14 +1,15 @@
-let jsonarray; // JSON 형식의 변수를 선언
 
-let sumprice = 0; // 상품 총가격 변수 선언 
-let deliverypay = 0; // 배송비 변수 선언 
-let totalpay = 0; // 총주문액 변수 선언 
-let point = 0; // 포인트 변수 선언 
+let jsonarray; // JSON 형식의 변수를 선언 	= ajax 이용한 회원정보를 가져와서 저장되는 변수 
 
-let member;	// 회원정보 json 객체 [ 비밀번호 제외한 ]
-let mpoint; // 회원이 사용하는 포인트
+let sumprice = 0; // 상품 총가격 변수 선언 	= jsonarray 에 있는 제품들의 총가격을 합산 
+let deliverypay = 0; // 배송비 변수 선언  	= jsonarray 에 있는 제품들의 총가격이 7만원 이상이면 0 아니면 2500원 배송비
+let totalpay = 0; // 총주문액 변수 선언 		= 상품 총가격에 배송비를 더하고 포인트를 뺀 총 가격
+let point = 0; // 포인트 변수 선언 			= 적립 예정 포인트
 
-let pay_method; // 결제 수단을 저장하는 변수
+let member;	// 회원정보 json 객체 [ 비밀번호 제외한 ]	= 회원정보를 가지고 있는 객체
+let mpoint = 0; // 회원이 사용하는 포인트				= 회원이 사용할 예정인 포인트 변수 
+
+let pay_method;	// 결제수단을 저장하는 변수 			= 회원이 선택한 결제수단 변수 
 
 /* 1. 자바스크립트 열리면 무조건 실행되는 메소드 */
 $( function(){  // $(document).ready( function(){});  // 문서내에서 대기상태 이벤트
@@ -18,9 +19,13 @@ $( function(){  // $(document).ready( function(){});  // 문서내에서 대기�
 		url : "/jspweb/member/getmember" , 
 		success : function( json ){
 			member = json;	
-			getcart();	// 제품 출력 메소드 불러오기
+			getcart();	// 제품 호출 메소드 불러오기	= getcart에서 member 객체 사용하므로 member객체 호출후 메소드 실행
 		}
 	});
+	
+	// getcart();	// 제품 호출 메소드 불러오기		= getcart에서 member 객체 사용하므로 member객체 호출후 메소드 실행
+		// getcart() -> ajax결과 [ x ]
+		// ajax결과 -> getcart() [ 0 ]
 	
 	// 받는사람 정보가 기존 회원과 동일 버튼눌렀을때
 	$("#checkbox").change( function(){	
@@ -114,24 +119,25 @@ function cartview(){
 			// 포인트 
 			point = parseInt( sumprice * 0.01 ); /* js : parseInt( 데이터 ) : -> 정수형 변환 */
 			// 출력 
-			$("#carttable").html( tr );
-			$("#mpoint").html( member["mpoint"] );
-			$("#pointbox").html( mpoint );
-			$("#totalpay").html( totalpay );
+			$("#carttable").html( tr );	// 테이블 상품 출력 
+			$("#mpoint").html( member["mpoint"] ); // 사용가능 포인트 출력 
+			$("#pointbox").html( mpoint );	// 사용할 포인트 출력 
+			$("#totalpay").html( totalpay ); // 총주문금액 출력 
+			$("#sumprice").html( sumprice );	// 총상품 출력 
+			$("#deliverypay").html( deliverypay ); // 배송비 출력 
 }
 
-function paymethod(method){
-	
-	$("#paymethod").html(method);
-	pay_method = method; // 변수에 넣기
+// 4. 결제수단 선택 메소드 
+function paymethod( method ){
+	$("#paymethod").html( method ); // html에 인수 출력 
+	pay_method = method; // 결제수단 변수에 인수 넣기
 }
 
-
-/* 아임포트 API = 결제API */
+// 5. 아임포트 실행 메소드 /* 아임포트 API = 결제API */
 function payment(){
 	
-	if(pay_method == null){ // 만약에 결제수단을 선택을 안 했으면
-		alert("결제수단을 선택해주세요!"); return;
+	if( pay_method == null ){ // 만약에 결제수단을 선택를 안했으면
+		alert('결제수단을 선택해주세요.!'); return;
 	}
 	
 	var IMP = window.IMP; 
@@ -149,53 +155,98 @@ function payment(){
 	    buyer_postcode: member["maddress"].split("_")[0],	// 우편번호
 		  }, function (rsp) { // callback
 		      if (rsp.success) { // 결제 성공했을때 -> 주문 완료 페이지로 이동 []
-		      } else {
+		      	alert("주문 취소");
+		      } else {	// 결제 실패했을때 
 				saveorder(); // 결제 실패 했을때 -> 테스트 할시에는 이부분 활용
 		      }
 	  });
 }
-// 주문 처리 메소드 
+// 6. 주문 처리 메소드 
 function saveorder(){
+	// 주문 정보 호출 
 	let ordername = $("#ordername").val();
 	let orderphone = $("#orderphone").val();
-	
-		$("#sample4_postcode").val(""); +"_"+
-		$("#sample4_roadAddress").val(""); +"_"+
-		$("#sample4_jibunAddress").val(""); +"_"+
-		$("#sample4_detailAddress").val("");
-	
-	let orderaddress = $("#orderaddress").val();
-	let ordertotalpay = orderrequest;
+	let orderaddress = 
+			$("#sample4_postcode").val() + "_"+
+			$("#sample4_roadAddress").val() + "_"+
+			$("#sample4_jibunAddress").val() + "_"+
+			$("#sample4_detailAddress").val();
+	let ordertotalpay = totalpay;
 	let orderrequest = $("#orderrequest").val();
+	
+	let orderjson = {	// 주문 정보 객체화 
+		ordername : ordername  ,
+		orderphone : orderphone , 
+		orderaddress : orderaddress ,
+		ordertotalpay : ordertotalpay , 
+		orderrequest : orderrequest 
+	}
+	
 	$.ajax({
-		url : "saveorder",
+		url : "saveorder",		
+		data : { 'orderjson' : JSON.stringify(orderjson) } , // 객체 -> json형 변환
 		success : function( re ){
-			alert(ordername)
-			alert(orderphone)
-			alert(orderaddress)
-			alert(ordertotalpay)
-			alert(orderrequest)
+			// request , response 객체는 별다른 타입 설정이 없으면 문자열 타입 
+			if( re == "true") { // 만약에 주문db처리 성공이면 성공페이지 이동
+				location.href = "/jspweb/product/ordersuccess.jsp" ;
+			}else{
+				alert("오류 발생 [ 관리자에게 문의 ]")
+			}
 		}
 	});
 }
 
+// 7.포인트 사용 메소드  
 function pointbtn(){
 	
-	// 만약에 포인트가 5000이상이 아니면
 	mpoint = $("#pointinput").val();
-	if( mpoint == 0  ){
+	if( mpoint == 0  ){ // 만약에 포인트가 0 이 아니면
 		mpoint = 0;
-	}else if( mpoint < 5000 ){
+	}else if( mpoint < 5000 ){ // 만약에 포인트가 5000미만 이 아니면
 		alert('최소 5000부터 사용가능합니다. ');
 		mpoint = 0; 
 		$("#pointinput").val(0);
 		return;
-	}else if( mpoint > member["mpoint"] ){
+	}else if( mpoint > member["mpoint"] ){  // 만약에 포인트가 보유 포인트보다 많으면
 		alert('포인트가 부족합니다. ');
 		mpoint = 0; 
 		$("#pointinput").val(0);
 		return;
 	}
-	
 	cartview(); // 새로고침
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

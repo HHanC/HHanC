@@ -12,9 +12,8 @@ import org.json.JSONObject;
 import dao.MemberDao;
 import dto.Member;
 
-/**
- * Servlet implementation class getmember
- */
+
+// http:ip주소/프로젝트명/URL 정의[만들기]
 @WebServlet("/member/getmember")
 public class getmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,26 +30,28 @@ public class getmember extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String mid = (String)request.getSession().getAttribute("login");
-		Member member = MemberDao.getmemberDao().getmember(mid);
+		Member member =	MemberDao.getmemberDao().getmember( mid );
 		
 		// dto -> json 변환
-		JSONObject jsonObject = new JSONObject(); // 1. json객체 선언
 		try {
-			jsonObject.put("mno", member.getMno());
-			jsonObject.put("mid", member.getMid());
-			jsonObject.put("mname", member.getMname());
-			jsonObject.put("mphone", member.getMphone());
-			jsonObject.put("memail", member.getMemail());
-			jsonObject.put("maddress", member.getMaddress());
-			jsonObject.put("mpoint", member.getMpoint());
-			jsonObject.put("mdate", member.getMdate());
-			// json -> js 통신 []
-			response.setCharacterEncoding("UTF-8"); // 한글 인코딩
-			response.setContentType("application/json"); // json형식으로 통신 타입
-			response.getWriter().print(jsonObject);
+			JSONObject jsonObject = new JSONObject(); // 1. json객체 선언 
+			jsonObject.put( "mno" , member.getMno() );
+			jsonObject.put( "mid" , member.getMid() );
+			jsonObject.put( "mname" , member.getMname() );
+			jsonObject.put( "mphone" , member.getMphone() );
+			jsonObject.put( "memail" , member.getMemail() );
+			jsonObject.put( "maddress" , member.getMaddress() );
+			jsonObject.put( "mpoint" , member.getMpoint() );
+			jsonObject.put( "mdate" , member.getMdate() );
+			// json -> js 통신 [ ]
+			response.setCharacterEncoding("UTF-8");	// 한글 인코딩
+			response.setContentType("application/json"); // !! json형식으로 통신 타입 
+			response.getWriter().print( jsonObject );
 			
-		} catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) { System.out.println( e ); }
+		
 	}
 
 	/**
