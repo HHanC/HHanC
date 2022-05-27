@@ -141,6 +141,7 @@ public class ProductDao extends Dao {
 			
 		}
 	// 4. 제품의 재고 삭제
+		
 //////////////////////////찜하기/////////////////////////////////////////
 	public int saveplike( int pno , int mno ) {
 		try {

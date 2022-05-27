@@ -211,10 +211,8 @@ function getchart(sno){
 		success : function(re){
 			console.log(re);
 			jsonlist3 = re;
-		}
-	});
-	
-	am5.ready(function() {
+			
+		am5.ready(function() {
 
 		// Create root element
 		// https://www.amcharts.com/docs/v5/getting-started/#Root_element
@@ -319,7 +317,7 @@ function getchart(sno){
 		
 		
 		// Set data
-		var data = generateDatas(1200);
+		var data = generateDatas(jsonlist3.length);
 		series.data.setAll(data);
 		
 		
@@ -329,7 +327,9 @@ function getchart(sno){
 		chart.appear(1000, 100);
 		
 		}); // end am5.ready()
-	
+			
+		}
+	});
 }
 
 

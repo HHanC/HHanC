@@ -73,69 +73,7 @@
 				<a href="boardlist.jsp"> <button class="form-control">목록</button> </a> <!-- 무조건 보이는 버튼 -->
 			</div>
 		</div>
- <!----------------------------------- 댓글 구역 쓰기 -------------------------------------------------------------------->		
-		<h4 class = "boardview_title">댓글</h4>	
-		<% if( mid != null ){  //로그인이 되어있으면 %>
-		<div class="row"> <!-- row : 가로배치 -->
-			<div class="col-md-10">
-				<textarea id="rcontent" class="form-control" rows=3></textarea>
-			</div>
-			<div class="col-md-2">	<!-- p : padding   /   m : margin -->
-				<button class="form-control py-4 my-1" onclick="replywrite(<%=bno%> )">등록</button>
-			</div>
-		</div>
-		<%} else{ // 로그인이 안되어 있으면  %>
-			<h5 class="text-center"> *로그인후 댓글쓰기가 가능합니다. </h5>
-		<%} %>
-<!----------------------------------- 댓글 출력 구역 -------------------------------------------------------------------->			
-		<table id="replytable" class="table" > <!-- 댓글 작성 성공시 해당 태그 새로고침 => js( jquery ) -->
-			<%  ArrayList<Reply> replylist = BoardDao.getBoardDao().replylist(bno);
-				for( Reply reply : replylist ){  %>
-			<tr>
-				<td class="replywriter" width="15%">
-					<%=reply.getMid() %> <br> 
-					<span class="replydate"> <%=reply.getRdate() %> </span>
-				</td>
-				
-				<td width="80%" colspan="2">
-					<%=reply.getRcontent() %> <br> 
-				<% if( mid !=null && mid.equals( reply.getMid() ) ){ // 본인 작성한 댓글이면 %>
-					<button class="btn replybtn"> 수정 </button>
-					<button type="button" class="btn replybtn" onclick="replydelete(<%=reply.getRno()%>)"> 삭제 </button>
-				<%} %>
-					<button class="btn replybtn" 
-						onclick="rereplyview(<%=reply.getRno()%> , <%=reply.getBno()%> , '<%=mid%>' )"> 
-																	<!-- js메소드에 인수 넣을때 문자열 ' '처리 //  숫자형 제외 -->
-					댓글 
-					</button>
-				</td>
-			</tr>
-			
-			<tr> <!-- 대댓글 입력창 -->
-				<td> </td>
-				<td colspan="2" id=<%=reply.getRno() %> > </td>   <!-- 해당 태그의 id값을 변수로 설정 = 댓글번호 ( 댓글 한개당 1개씩 ) -->
-			</tr>
-			
-			<!-- 대댓글 출력창  -->
-			<%ArrayList<Reply> rereplylist = BoardDao.getBoardDao().rereplylist( bno , reply.getRno() );
-				for( Reply rereply : rereplylist ){%>
-				<tr>
-					<td></td>
-					<td width="10%" class="replywriter">
-						<%=rereply.getMid() %> <br> 
-						<span class="replydate"> <%=rereply.getRdate() %> </span>
-					</td>
-					<td width="80%">
-						<%=rereply.getRcontent() %> <br> 
-					<% if( mid != null && mid.equals( rereply.getMid() ) ){ %>
-						<button class="btn replybtn"> 수정 </button>
-						<button class="btn replybtn" onclick="replydelete(<%=rereply.getRno()%>)"> 삭제 </button>
-					<%} %>
-					</td>
-				</tr>
-				
-			<%  }  } %>
-		</table>
+ 
 		
 	</div>
 	<script src="/jspweb/js/board.js" type="text/javascript"></script>
