@@ -80,7 +80,7 @@
 	// 5. 모든 게시물  호출 
 	ArrayList<Board> boardlist 
 		= BoardDao.getBoardDao().getboardlist( startrow , listsize , key , keyword );
-
+	
 %>
 <!------------------------- 전체글 / 인기글  버튼 구역 -------------------------- -->
 		<div class="row boardlist_topbtn">
@@ -88,7 +88,7 @@
 				<a href="boardlist.jsp?key=&keyword="> <button class="form-control">전체글</button>  </a>
 			</div>
 			<div class="col-md-1">
-				<a href="boardlist.jsp?key=&keyword="> <button class="form-control">인기글</button> </a>
+				<button class="form-control">인기글</button>
 			</div>
 		</div>
 <!-- ---------------------- 테이블 구역 -------------------------- -->
@@ -117,7 +117,6 @@
 				}
 			%>
 		</table>
-
 <!-- ---------------------- 글쓰기 버튼 구역 -------------------------- -->
 		<div class="col-md-2 offset-10">
 		<% String mid = (String)session.getAttribute("login");

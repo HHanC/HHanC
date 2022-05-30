@@ -1,6 +1,6 @@
 package dto;
 
-public class Orderdetail {
+public class Ordertail {
 	
 	private int orderdetailno ;
 	private int orderdetailactive;
@@ -9,11 +9,11 @@ public class Orderdetail {
 	private int orderno;
 	private int sno ;
 	
-	public Orderdetail() {
+	public Ordertail() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Orderdetail(int orderdetailno, int orderdetailactive, int samount, int totalprice, int orderno, int sno) {
+	public Ordertail(int orderdetailno, int orderdetailactive, int samount, int totalprice, int orderno, int sno) {
 		super();
 		this.orderdetailno = orderdetailno;
 		this.orderdetailactive = orderdetailactive;

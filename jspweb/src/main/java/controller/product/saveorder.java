@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import dao.MemberDao;
 import dao.ProductDao;
 import dto.Order;
-import dto.Orderdetail;
+import dto.Ordertail;
 
 /**
  * Servlet implementation class saveorder

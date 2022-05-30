@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import dto.Cart;
 import dto.Category;
 import dto.Order;
-import dto.Orderdetail;
+import dto.Ordertail;
 import dto.Product;
 import dto.Stock;
 
@@ -141,7 +141,6 @@ public class ProductDao extends Dao {
 			
 		}
 	// 4. 제품의 재고 삭제
-		
 //////////////////////////찜하기/////////////////////////////////////////
 	public int saveplike( int pno , int mno ) {
 		try {
@@ -342,7 +341,7 @@ public class ProductDao extends Dao {
 		}catch (Exception e) { System.out.println( e ); } return false;
 	}
 	
-	public JSONArray getchart( int type , int value ) {
+	public JSONArray getchart( int type , int value  ) {
 		String sql ="";
 		JSONArray ja = new JSONArray();
 		
@@ -360,12 +359,12 @@ public class ProductDao extends Dao {
 					+ "where A.sno = B.sno and B.pno = C.pno and C.cno = D.cno  "
 					+ "group by D.cname "
 					+ "order by orderdetailno desc";
-		}else if(type == 3) { // 재고번호 -> 제품별 판매량 추이
+		}else if( type == 3 ) { // 재고번호 -> 제품별 판매량 추이
 			sql = "select "
-					+ "	substring_index(A.orderdate , ' ' , 1) as 날짜 , "
-					+ "	sum(B.samount) as 총판매수량 "
+					+ "	substring_index(  A.orderdate , ' ' , 1 ) as 날짜, "
+					+ "	sum( B.samount ) as 총판매수량 "
 					+ "from porder A , porderdetail B , stock C "
-					+ "where A.orderno = B.orderno and B.sno = C.sno and C.pno = (select pno from stock where sno = "+value+") "
+					+ "where A.orderno = B.orderno and B.sno = C.sno and C.pno =  ( select pno from stock where sno = "+value+" ) "
 					+ "group by 날짜 order by 날짜 desc";
 		}
 		try {
@@ -373,10 +372,10 @@ public class ProductDao extends Dao {
 			rs = ps.executeQuery();
 			while( rs.next() ) {
 				JSONObject jo = new JSONObject();
-				if( type == 1 || type == 3) {
-					jo.put("date", rs.getString(1) );
+				if( type == 1 || type == 3  ) {
+					jo.put("date", rs.getString( 1 ) );
 					jo.put("value", rs.getInt(2) );
-					ja.put(jo);
+					ja.put( jo );
 				}else if( type == 2 ) {
 					jo.put("value", rs.getInt( 1 ) );
 					jo.put("category", rs.getString(2) );
@@ -387,31 +386,34 @@ public class ProductDao extends Dao {
 		}catch (Exception e) { System.out.println( e );} return null;
 	}
 	
-	// 1. 오늘 주문상세 호출
-	public ArrayList<Orderdetail> getOrderdetails(){
-		String sql = "select A.* , substring_index(B.orderdate , '' , 1) AS 날짜 , now() "
-				+ "from porderdetail A, porder B "
+	// 1. 오늘 주문상세 호출 
+	public ArrayList<Ordertail> getordertail(){
+		
+		String sql = "select "
+				+ "	A.* , substring_index( B.orderdate , ' ' , 1 ) as 날짜 "
+				+ "from  porderdetail A , porder B "
 				+ "where A.orderno = B.orderno "
-				+ "AND substring_index(B.orderdate , ' ' , 1) = substring_index(now() , ' ' , 1) "
-				+ "AND A.orderdetailactive = 3 ";
+				+ "and substring_index( B.orderdate , ' ' , 1 ) = substring_index( now() , ' ' , 1 ) "
+				+ "and  A.orderdetailactive = 3";
 		try {
 			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			ArrayList<Orderdetail> list = new ArrayList<Orderdetail>();
-			while(rs.next()) {
-				Orderdetail orderdetail = new Orderdetail();
-				orderdetail.setOrderdetailno(rs.getInt(1));
-				orderdetail.setSamount(rs.getInt(2));
-				orderdetail.setTotalprice(rs.getInt(3));
-				orderdetail.setOrderno(rs.getInt(4));
-				orderdetail.setSno(rs.getInt(5));
-				list.add(orderdetail);
+			rs  = ps.executeQuery();
+			ArrayList<Ordertail> list = new ArrayList<Ordertail>();
+			while( rs.next() ) {
+				Ordertail ordertail = new Ordertail();
+				ordertail.setOrderdetailno(  rs.getInt(1)  );
+				ordertail.setOrderdetailactive( rs.getInt(2) );
+				ordertail.setSamount(rs.getInt(3) );
+				ordertail.setTotalprice(rs.getInt(4));
+				ordertail.setOrderno(rs.getInt(5));
+				ordertail.setSno(rs.getInt(6));
+				
+				list.add(ordertail);
 			}
 			return list;
-		} catch (Exception e) {System.out.println(e);} return null;
+		}catch (Exception e) {} return null;
+		
 	}
-	
-	
 }
 
 

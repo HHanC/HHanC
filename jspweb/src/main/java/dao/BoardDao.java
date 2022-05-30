@@ -70,33 +70,6 @@ public class BoardDao extends Dao {
 		}catch (Exception e) { System.out.println( e );} return null; 
 		
 	}
-	// 2-1. 모든 게시물 출력 메소드 [ 인수 : x  // 추후기능 = 검색 : 조건 ]
-		public ArrayList<Board> getboardlist2(int startrow , int listsize , String key , String keyword ) { 
-			ArrayList<Board> boardlist = new ArrayList<Board>();
-			String sql =  null;
-			
-			if( key.equals("mid") ) { key = "mno"; keyword = MemberDao.getmemberDao().getmno(keyword)+""; }
-			
-			if( key.equals("") && keyword.equals("") ) { //검색이 없을경우 
-				sql = "select * from board order by view desc limit "+startrow+","+listsize; /* limit 시작 인덱스 , 표시 개수 */
-			}else {
-				sql ="select * from board where "+key+" like '%"+keyword+"%' order by bno desc limit "+startrow+","+listsize;
-			}
-			try {
-				ps = con.prepareStatement(sql);
-				rs = ps.executeQuery();
-				while( rs.next() ) {
-					Board board = new Board( 
-							rs.getInt(1),rs.getString(2), 
-							rs.getString(3),rs.getInt(4),
-							rs.getString(5), rs.getInt(6),
-							rs.getString(7), null );
-					boardlist.add(board);
-				}
-				return boardlist;
-			}catch (Exception e) { System.out.println( e );} return null; 
-			
-		}
 	// 3. 개별 게시물 출력 메소드 [ 인수 : 게시물번호 ]
 	public Board getboard( int bno ) { 
 		String sql ="select * from board where bno="+bno;	// 1. SQL 작성 

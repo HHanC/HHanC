@@ -33,9 +33,10 @@ public class getchart extends HttpServlet {
 		
 		int type = Integer.parseInt( request.getParameter("type") );
 		int value = 0;
-		if(request.getParameter("value") != null) {
+		if( request.getParameter("value") != null ) {
 			value = Integer.parseInt( request.getParameter("value") );
 		}
+		
 		
 		JSONArray jsonArray 
 			= ProductDao.getProductDao().getchart( type , value );
