@@ -60,6 +60,7 @@
 			 		<div class="col-sm-2 profile"> <!--  프로필 사진 -->
 			 			
 			 			<img class="rounded-circle" alt="" src="0321.jpg"  width="100%">
+			 			
 			 			</div>
 			 			
 			 			
