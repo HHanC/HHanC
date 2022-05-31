@@ -38,12 +38,13 @@
 			<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 			<input type="text" id="sample4_roadAddress" name="address2" placeholder="도로명주소">
 			<input type="text" id="sample4_jibunAddress" name="address3" placeholder="지번주소">
-			<span id="guide" style="color:#999;display:none"></span>
+			<span id="guide" style="color:#999;displayf:none"></span>
 			<input type="text" id="sample4_detailAddress" name="address4" placeholder="상세주소">
 		<br>
 		<span id="addresscheck"></span>
 		<button onclick="signup()" type="button">가입하기</button>
 	</form>
+	
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="../js/signup.js" type="text/javascript"></script>

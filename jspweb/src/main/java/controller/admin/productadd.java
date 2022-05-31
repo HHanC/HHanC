@@ -54,6 +54,7 @@ public class productadd extends HttpServlet {
 		int pprice = Integer.parseInt( multi.getParameter("pprice") );
 		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") ) ;
 		int cno = Integer.parseInt( multi.getParameter("cno") );
+		System.out.println(cno);
 		String pimg = multi.getFilesystemName("pimg"); // 첨부파일 파일명은 요청시 .getFilesystemName() 메소드 이용 
 		Product product = new Product( 0 , panme, pprice, pdiscount, 0, pimg, cno);
 		

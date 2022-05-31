@@ -18,7 +18,7 @@
 			<div class="col-md-9"> <!-- 본문 -->
 				<h3>주문현황</h3>
 				<div id="orderbox">
-					
+				in
 				</div>
 			</div>
 		</div>

@@ -234,8 +234,9 @@ function signup(){
 function passwordchange(){
 	$("#passwordbox").css("display","block");
 }
+	
 
-
+ 
 
 
 
