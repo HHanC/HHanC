@@ -1,3 +1,8 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="dao.BoardDao"%>
+<%@page import="dto.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,6 +14,14 @@
 <body>
 
 	<%@include file ="../header.jsp" %>
+	
+	<%
+		ArrayList<Board> boardlist = BoardDao.getBoardDao().getboardlist();
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = dateFormat.format(date);
+	%>
+	
 	<br><br><br>
 	<div class="container">
 		<div class="text-center">
@@ -22,12 +35,22 @@
 				<th width="15%"> 작성자 </th> 
 				<th width="15%"> 작성일 </th> 
 			</tr>
+			<%
+				for(Board board : boardlist){
+					String a = board.getBdate().split(" ")[0];
+					String b = board.getBdate().split(" ")[1];
+			%>
 			<tr>
-				<th width="10%">1</th>
-				<th width="50%"> <a href="boardview.jsp"> 티셔트 문의 </a> </th>
-				<th width="15%">나야나</th>
-				<th width="15%">10.10.10</th>
+				<th width="10%"><%=board.getBno() %></th>
+				<th width="50%"> <a href="boardview.jsp?bno=<%=board.getBno()%>"> <%=board.getBtitle()%> </a> </th>
+				<th width="15%"><%=board.getBwrite() %></th>
+				<%if(a.equals(today)){ %>
+					<th width="15%"><%=b %></th>
+				<%}else{ %>
+					<th width="15%"><%=a %></th>
+				<%} %>
 			</tr>
+			<%}%>
 		</table>
 		
 		<!-- ---------------------- 글쓰기 버튼 구역 -------------------------- -->

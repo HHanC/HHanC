@@ -1,3 +1,8 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="dao.BoardDao"%>
+<%@page import="dto.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,43 +12,49 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file ="../header.jsp" %>
+	<%
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		Board board = BoardDao.getBoardDao().getboard(bno);
+	%>
 
 	<div class="container">
 		
 		<table class="table">
 			<tr> 
 				<td width="25%">번호  </td>
-				<td width="25%">작성자  </td> 
-				<td width="25%">작성일  </td>  
-				<td width="25%">조회수  </td> 
+				<td width="25%">제목  </td>
+				<td width="25%">내용 </td> 
+				<td width="25%">날짜  </td>  
 			</tr>
 			<tr> 
+				<td width="25%"><%=board.getBno() %>  </td>
+				<td>
+					<div>
+						<%=board.getBtitle() %>
+					</div>
+				</td>
+				<td width="25%">
+					<div>
+						<%=board.getBcontent() %>  
+					</div>
+				</td> 
+				<td width="25%"><%=board.getBdate()%>  </td>  
 			</tr>
-				<tr> <td colspan="4"> 첨부파일 :  - </td> </tr>
-				<tr> <td colspan="4"> 첨부파일 :    </td> </tr>
 		</table>	
 		<div class="row">
 			<div class="col-md-2">
-				<button class="form-control">삭제</button>
+				<a href="../board/delete?bno=<%=board.getBno() %>"><button class="form-control">삭제</button></a> 
 			</div>	
 			<div class="col-md-2">
-				<button class="form-control">수정</button>
+				<a  href="../update.jsp?bno=<%=board.getBno() %>"><button class="form-control">수정</button></a>
 			</div>
 			<div class="col-md-2">
-				<a href="boardlist.jsp"> <button class="form-control">목록</button> </a> <!-- 무조건 보이는 버튼 -->
-			</div>
-		</div>		
-		<h4>댓글</h4>	
-			<div class="col-md-10">
-				<textarea id="rcontent" class="form-control" rows=3></textarea>
-			</div>
-			<div class="col-md-2">
-				<button onclick="replywrite()">등록</button>
+				<a href="boardlist.jsp"> <button class="form-control">목록</button> </a>
 			</div>
 		</div>
-		<h5 class="text-center"> *로그인후 댓글쓰기가 가능합니다. </h5>
-		
+	</div>
 	
-
+	<script src="../js/board.js" type="text/javascript"></script>
 </body>
 </html>
