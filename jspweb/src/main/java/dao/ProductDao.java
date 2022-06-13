@@ -61,7 +61,7 @@ public class ProductDao extends Dao {
 			ps.setInt( 5 , product.getCno() );ps.executeUpdate(); return true;
 		}catch (Exception e) {System.out.println(e);}return false; 
 	}
-	// 2. 제품 모든 호출
+	// 2. 모든 제품 호출
 	public ArrayList<Product> getproductlist() { 
 		ArrayList<Product> products = new ArrayList<Product>();
 		
